@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Contact Form - ToolGostar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        button:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+        .form-message {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .form-message.success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        .form-message.error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fca5a5;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .status.online {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .status.offline {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>🧪 Test Contact Form</h1>
+        
+        <div id="status" class="status">Checking backend connection...</div>
+        
+        <form id="testContactForm">
+            <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company">
+            </div>
+            
+            <div class="form-group">
+                <label for="industry">Industry</label>
+                <select id="industry" name="industry">
+                    <option value="manufacturing">Manufacturing</option>
+                    <option value="chemical">Chemical</option>
+                    <option value="pharmaceutical">Pharmaceutical</option>
+                    <option value="food-beverage">Food & Beverage</option>
+                    <option value="municipal">Municipal</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="project">Project Type</label>
+                <select id="project" name="project">
+                    <option value="new-installation">New Installation</option>
+                    <option value="upgrade">Upgrade</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="consultation">Consultation</option>
+                    <option value="spare-parts">Spare Parts</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject *</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message *</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" id="submitBtn">Send Test Message</button>
+        </form>
+    </div>
+
+    <script>
+        // Check backend connection
+        async function checkBackendConnection() {
+            const statusDiv = document.getElementById('status');
+            try {
+                const response = await fetch('http://localhost:3001/api/v1/health');
+                if (response.ok) {
+                    statusDiv.textContent = '✅ Backend is online and ready!';
+                    statusDiv.className = 'status online';
+                } else {
+                    statusDiv.textContent = '⚠️ Backend responded with error';
+                    statusDiv.className = 'status offline';
+                }
+            } catch (error) {
+                statusDiv.textContent = '❌ Backend is offline - make sure server is running';
+                statusDiv.className = 'status offline';
+            }
+        }
+
+        // Handle form submission
+        document.getElementById('testContactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Remove any existing messages
+            const existingMessage = document.querySelector('.form-message');
+            if (existingMessage) {
+                existingMessage.remove();
+            }
+            
+            try {
+                // Collect form data
+                const formData = new FormData(e.target);
+                const data = {};
+                for (let [key, value] of formData.entries()) {
+                    data[key] = value;
+                }
+                
+                // Structure data according to backend expectations
+                const structuredData = {
+                    firstName: data.firstName || '',
+                    lastName: data.lastName || '',
+                    email: data.email || '',
+                    phone: data.phone || '',
+                    company: data.company || '',
+                    industry: data.industry || 'other',
+                    projectType: data.project || 'new-installation',
+                    subject: data.subject || 'Test Contact Form Submission',
+                    message: data.message || '',
+                    urgency: 'medium',
+                    preferredContactMethod: 'email',
+                    source: 'website',
+                    gdprConsent: true,
+                    marketingConsent: false
+                };
+                
+                // Submit to API
+                const response = await fetch('http://localhost:3001/api/v1/contact/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(structuredData)
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || `HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                
+                // Show success message
+                const message = document.createElement('div');
+                message.className = 'form-message success';
+                message.innerHTML = `
+                    ✅ ${result.data?.message || 'Thank you! Your message has been sent successfully.'}
+                `;
+                
+                e.target.insertBefore(message, e.target.firstChild);
+                
+                // Reset form
+                e.target.reset();
+                
+            } catch (error) {
+                console.error('Contact form submission error:', error);
+                
+                // Show error message
+                const message = document.createElement('div');
+                message.className = 'form-message error';
+                message.innerHTML = `
+                    ❌ ${error.message || 'Failed to send message. Please try again.'}
+                `;
+                
+                e.target.insertBefore(message, e.target.firstChild);
+                
+            } finally {
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+
+        // Check connection on page load
+        checkBackendConnection();
+    </script>
+</body>
+</html>
+

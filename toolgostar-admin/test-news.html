@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolGostar Admin - Test News API</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">
+                            <i class="bi bi-newspaper me-2"></i>News API Testing
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i>
+                            This page tests the News Management API endpoints. Make sure the backend server is running on port 5000.
+                        </div>
+
+                        <!-- Authentication Status -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Authentication Status</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="auth-status" class="alert alert-warning">
+                                            <i class="bi bi-exclamation-triangle me-2"></i>
+                                            Checking authentication status...
+                                        </div>
+                                        <button class="btn btn-primary" id="login-btn" style="display: none;">
+                                            <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Test Results -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="mb-0">Test Results</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="test-results">
+                                            <p class="text-muted">Click "Run Tests" to start testing the News API endpoints.</p>
+                                        </div>
+                                        <button class="btn btn-success" id="run-tests-btn">
+                                            <i class="bi bi-play-circle me-2"></i>Run Tests
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axios for API calls -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    <!-- API Service -->
+    <script src="assets/js/api-service.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const testResults = document.getElementById('test-results');
+            const authStatus = document.getElementById('auth-status');
+            const loginBtn = document.getElementById('login-btn');
+            const runTestsBtn = document.getElementById('run-tests-btn');
+
+            // Check authentication status
+            const isAuthenticated = apiService.isAuthenticated();
+            if (isAuthenticated) {
+                authStatus.className = 'alert alert-success';
+                authStatus.innerHTML = '<i class="bi bi-check-circle me-2"></i>Authenticated - Ready to test';
+                runTestsBtn.style.display = 'inline-block';
+            } else {
+                authStatus.className = 'alert alert-danger';
+                authStatus.innerHTML = '<i class="bi bi-x-circle me-2"></i>Not authenticated - Please login first';
+                loginBtn.style.display = 'inline-block';
+            }
+
+            // Auto-login for testing
+            if (!isAuthenticated) {
+                try {
+                    const loginResult = await apiService.login('admin@toolgostar.com', 'admin123');
+                    if (loginResult.success) {
+                        authStatus.className = 'alert alert-success';
+                        authStatus.innerHTML = '<i class="bi bi-check-circle me-2"></i>Auto-login successful - Ready to test';
+                        runTestsBtn.style.display = 'inline-block';
+                        loginBtn.style.display = 'none';
+                    }
+                } catch (error) {
+                    console.error('Auto-login failed:', error);
+                }
+            }
+
+            // Login button handler
+            loginBtn.addEventListener('click', async () => {
+                try {
+                    const loginResult = await apiService.login('admin@toolgostar.com', 'admin123');
+                    if (loginResult.success) {
+                        authStatus.className = 'alert alert-success';
+                        authStatus.innerHTML = '<i class="bi bi-check-circle me-2"></i>Login successful - Ready to test';
+                        runTestsBtn.style.display = 'inline-block';
+                        loginBtn.style.display = 'none';
+                    }
+                } catch (error) {
+                    authStatus.className = 'alert alert-danger';
+                    authStatus.innerHTML = '<i class="bi bi-x-circle me-2"></i>Login failed: ' + error.message;
+                }
+            });
+
+            // Run tests button handler
+            runTestsBtn.addEventListener('click', runTests);
+
+            async function runTests() {
+                testResults.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"></div><p class="mt-2">Running tests...</p></div>';
+                runTestsBtn.disabled = true;
+
+                const results = [];
+
+                try {
+                    // Test 1: Get News Categories
+                    try {
+                        const categoriesResult = await apiService.getNewsCategories();
+                        results.push({
+                            test: 'Get News Categories',
+                            status: categoriesResult.success ? 'success' : 'error',
+                            message: categoriesResult.success ? 
+                                `Found ${categoriesResult.data.categories.length} categories` : 
+                                categoriesResult.error || 'Failed to get categories'
+                        });
+                    } catch (error) {
+                        results.push({
+                            test: 'Get News Categories',
+                            status: 'error',
+                            message: error.message
+                        });
+                    }
+
+                    // Test 2: Get News Articles
+                    try {
+                        const newsResult = await apiService.getNews({ limit: 5 });
+                        results.push({
+                            test: 'Get News Articles',
+                            status: newsResult.success ? 'success' : 'error',
+                            message: newsResult.success ? 
+                                `Found ${newsResult.data.news.length} articles` : 
+                                newsResult.error || 'Failed to get news'
+                        });
+                    } catch (error) {
+                        results.push({
+                            test: 'Get News Articles',
+                            status: 'error',
+                            message: error.message
+                        });
+                    }
+
+                    // Test 3: Get News Stats
+                    try {
+                        const statsResult = await apiService.getNewsStats();
+                        results.push({
+                            test: 'Get News Stats',
+                            status: statsResult.success ? 'success' : 'error',
+                            message: statsResult.success ? 
+                                `Stats loaded: ${statsResult.data.stats.totalNews} total articles` : 
+                                statsResult.error || 'Failed to get stats'
+                        });
+                    } catch (error) {
+                        results.push({
+                            test: 'Get News Stats',
+                            status: 'error',
+                            message: error.message
+                        });
+                    }
+
+                    // Test 4: Create News Article (if authenticated)
+                    const currentAuthStatus = apiService.isAuthenticated();
+                    if (currentAuthStatus) {
+                        try {
+                            const testNews = {
+                                title: 'Test News Article - ' + new Date().getTime(),
+                                content: 'This is a test news article created via API testing. It contains sample content to verify the news creation functionality.',
+                                excerpt: 'This is a test news article created via API testing.',
+                                categoryId: 1, // Assuming category 1 exists
+                                status: 'draft',
+                                isFeatured: false
+                            };
+                            
+                            const createResult = await apiService.createNews(testNews);
+                            results.push({
+                                test: 'Create News Article',
+                                status: createResult.success ? 'success' : 'error',
+                                message: createResult.success ? 
+                                    `Article created with ID: ${createResult.data.news.id}` : 
+                                    createResult.error || 'Failed to create news'
+                            });
+
+                            // Test 5: Update News Article (if creation was successful)
+                            if (createResult.success) {
+                                try {
+                                    const updateData = {
+                                        title: testNews.title + ' (Updated)',
+                                        status: 'published'
+                                    };
+                                    
+                                    const updateResult = await apiService.updateNews(createResult.data.news.id, updateData);
+                                    results.push({
+                                        test: 'Update News Article',
+                                        status: updateResult.success ? 'success' : 'error',
+                                        message: updateResult.success ? 
+                                            'Article updated successfully' : 
+                                            updateResult.error || 'Failed to update news'
+                                    });
+
+                                    // Test 6: Delete News Article (if update was successful)
+                                    if (updateResult.success) {
+                                        try {
+                                            const deleteResult = await apiService.deleteNews(createResult.data.news.id);
+                                            results.push({
+                                                test: 'Delete News Article',
+                                                status: deleteResult.success ? 'success' : 'error',
+                                                message: deleteResult.success ? 
+                                                    'Article deleted successfully' : 
+                                                    deleteResult.error || 'Failed to delete news'
+                                            });
+                                        } catch (error) {
+                                            results.push({
+                                                test: 'Delete News Article',
+                                                status: 'error',
+                                                message: error.message
+                                            });
+                                        }
+                                    }
+                                } catch (error) {
+                                    results.push({
+                                        test: 'Update News Article',
+                                        status: 'error',
+                                        message: error.message
+                                    });
+                                }
+                            }
+                        } catch (error) {
+                            results.push({
+                                test: 'Create News Article',
+                                status: 'error',
+                                message: error.message
+                            });
+                        }
+                    } else {
+                        results.push({
+                            test: 'Create News Article',
+                            status: 'skipped',
+                            message: 'Skipped - Not authenticated'
+                        });
+                    }
+
+                    // Test 7: Get Featured News
+                    try {
+                        const featuredResult = await apiService.getFeaturedNews(3);
+                        results.push({
+                            test: 'Get Featured News',
+                            status: featuredResult.success ? 'success' : 'error',
+                            message: featuredResult.success ? 
+                                `Found ${featuredResult.data.news.length} featured articles` : 
+                                featuredResult.error || 'Failed to get featured news'
+                        });
+                    } catch (error) {
+                        results.push({
+                            test: 'Get Featured News',
+                            status: 'error',
+                            message: error.message
+                        });
+                    }
+
+                } catch (error) {
+                    results.push({
+                        test: 'General Error',
+                        status: 'error',
+                        message: error.message
+                    });
+                }
+
+                // Display results
+                displayResults(results);
+                runTestsBtn.disabled = false;
+            }
+
+            function displayResults(results) {
+                const successCount = results.filter(r => r.status === 'success').length;
+                const errorCount = results.filter(r => r.status === 'error').length;
+                const skippedCount = results.filter(r => r.status === 'skipped').length;
+
+                let html = `
+                    <div class="alert alert-info">
+                        <h6>Test Summary</h6>
+                        <p class="mb-0">
+                            <span class="badge bg-success me-2">${successCount} Passed</span>
+                            <span class="badge bg-danger me-2">${errorCount} Failed</span>
+                            <span class="badge bg-secondary me-2">${skippedCount} Skipped</span>
+                        </p>
+                    </div>
+                    <div class="list-group">
+                `;
+
+                results.forEach(result => {
+                    const statusClass = result.status === 'success' ? 'success' : 
+                                      result.status === 'error' ? 'danger' : 'secondary';
+                    const icon = result.status === 'success' ? 'check-circle' : 
+                                result.status === 'error' ? 'x-circle' : 'dash-circle';
+                    
+                    html += `
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between align-items-center">
+                                <h6 class="mb-1">
+                                    <i class="bi bi-${icon} text-${statusClass} me-2"></i>
+                                    ${result.test}
+                                </h6>
+                                <span class="badge bg-${statusClass}">${result.status}</span>
+                            </div>
+                            <p class="mb-1">${result.message}</p>
+                        </div>
+                    `;
+                });
+
+                html += '</div>';
+                testResults.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>

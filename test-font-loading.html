@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vazir Font Loading Test</title>
+    
+    <!-- Preload Vazir fonts for better performance -->
+    <link rel="preload" href="font/Vazir.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Light.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Load CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    
+    <style>
+        body {
+            font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .font-weight-100 { font-weight: 100; }
+        .font-weight-300 { font-weight: 300; }
+        .font-weight-400 { font-weight: 400; }
+        .font-weight-500 { font-weight: 500; }
+        .font-weight-700 { font-weight: 700; }
+        .persian-text {
+            direction: rtl;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vazir Font Loading Test</h1>
+    
+    <div class="test-section">
+        <h2>English Text Test</h2>
+        <p class="font-weight-100">Thin (100): The quick brown fox jumps over the lazy dog</p>
+        <p class="font-weight-300">Light (300): The quick brown fox jumps over the lazy dog</p>
+        <p class="font-weight-400">Regular (400): The quick brown fox jumps over the lazy dog</p>
+        <p class="font-weight-500">Medium (500): The quick brown fox jumps over the lazy dog</p>
+        <p class="font-weight-700">Bold (700): The quick brown fox jumps over the lazy dog</p>
+    </div>
+    
+    <div class="test-section persian-text">
+        <h2>Persian/Farsi Text Test</h2>
+        <p class="font-weight-100">نازک (100): شرکت صنعتی تولگستار</p>
+        <p class="font-weight-300">سبک (300): شرکت صنعتی تولگستار</p>
+        <p class="font-weight-400">معمولی (400): شرکت صنعتی تولگستار</p>
+        <p class="font-weight-500">متوسط (500): شرکت صنعتی تولگستار</p>
+        <p class="font-weight-700">ضخیم (700): شرکت صنعتی تولگستار</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Font Loading Status</h2>
+        <div id="font-status">Checking font loading...</div>
+    </div>
+    
+    <script>
+        // Font loading test
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusDiv = document.getElementById('font-status');
+            
+            if ('fonts' in document) {
+                // Test if Vazir font is loaded
+                document.fonts.load('400 16px Vazir').then(() => {
+                    statusDiv.innerHTML = '✅ Vazir font loaded successfully!';
+                    statusDiv.style.color = 'green';
+                }).catch((error) => {
+                    statusDiv.innerHTML = '❌ Vazir font loading failed: ' + error.message;
+                    statusDiv.style.color = 'red';
+                });
+                
+                // Check all font weights
+                Promise.all([
+                    document.fonts.load('100 16px Vazir'),
+                    document.fonts.load('300 16px Vazir'),
+                    document.fonts.load('400 16px Vazir'),
+                    document.fonts.load('500 16px Vazir'),
+                    document.fonts.load('700 16px Vazir')
+                ]).then(() => {
+                    console.log('✅ All Vazir font weights loaded successfully');
+                }).catch((error) => {
+                    console.warn('⚠️ Some Vazir font weights failed to load:', error);
+                });
+            } else {
+                statusDiv.innerHTML = '❌ Font loading API not supported';
+                statusDiv.style.color = 'red';
+            }
+        });
+    </script>
+</body>
+</html>
