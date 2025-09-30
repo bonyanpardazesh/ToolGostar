@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - ToolGostar Project Showcase</title>
+    <meta name="description" content="Explore our portfolio of successful industrial water treatment projects and installations worldwide.">
+    <meta name="keywords" content="water treatment projects, industrial installations, ToolGostar portfolio, project gallery">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="public/images/logo/logo1.svg">
+    
+    <!-- Fonts - Using local Vazir font -->
+    <!-- Preload Vazir fonts for better performance -->
+    <link rel="preload" href="font/Vazir.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Light.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    <link rel="stylesheet" href="shared/css/header.css">
+    <link rel="stylesheet" href="shared/css/footer.css">
+    
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" title="English">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag-icon">
+            <span>EN</span>
+        </button>
+        <button class="lang-btn" data-lang="fa" title="فارسی">
+            <img src="https://flagcdn.com/w20/ir.png" alt="فارسی" class="flag-icon">
+            <span>فا</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation -->
+            <ul class="nav-left">
+                <li><a href="loading.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+            
+            <!-- Center logo -->
+            <a href="home.html" class="nav-logo">
+                <img src="public/images/logo/logo.png" alt="ToolGostar Industrial Group" />
+            </a>
+            
+            <!-- Right side navigation -->
+            <ul class="nav-right">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <ul class="nav-mobile" id="mobileMenu">
+            <li><a href="loading.html" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="news.html" class="nav-link">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Gallery Introduction -->
+        <section class="gallery-intro">
+            <div class="container">
+                <h1>Project Gallery</h1>
+                <p>Explore our portfolio of successful industrial water treatment installations and projects completed worldwide.</p>
+                
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-category="all">All Projects</button>
+                    <button class="filter-btn" data-category="water">Water Treatment</button>
+                    <button class="filter-btn" data-category="mixers">Mixers & Aerators</button>
+                    <button class="filter-btn" data-category="pumps">Pumps & Systems</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="gallery-section">
+            <div class="container">
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Gallery items will be dynamically loaded -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-nav lightbox-prev" onclick="prevImage()">‹</button>
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            <div class="gallery-image lightbox-image" id="lightboxImage">
+                <i class="fas fa-image"></i>
+            </div>
+            <div class="lightbox-info" id="lightboxInfo">
+                <h3>Project Title</h3>
+                <p>Project description</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ToolGostar Industrial Group</h3>
+                    <p>Leading manufacturer of industrial water treatment solutions, mixers, aerators, and submersible pumps.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Project Types</h3>
+                    <ul>
+                        <li><a href="#water">Water Treatment Plants</a></li>
+                        <li><a href="#mixers">Mixing Systems</a></li>
+                        <li><a href="#pumps">Pumping Stations</a></li>
+                        <li><a href="contact.html">Custom Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Unit 10, Soheil Complex, Alameh Tabatabaie St, Saadat Abad, Tehran, Iran</p>
+                    <p><i class="fas fa-phone"></i> 021-22357761-3</p>
+                    <p><i class="fas fa-mobile-alt"></i> 09108108132</p>
+                    <p><i class="fas fa-envelope"></i> toolgostar@yahoo.com</p>
+                </div>
+                
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://linkedin.com/company/toolgostar" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/989108108132" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/toolgostar" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ToolGostar Industrial Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="shared/js/common.js"></script>
+    <script src="shared/js/api-integration.js"></script>
+    <script>
+        // Function to show gallery details (placeholder)
+        function showGalleryDetails(itemId) {
+            console.log('Showing gallery details for:', itemId);
+            // This would typically open a modal or navigate to a detail page
+            alert('Gallery details functionality will be implemented in the next phase.');
+        }
+    </script>
+    <script>
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Gallery data will be loaded dynamically from the API
+        let galleryData = [];
+
+        let currentImageIndex = 0;
+        let filteredGallery = [...galleryData];
+
+        // Category translations
+        const categoryTranslations = {
+            'water': { en: 'Water', fa: 'آب' },
+            'mixers': { en: 'Mixers', fa: 'مخلوط‌کن' },
+            'pumps': { en: 'Pumps', fa: 'پمپ' }
+        };
+
+        // Get current language from i18n system
+        function getCurrentLanguage() {
+            if (window.i18n && window.i18n.currentLanguage) {
+                return window.i18n.currentLanguage;
+            }
+            return localStorage.getItem('language') || 'en';
+        }
+
+        // Convert numbers to Farsi format
+        function convertToFarsiNumbers(text) {
+            if (typeof text !== 'string') {
+                text = String(text);
+            }
+            
+            const farsiNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            const englishNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            
+            for (let i = 0; i < 10; i++) {
+                text = text.replace(new RegExp(englishNumbers[i], 'g'), farsiNumbers[i]);
+            }
+            
+            return text;
+        }
+
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            console.log('🎨 renderGallery called with', filteredGallery.length, 'projects');
+            grid.innerHTML = '';
+            const currentLang = getCurrentLanguage();
+
+            if (filteredGallery.length === 0) {
+                console.log('📭 No projects to display, showing empty state');
+                grid.innerHTML = `
+                    <div class="gallery-empty">
+                        <i class="fas fa-images" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+                        <h3>No projects found</h3>
+                        <p>Projects will appear here once they are added through the admin panel.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            console.log('🔄 Rendering', filteredGallery.length, 'projects...');
+            filteredGallery.forEach((item, index) => {
+                console.log('📋 Rendering project', index + 1, ':', item.title?.en || item.title);
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                // Map category from API to filter categories
+                const categoryMap = {
+                    'water-treatment': 'water',
+                    'mixers': 'mixers', 
+                    'pumps': 'pumps'
+                };
+                const categorySlug = item.category?.slug || 'water';
+                const filterCategory = categoryMap[categorySlug] || 'water';
+                galleryItem.dataset.category = filterCategory;
+                galleryItem.onclick = () => openLightbox(index);
+                
+                // Get translated content
+                const title = item.title[currentLang] || item.title.en;
+                const description = item.description[currentLang] || item.description.en;
+                const categoryText = categoryTranslations[filterCategory][currentLang] || categoryTranslations[filterCategory].en;
+                
+                // Convert numbers to Farsi if needed
+                const finalTitle = currentLang === 'fa' ? convertToFarsiNumbers(title) : title;
+                const finalDescription = currentLang === 'fa' ? convertToFarsiNumbers(description) : description;
+                
+                // Use featured image or first gallery image
+                const displayImage = item.featuredImage || (item.galleryImages && item.galleryImages[0]) || 'public/images/gallery/placeholder.svg';
+                
+                galleryItem.innerHTML = `
+                    <div class="gallery-image">
+                        <img src="${displayImage}" alt="${finalTitle}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="gallery-fallback" style="display: none;">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <h3>${finalTitle}</h3>
+                                <p>${finalDescription}</p>
+                                <i class="fas fa-search-plus" style="font-size: 2rem; margin-top: 1rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>${finalTitle}</h3>
+                        <p>${finalDescription}</p>
+                        <span class="gallery-category">${categoryText}</span>
+                    </div>
+                `;
+                
+                grid.appendChild(galleryItem);
+            });
+            console.log('✅ Gallery rendering completed with', grid.children.length, 'items');
+        }
+
+        function setupGalleryFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active filter
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const category = btn.dataset.category;
+                    
+                    // Filter gallery
+                    if (category === 'all') {
+                        filteredGallery = [...galleryData];
+                    } else {
+                        filteredGallery = galleryData.filter(item => item.category === category);
+                    }
+                    
+                    renderGallery();
+                });
+            });
+        }
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const image = document.getElementById('lightboxImage');
+            const info = document.getElementById('lightboxInfo');
+            const item = filteredGallery[index];
+            const currentLang = getCurrentLanguage();
+            
+            // Get translated content
+            const title = item.title[currentLang] || item.title.en;
+            const description = item.description[currentLang] || item.description.en;
+            
+            // Use featured image or first gallery image
+            const displayImage = item.featuredImage || (item.galleryImages && item.galleryImages[0]) || 'public/images/gallery/placeholder.svg';
+            
+            image.innerHTML = `
+                <img src="${displayImage}" alt="${title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="gallery-fallback" style="display: none;">
+                    <i class="fas fa-image"></i>
+                </div>
+            `;
+            
+            // Extract location from title (everything after the last dash)
+            const titleParts = title.split(' - ');
+            const projectName = titleParts[0];
+            const location = titleParts[1] || item.location || '';
+            
+            info.innerHTML = `
+                <h3>${projectName}</h3>
+                ${location ? `<div class="project-location">${location}</div>` : ''}
+                <p>${description}</p>
+            `;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % filteredGallery.length;
+            openLightbox(currentImageIndex);
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + filteredGallery.length) % filteredGallery.length;
+            openLightbox(currentImageIndex);
+        }
+
+        // Close lightbox on backdrop click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            }
+        });
+
+        // Make renderGallery globally accessible for i18n system
+        window.renderGallery = renderGallery;
+
+        // Load gallery data from API
+        async function loadGalleryData() {
+            try {
+                console.log('🔄 Loading gallery data from API...');
+                const response = await fetch(`${window.frontendConfig.getApiBaseUrl()}/projects`);
+                console.log('📡 API Response status:', response.status);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    galleryData = data.data || [];
+                    console.log('✅ Loaded projects from API:', galleryData.length);
+                    console.log('📋 Projects data:', galleryData);
+                } else {
+                    console.warn('⚠️ API not available, using empty gallery');
+                    galleryData = [];
+                }
+            } catch (error) {
+                console.error('❌ Failed to load gallery data:', error);
+                console.error('❌ Error details:', error.message);
+                galleryData = [];
+            }
+            
+            // Update filtered gallery and render
+            filteredGallery = [...galleryData];
+            console.log('🎨 Rendering gallery with', filteredGallery.length, 'projects');
+            renderGallery();
+            setupGalleryFilters();
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadGalleryData();
+        });
+    </script>
+    
+    <!-- Configuration and i18n Scripts -->
+    <script src="shared/js/config.js"></script>
+    <script src="shared/js/server-config.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+</html>

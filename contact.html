@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ToolGostar Industrial Group</title>
+    <meta name="description" content="Get in touch with ToolGostar for industrial water treatment solutions. Contact our experts for quotes, support, and consultation.">
+    <meta name="keywords" content="contact ToolGostar, industrial water treatment consultation, equipment quotes, technical support">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="public/images/logo/logo1.svg">
+    
+    <!-- Fonts - Using local Vazir font -->
+    <!-- Preload Vazir fonts for better performance -->
+    <link rel="preload" href="font/Vazir.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Light.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    <link rel="stylesheet" href="shared/css/header.css">
+    <link rel="stylesheet" href="shared/css/footer.css">
+    
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" title="English">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag-icon">
+            <span>EN</span>
+        </button>
+        <button class="lang-btn" data-lang="fa" title="فارسی">
+            <img src="https://flagcdn.com/w20/ir.png" alt="فارسی" class="flag-icon">
+            <span>فا</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation -->
+            <ul class="nav-left">
+                <li><a href="loading.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+            
+            <!-- Center logo -->
+            <a href="home.html" class="nav-logo">
+                <img src="public/images/logo/logo.png" alt="ToolGostar Industrial Group" />
+            </a>
+            
+            <!-- Right side navigation -->
+            <ul class="nav-right">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <ul class="nav-mobile" id="mobileMenu">
+            <li><a href="loading.html" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="news.html" class="nav-link">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1 data-i18n="contact.hero.title">Contact Us</h1>
+                <p data-i18n="contact.hero.subtitle">Get in touch with our experts for consultation, quotes, and technical support for your water treatment needs.</p>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h2 data-i18n="contact.form.title">Send Us a Message</h2>
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName" data-i18n="contact.form.firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName" data-i18n="contact.form.lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email" data-i18n="contact.form.email">Email Address *</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone" data-i18n="contact.form.phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company" data-i18n="contact.form.company">Company Name</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="industry" data-i18n="contact.form.industry">Industry</label>
+                                    <select id="industry" name="industry">
+                                        <option value="" data-i18n="contact.form.selectIndustry">Select Industry</option>
+                                        <option value="manufacturing">Manufacturing</option>
+                                        <option value="chemical">Chemical Processing</option>
+                                        <option value="pharmaceutical">Pharmaceutical</option>
+                                        <option value="food-beverage">Food & Beverage</option>
+                                        <option value="municipal">Municipal</option>
+                                        <option value="mining">Mining</option>
+                                        <option value="power">Power Generation</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="project" data-i18n="contact.form.projectType">Project Type</label>
+                                    <select id="project" name="projectType">
+                                        <option value="" data-i18n="contact.form.selectProjectType">Select Project Type</option>
+                                        <option value="new-installation">New Installation</option>
+                                        <option value="upgrade">System Upgrade</option>
+                                        <option value="maintenance">Maintenance</option>
+                                        <option value="consultation">Consultation</option>
+                                        <option value="spare-parts">Spare Parts</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject" data-i18n="contact.form.subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" data-i18n="contact.form.message">Message *</label>
+                                <textarea id="message" name="message" data-i18n-placeholder="contact.form.messagePlaceholder" placeholder="Please describe your requirements, capacity needs, and any specific questions..." required></textarea>
+                            </div>
+                            
+                            <!-- Additional fields for quote requests -->
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="capacity" data-i18n="contact.form.capacity">Required Capacity</label>
+                                    <input type="text" id="capacity" name="capacity" placeholder="e.g., 1000 m³/day">
+                                </div>
+                                <div class="form-group">
+                                    <label for="budget" data-i18n="contact.form.budget">Budget Range</label>
+                                    <select id="budget" name="budget">
+                                        <option value="" data-i18n="contact.form.selectBudget">Select Budget Range</option>
+                                        <option value="under_10k">Under $10,000</option>
+                                        <option value="10k_50k">$10,000 - $50,000</option>
+                                        <option value="50k_100k">$50,000 - $100,000</option>
+                                        <option value="100k_500k">$100,000 - $500,000</option>
+                                        <option value="over_500k">Over $500,000</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="timeline" data-i18n="contact.form.timeline">Project Timeline</label>
+                                <select id="timeline" name="timeline">
+                                    <option value="" data-i18n="contact.form.selectTimeline">Select Timeline</option>
+                                    <option value="asap">Immediate</option>
+                                    <option value="1_month">Within 1 Month</option>
+                                    <option value="3_months">Within 3 Months</option>
+                                    <option value="6_months">Within 6 Months</option>
+                                    <option value="1_year">Within 1 Year</option>
+                                    <option value="flexible">Flexible</option>
+                                </select>
+                            </div>
+                            
+                            <!-- Hidden fields for backend compatibility -->
+                            <input type="hidden" name="gdprConsent" value="true">
+                            <input type="hidden" name="urgency" value="medium">
+                            <input type="hidden" name="preferredContactMethod" value="email">
+                            <input type="hidden" name="source" value="website">
+                            <input type="hidden" name="marketingConsent" value="false">
+                            
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h2 data-i18n="contact.info.title">Get in Touch</h2>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3 data-i18n="contact.info.headOffice">Head Office</h3>
+                                <p>No. 10, Soheil Complex<br>
+                                Alameh Tabatabaie St, Saadat Abad<br>
+                                Tehran, Iran</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3 data-i18n="contact.info.phone">Phone & Fax</h3>
+                                <p>Phone: <a href="tel:+982122357761">021-22357761-3</a><br>
+                                Fax: 021-22357762<br>
+                                Mobile: <a href="tel:+989108108132">09108108132</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3 data-i18n="contact.info.email">Email</h3>
+                                <p>General Inquiries:<br>
+                                <a href="mailto:toolgostar@yahoo.com">toolgostar@yahoo.com</a><br><br>
+                                Sales & Quotes:<br>
+                                <a href="mailto:sales@toolgostar.com">sales@toolgostar.com</a></p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h3 data-i18n="contact.info.hours">Business Hours</h3>
+                                <p data-i18n="contact.info.satWed">Saturday - Wednesday: 8:00 AM - 5:00 PM</p>
+                                <p data-i18n="contact.info.thursday">Thursday: 8:00 AM - 1:00 PM</p>
+                                <p data-i18n="contact.info.friday">Friday: Closed</p>
+                                <small data-i18n="contact.info.timezone">Iran Standard Time (IRST)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Representatives Section -->
+        <section class="representatives-section">
+            <div class="container">
+                <div class="page-header">
+                    <h2 data-i18n="contact.team.title">Meet Our Team</h2>
+                    <p data-i18n="contact.team.subtitle">Our experienced professionals are ready to help with your water treatment needs</p>
+                </div>
+                
+                <div class="representatives-grid">
+                    <div class="representative-card">
+                        <div class="rep-avatar">
+                            <img src="public/images/aboutUs/about.png" alt="Sales Representative" />
+                        </div>
+                        <h3 data-i18n="contact.team.sales.title">Sales & Business Development</h3>
+                        <p data-i18n="contact.team.sales.description">Our sales team is ready to discuss your project requirements and provide detailed quotes for water treatment solutions.</p>
+                        <div class="rep-contact">
+                            <p><strong data-i18n="contact.team.contact">Contact:</strong> <a href="tel:+982122357761">021-22357761-3</a></p>
+                            <p><strong data-i18n="contact.team.email">Email:</strong> <a href="mailto:sales@toolgostar.com">sales@toolgostar.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="representative-card">
+                        <div class="rep-avatar">
+                            <img src="public/images/aboutUs/ChatGPT Image Sep 25, 2025, 11_34_25 AM.png" alt="Technical Support Representative" />
+                        </div>
+                        <h3 data-i18n="contact.team.technical.title">Technical Support & Engineering</h3>
+                        <p data-i18n="contact.team.technical.description">Our engineering team provides technical consultation, system design, and ongoing support for all your water treatment challenges.</p>
+                        <div class="rep-contact">
+                            <p><strong data-i18n="contact.team.contact">Contact:</strong> <a href="tel:+989108108132">09108108132</a></p>
+                            <p><strong data-i18n="contact.team.email">Email:</strong> <a href="mailto:technical@toolgostar.com">technical@toolgostar.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Offices Section -->
+        <section class="offices-section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Our Facilities</h2>
+                    <p>Multiple locations to serve you better</p>
+                </div>
+                
+                <div class="offices-grid">
+                    <div class="office-card">
+                        <div class="office-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Head Office</h3>
+                        <p><strong>Tehran, Iran</strong></p>
+                        <p>Administration, Sales, and Engineering</p>
+                        <p>No. 10, Soheil Complex, Alameh Tabatabaie St</p>
+                        <p><a href="tel:+982122357761">021-22357761-3</a></p>
+                    </div>
+                    
+                    <div class="office-card">
+                        <div class="office-icon">
+                            <i class="fas fa-industry"></i>
+                        </div>
+                        <h3>Manufacturing Plant</h3>
+                        <p><strong>Takestan, Ghazvin</strong></p>
+                        <p>Production and Quality Control</p>
+                        <p>Sanat 3 St, Takestan</p>
+                        <p><a href="tel:+982832234567">028-32234567</a></p>
+                    </div>
+                    
+                    <div class="office-card">
+                        <div class="office-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Service Center</h3>
+                        <p><strong>Regional Support</strong></p>
+                        <p>Maintenance and Technical Support</p>
+                        <p>24/7 Emergency Service Available</p>
+                        <p><a href="tel:+989108108132">09108108132</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Find Us</h2>
+                    <p>Visit our head office in Tehran</p>
+                </div>
+                
+                <div class="map-container">
+                    <div style="text-align: center;">
+                        <i class="fas fa-map-marked-alt" style="font-size: 3rem; color: #2563eb; margin-bottom: 1rem;"></i>
+                        <p>Interactive map integration would be added here</p>
+                        <p style="color: #94a3b8; font-size: 0.9rem;">Google Maps or similar mapping service</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ToolGostar Industrial Group</h3>
+                    <p>Leading manufacturer of industrial water treatment solutions, mixers, aerators, and submersible pumps.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Contact</h3>
+                    <ul>
+                        <li><a href="tel:+982122357761">021-22357761-3</a></li>
+                        <li><a href="mailto:toolgostar@yahoo.com">toolgostar@yahoo.com</a></li>
+                        <li><a href="tel:+989108108132">Emergency: 09108108132</a></li>
+                        <li><a href="#quote">Request Quote</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-i18n="contact.info.officeHours">Office Hours</h3>
+                    <p data-i18n="contact.info.satWed">Saturday - Wednesday: 8:00 AM - 5:00 PM</p>
+                    <p data-i18n="contact.info.thursday">Thursday: 8:00 AM - 1:00 PM</p>
+                    <p data-i18n="contact.info.friday">Friday: Closed</p>
+                
+                </div>
+                
+        <div class="footer-section">
+            <h3 data-i18n="contact.info.followUs">Follow Us</h3>
+            <div class="social-links">
+                <a href="https://linkedin.com/company/toolgostar" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/989108108132" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/toolgostar" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ToolGostar Industrial Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="shared/js/common.js"></script>
+    
+    <!-- API Integration -->
+    <script src="shared/js/api-integration.js"></script>
+    
+    <!-- i18n Script -->
+    <script src="js/i18n.js"></script>
+</body>
+</html>

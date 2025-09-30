@@ -1,0 +1,333 @@
+/* Loading Page Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 50%, #1d4ed8 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-container {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 10;
+}
+
+/* Water Drop Animation */
+.water-drop-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 2rem;
+}
+
+.water-drop {
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #0284c7 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: waterDropFall 2s ease-in-out infinite;
+    box-shadow: 
+        0 10px 30px rgba(14, 165, 233, 0.4),
+        inset 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.water-drop::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    top: 15px;
+    left: 15px;
+    animation: dropShine 2s ease-in-out infinite;
+}
+
+@keyframes waterDropFall {
+    0% {
+        top: -100px;
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    70% {
+        top: 120px;
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    85% {
+        top: 130px;
+        transform: translateX(-50%) scale(1.1, 0.8);
+        opacity: 0.8;
+    }
+    90% {
+        top: 135px;
+        transform: translateX(-50%) scale(1.3, 0.6);
+        opacity: 0.6;
+    }
+    95% {
+        top: 140px;
+        transform: translateX(-50%) scale(1.5, 0.4);
+        opacity: 0.3;
+    }
+    100% {
+        top: 145px;
+        transform: translateX(-50%) scale(2, 0.1);
+        opacity: 0;
+    }
+}
+
+@keyframes dropShine {
+    0%, 70% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+    85% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+
+/* Ripple Effect */
+.ripple-effect {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 50px;
+}
+
+.ripple {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: rippleExpand 2s ease-out infinite;
+    opacity: 0;
+}
+
+.ripple-1 {
+    animation-delay: 1.4s;
+}
+
+.ripple-2 {
+    animation-delay: 1.5s;
+}
+
+.ripple-3 {
+    animation-delay: 1.6s;
+}
+
+@keyframes rippleExpand {
+    0% {
+        width: 20px;
+        height: 4px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    50% {
+        width: 100px;
+        height: 8px;
+        opacity: 0.4;
+    }
+    100% {
+        width: 200px;
+        height: 2px;
+        opacity: 0;
+    }
+}
+
+/* Company Logo */
+.loading-logo {
+    margin-bottom: 1.5rem;
+    position: relative;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.loading-logo img {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Loading Text */
+.loading-text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+.loading-text p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        text-shadow: 0 2px 20px rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* Progress Bar */
+.progress-container {
+    margin: 2rem 0;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9, #0284c7);
+    border-radius: 10px;
+    width: 0%;
+    transition: width 0.3s ease;
+    box-shadow: 0 2px 10px rgba(14, 165, 233, 0.5);
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0%, 50%, 100% {
+        box-shadow: 0 2px 10px rgba(14, 165, 233, 0.5);
+    }
+    25%, 75% {
+        box-shadow: 0 2px 15px rgba(14, 165, 233, 0.8);
+    }
+}
+
+.loading-percentage {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading Message */
+.loading-message {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.8;
+    animation: messageSlide 3s ease-in-out infinite;
+}
+
+@keyframes messageSlide {
+    0%, 100% {
+        opacity: 0.8;
+        transform: translateY(0px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+}
+
+/* Background Effects */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(29, 78, 216, 0.3) 0%, transparent 50%);
+    animation: backgroundPulse 4s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .loading-text h1 {
+        font-size: 2rem;
+    }
+    
+    .loading-text p {
+        font-size: 1rem;
+    }
+    
+    .progress-container {
+        width: 250px;
+    }
+    
+    .water-drop-container {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .loading-logo img {
+        height: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .loading-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    .progress-container {
+        width: 200px;
+    }
+    
+    .water-drop-container {
+        width: 120px;
+        height: 120px;
+    }
+}

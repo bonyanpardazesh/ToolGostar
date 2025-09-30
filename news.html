@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates - ToolGostar Industrial Group</title>
+    <meta name="description" content="Latest news, articles, and updates from ToolGostar Industrial Group, a leader in industrial water treatment solutions.">
+    <meta name="keywords" content="industrial water treatment news, company updates, new products, technology articles, ToolGostar">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="public/images/logo/logo1.svg">
+    
+    <!-- Fonts - Using local Vazir font -->
+    <!-- Preload Vazir fonts for better performance -->
+    <link rel="preload" href="font/Vazir.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Light.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    <link rel="stylesheet" href="shared/css/header.css">
+    <link rel="stylesheet" href="shared/css/footer.css">
+    
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/news.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" title="English">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag-icon">
+            <span>EN</span>
+        </button>
+        <button class="lang-btn" data-lang="fa" title="فارسی">
+            <img src="https://flagcdn.com/w20/ir.png" alt="فارسی" class="flag-icon">
+            <span>فا</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation -->
+            <ul class="nav-left">
+                <li><a href="loading.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+            
+            <!-- Center logo -->
+            <a href="home.html" class="nav-logo">
+                <img src="public/images/logo/logo.png" alt="ToolGostar Industrial Group" />
+            </a>
+            
+            <!-- Right side navigation -->
+            <ul class="nav-right">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <ul class="nav-mobile" id="mobileMenu">
+            <li><a href="loading.html" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="news.html" class="nav-link">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-news">
+            <div class="container">
+                <h1>News & Updates</h1>
+                <p>Stay informed with the latest articles, product announcements, and company news from ToolGostar.</p>
+            </div>
+        </section>
+
+        <!-- News Content -->
+        <section class="news-content">
+            <div class="container">
+                <div class="news-grid">
+                    <!-- News articles will be loaded dynamically from the API -->
+                        </div>
+                    </div>
+        </section>
+    </main>
+
+    <!-- News Lightbox -->
+    <div class="lightbox" id="newsLightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeNewsLightbox()">&times;</button>
+            <div class="news-lightbox-body">
+                <div class="news-lightbox-header">
+                    <h2 class="news-lightbox-title" id="newsLightboxTitle">Article Title</h2>
+                    <div class="news-lightbox-meta" id="newsLightboxMeta">
+                        <div class="news-lightbox-meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span id="newsLightboxDate">Date</span>
+                            </div>
+                        </div>
+                    </div>
+                <div class="news-lightbox-image" id="newsLightboxImage" style="display: none;">
+                    <img id="newsLightboxFeaturedImg" src="" alt="" class="news-lightbox-featured-img">
+                        </div>
+                <div class="news-lightbox-content" id="newsLightboxContent">
+                    <!-- Article content will be loaded here -->
+                            </div>
+                <div class="news-lightbox-tags" id="newsLightboxTags" style="display: none;">
+                    <!-- Tags will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ToolGostar Industrial Group</h3>
+                    <p>Leading provider of industrial water treatment solutions with a commitment to innovation and excellence.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Tehran, Iran</p>
+                    <p><i class="fas fa-phone"></i> 021-22357761-3</p>
+                    <p><i class="fas fa-envelope"></i> toolgostar@yahoo.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ToolGostar Industrial Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="shared/js/common.js"></script>
+    <script>
+        // News API Integration
+        class NewsManager {
+            constructor() {
+                this.news = [];
+                this.categories = [];
+                this.init();
+            }
+
+            async init() {
+                try {
+                    // Load news from API
+                    await this.loadNews();
+                    await this.loadCategories();
+                    this.renderNews();
+                    console.log('✅ News manager initialized with API data');
+                } catch (error) {
+                    console.error('Failed to load news:', error);
+                    this.showFallbackContent();
+                }
+            }
+
+            async loadNews() {
+                try {
+                    console.log('🔄 Starting to load news from API...');
+                    const response = await fetch(`${window.frontendConfig.getApiBaseUrl()}/news`);
+                    console.log('📡 API Response status:', response.status);
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log('📡 API Response data:', data);
+                        this.news = data.data.news || [];
+                        console.log('✅ Loaded news from API:', this.news.length, 'articles');
+                        console.log('📰 News articles:', this.news);
+                    } else {
+                        console.error('❌ API Response not OK:', response.status, response.statusText);
+                        throw new Error('Failed to fetch news');
+                    }
+                } catch (error) {
+                    console.error('❌ Error loading news:', error);
+                    // Use fallback static data
+                    this.news = this.getFallbackNews();
+                    console.log('⚠️ Using fallback news data:', this.news.length, 'articles');
+                }
+            }
+
+            async loadCategories() {
+                try {
+                    const response = await fetch(`${window.frontendConfig.getApiBaseUrl()}/news/categories`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.categories = data.data.categories || [];
+                        console.log('✅ Loaded categories from API:', this.categories.length, 'categories');
+                    } else {
+                        throw new Error('Failed to fetch categories');
+                    }
+                } catch (error) {
+                    console.error('Error loading categories:', error);
+                    // Use fallback categories
+                    this.categories = this.getFallbackCategories();
+                    console.log('⚠️ Using fallback categories:', this.categories.length, 'categories');
+                }
+            }
+
+            getFallbackNews() {
+                return [];
+            }
+
+            getFallbackCategories() {
+                return [];
+            }
+
+            renderNews() {
+                console.log('🎨 renderNews called with', this.news.length, 'articles');
+                const newsContainer = document.querySelector('.news-grid');
+                if (!newsContainer) {
+                    console.log('❌ News container not found!');
+                    return;
+                }
+
+                console.log(`🔄 renderNews called - clearing ${newsContainer.children.length} existing cards`);
+                newsContainer.innerHTML = '';
+
+                console.log(`📰 Rendering ${this.news.length} news articles`);
+                console.log('📰 News data:', this.news);
+                
+                if (this.news.length === 0) {
+                    console.log('📭 No news articles to display, showing empty state');
+                    newsContainer.innerHTML = `
+                        <div class="news-empty-state" style="text-align: center; padding: 4rem 2rem; color: #666;">
+                            <i class="fas fa-newspaper" style="font-size: 4rem; margin-bottom: 1rem; color: #ddd;"></i>
+                            <h3>No News Articles Available</h3>
+                            <p>News articles will appear here once they are published.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                this.news.forEach(article => {
+                    const newsCard = this.createNewsCard(article);
+                    newsContainer.appendChild(newsCard);
+                });
+                console.log(`✅ renderNews completed - added ${newsContainer.children.length} cards`);
+            }
+
+            // Get current language from i18n system
+            getCurrentLanguage() {
+                if (window.i18n && window.i18n.currentLanguage) {
+                    console.log('🔍 getCurrentLanguage: Using i18n.currentLanguage =', window.i18n.currentLanguage);
+                    return window.i18n.currentLanguage;
+                }
+                const storedLang = localStorage.getItem('language') || 'en';
+                console.log('🔍 getCurrentLanguage: Using localStorage =', storedLang);
+                return storedLang;
+            }
+
+            // Convert numbers to Farsi format
+            convertToFarsiNumbers(text) {
+                if (typeof text !== 'string') {
+                    text = String(text);
+                }
+                
+                const farsiNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                const englishNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                
+                for (let i = 0; i < 10; i++) {
+                    text = text.replace(new RegExp(englishNumbers[i], 'g'), farsiNumbers[i]);
+                }
+                
+                return text;
+            }
+
+            createNewsCard(article) {
+                const card = document.createElement('article');
+                card.className = 'news-card';
+                const currentLang = this.getCurrentLanguage();
+                console.log(`🔧 Creating news card for article ${article.id} in language: ${currentLang}`);
+
+                const publishedDate = new Date(article.publishedAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                // Get translated content
+                console.log(`🔍 Article ${article.id} data structure:`, article);
+                console.log(`🔍 Article ${article.id} title object:`, article.title);
+                console.log(`🔍 Article ${article.id} excerpt object:`, article.excerpt);
+                
+                const title = article.title[currentLang] || article.title.en || article.title;
+                const excerpt = article.excerpt[currentLang] || article.excerpt.en || article.excerpt;
+                const categoryName = article.category?.name ? 
+                    (typeof article.category.name === 'object' ? 
+                        (article.category.name[currentLang] || article.category.name.en) : 
+                        article.category.name) : 
+                    this.getCategoryName(article.category?.slug || article.category);
+                
+                console.log(`📝 Article ${article.id} - Final Title: "${title}"`);
+                console.log(`📝 Article ${article.id} - Final Excerpt: "${excerpt.substring(0, 50)}..."`);
+                console.log(`📝 Article ${article.id} - Final Category: "${categoryName}"`);
+                
+                // Convert numbers to Farsi if needed
+                const finalTitle = currentLang === 'fa' ? this.convertToFarsiNumbers(title) : title;
+                const finalExcerpt = currentLang === 'fa' ? this.convertToFarsiNumbers(excerpt) : excerpt;
+                const finalDate = currentLang === 'fa' ? this.convertToFarsiNumbers(publishedDate) : publishedDate;
+                
+                // Read More button text
+                const readMoreText = currentLang === 'fa' ? 'ادامه مطلب' : 'Read More';
+                const readMoreIcon = currentLang === 'fa' ? 'fas fa-arrow-left' : 'fas fa-arrow-right';
+
+                card.innerHTML = `
+                    <div class="news-card-image">
+                        <img src="${article.featuredImage || article.image || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg=='}" alt="${finalTitle}" loading="lazy">
+                        <div class="news-card-category">${categoryName}</div>
+                    </div>
+                    <div class="news-card-content">
+                        <h3 class="news-card-title">${finalTitle}</h3>
+                        <p class="news-card-excerpt">${finalExcerpt}</p>
+                        <div class="news-card-meta">
+                            <span class="news-card-date">
+                                <i class="fas fa-calendar"></i> ${finalDate}
+                            </span>
+                            <span class="news-card-author">
+                                <i class="fas fa-user"></i> ${article.author?.firstName ? `${article.author.firstName} ${article.author.lastName}` : article.author || 'ToolGostar Team'}
+                            </span>
+                        </div>
+                        <a href="#" class="news-card-link" onclick="showNewsDetails(${article.id}); return false;">
+                            <span class="news-card-link-text">${readMoreText}</span>
+                            <i class="${readMoreIcon} news-card-link-icon"></i>
+                        </a>
+                    </div>
+                `;
+
+                return card;
+            }
+
+            getCategoryName(categorySlug) {
+                const category = this.categories.find(cat => cat.slug === categorySlug);
+                const currentLang = this.getCurrentLanguage();
+                
+                if (category && category.name) {
+                    if (typeof category.name === 'object') {
+                        return category.name[currentLang] || category.name.en || 'News';
+                    }
+                    return category.name;
+                }
+                return currentLang === 'fa' ? 'اخبار' : 'News';
+            }
+
+            showFallbackContent() {
+                console.log('Showing empty state for news');
+                const newsContainer = document.querySelector('.news-grid');
+                if (newsContainer) {
+                    newsContainer.innerHTML = `
+                        <div class="news-empty-state" style="text-align: center; padding: 4rem 2rem; color: #666;">
+                            <i class="fas fa-newspaper" style="font-size: 4rem; margin-bottom: 1rem; color: #ddd;"></i>
+                            <h3>No News Articles Available</h3>
+                            <p>News articles will appear here once they are published.</p>
+                        </div>
+                    `;
+                }
+            }
+
+            formatContent(content) {
+                // Simple content formatting - you can enhance this with a proper markdown parser
+                return content
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/\n/g, '<br>')
+                    .replace(/^/, '<p>')
+                    .replace(/$/, '</p>');
+            }
+        }
+
+        // Make renderNews globally accessible for i18n system
+        let newsManager;
+
+        // Initialize news manager when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for i18n system to be ready
+            const initNewsManager = () => {
+                if (window.i18n && window.i18n.initialized) {
+                    newsManager = new NewsManager();
+                    window.renderNews = () => {
+                        if (newsManager) {
+                            console.log('🔄 renderNews called from i18n system');
+                            newsManager.renderNews();
+                        }
+                    };
+                } else {
+                    // Retry after a short delay
+                    setTimeout(initNewsManager, 100);
+                }
+            };
+            
+            initNewsManager();
+        });
+
+        // Function to show news details in a lightbox
+        function showNewsDetails(newsId) {
+            console.log('Showing news details for:', newsId);
+            
+            // Find the article data
+            const article = newsManager.news.find(n => n.id === newsId);
+            if (!article) {
+                console.error('Article not found:', newsId);
+                return;
+            }
+            
+            // Get translated content
+            const currentLang = newsManager.getCurrentLanguage();
+            const title = article.title[currentLang] || article.title.en || article.title;
+            const content = article.content[currentLang] || article.content.en || article.content;
+            const categoryName = article.category?.name ? 
+                (typeof article.category.name === 'object' ? 
+                    (article.category.name[currentLang] || article.category.name.en) : 
+                    article.category.name) : 
+                'News';
+            
+            const publishedDate = new Date(article.publishedAt).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Convert numbers to Farsi if needed
+            const finalTitle = currentLang === 'fa' ? newsManager.convertToFarsiNumbers(title) : title;
+            const finalContent = currentLang === 'fa' ? newsManager.convertToFarsiNumbers(content) : content;
+            const finalDate = currentLang === 'fa' ? newsManager.convertToFarsiNumbers(publishedDate) : publishedDate;
+            
+            // Update lightbox content
+            document.getElementById('newsLightboxTitle').textContent = finalTitle;
+            document.getElementById('newsLightboxDate').textContent = finalDate;
+            
+            // Update featured image
+            const imageContainer = document.getElementById('newsLightboxImage');
+            const featuredImg = document.getElementById('newsLightboxFeaturedImg');
+            if (article.featuredImage) {
+                featuredImg.src = article.featuredImage;
+                featuredImg.alt = finalTitle;
+                imageContainer.style.display = 'block';
+            } else {
+                imageContainer.style.display = 'none';
+            }
+            
+            // Update content
+            document.getElementById('newsLightboxContent').innerHTML = newsManager.formatContent(finalContent);
+            
+            // Update tags
+            const tagsContainer = document.getElementById('newsLightboxTags');
+            console.log('Article tags:', article.tags, 'Type:', typeof article.tags, 'Is Array:', Array.isArray(article.tags));
+            
+            let tags = article.tags;
+            
+            // Handle tags that might be stored as JSON string
+            if (typeof tags === 'string') {
+                try {
+                    tags = JSON.parse(tags);
+                } catch (e) {
+                    console.log('Failed to parse tags JSON:', e);
+                    tags = [];
+                }
+            }
+            
+            if (tags && Array.isArray(tags) && tags.length > 0) {
+                tagsContainer.innerHTML = tags.map(tag => 
+                    `<span class="news-lightbox-tag">${tag}</span>`
+                ).join('');
+                tagsContainer.style.display = 'flex';
+            } else {
+                tagsContainer.style.display = 'none';
+            }
+            
+            // Show lightbox
+            const lightbox = document.getElementById('newsLightbox');
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Function to close the news lightbox
+        function closeNewsLightbox() {
+            const lightbox = document.getElementById('newsLightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close lightbox on backdrop click
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('newsLightbox');
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target.id === 'newsLightbox') {
+                        closeNewsLightbox();
+                    }
+                });
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('newsLightbox');
+            if (lightbox && lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeNewsLightbox();
+                }
+            }
+        });
+    </script>
+    <script>
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+    </script>
+    
+    <!-- i18n Script -->
+    <script src="shared/js/config.js"></script>
+    <script src="shared/js/server-config.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+</html>

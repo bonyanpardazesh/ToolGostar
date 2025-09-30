@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - ToolGostar Industrial Equipment</title>
+    <meta name="description" content="Explore our comprehensive range of industrial water treatment equipment, mixers, aerators, and submersible pumps.">
+    <meta name="keywords" content="water treatment equipment, industrial mixers, aerators, submersible pumps, wastewater treatment, ToolGostar products">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="public/images/logo/logo1.svg">
+    
+    <!-- Fonts - Using local Vazir font -->
+    <!-- Preload Vazir fonts for better performance -->
+    <link rel="preload" href="font/Vazir.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="font/Vazir-Light.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    <link rel="stylesheet" href="shared/css/header.css">
+    <link rel="stylesheet" href="shared/css/footer.css">
+    
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" title="English">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag-icon">
+            <span>EN</span>
+        </button>
+        <button class="lang-btn" data-lang="fa" title="فارسی">
+            <img src="https://flagcdn.com/w20/ir.png" alt="فارسی" class="flag-icon">
+            <span>فا</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation -->
+            <ul class="nav-left">
+                <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+                <li><a href="products.html" class="nav-link" data-i18n="navigation.products">Products</a></li>
+                <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Gallery</a></li>
+            </ul>
+            
+            <!-- Center logo -->
+            <a href="home.html" class="nav-logo">
+                <img src="public/images/logo/logo.png" alt="ToolGostar Industrial Group" />
+            </a>
+            
+            <!-- Right side navigation -->
+            <ul class="nav-right">
+                <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+                <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <ul class="nav-mobile" id="mobileMenu">
+            <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+            <li><a href="products.html" class="nav-link" data-i18n="navigation.products">Products</a></li>
+            <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Gallery</a></li>
+            <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+            <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+            <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Products Introduction -->
+        <section class="products-intro">
+            <div class="container">
+                <h1 data-i18n="products.title">Our Product Range</h1>
+                <p data-i18n="products.subtitle">Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.</p>
+                
+                <div class="category-filters" id="categoryFilters">
+                    <button class="filter-btn active" data-category="all" data-i18n="products.filters.all">All Products</button>
+                    <!-- Dynamic category filters will be added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+            <div class="container">
+                <div class="products-grid">
+                    <!-- Products will be dynamically loaded here -->
+                    <div class="loading-state">
+                        <p>Loading products...</p>
+                            </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section class="why-choose-section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Why Choose Our Equipment?</h2>
+                    <p>Discover the advantages that set our industrial equipment apart from the competition</p>
+                </div>
+                
+                <div class="why-choose-grid">
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>ISO Certified Quality</h4>
+                        <p>All our products meet international quality standards with ISO 9001:2015 certification.</p>
+                    </div>
+                    
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Expert Engineering</h4>
+                        <p>Designed by experienced engineers with deep knowledge of industrial applications.</p>
+                    </div>
+                    
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>24/7 Support</h4>
+                        <p>Comprehensive technical support and maintenance services worldwide.</p>
+                    </div>
+                    
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h4>Fast Delivery</h4>
+                        <p>Quick delivery and installation services to minimize downtime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Product Details</h2>
+                <button class="modal-close" onclick="closeProductModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImage">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div id="modalContent">
+                    <!-- Content will be dynamically loaded -->
+                </div>
+                <div class="product-actions">
+                    <a href="contact.html" class="btn btn-primary" data-i18n="products.actions.order_request">
+                        <i class="fas fa-shopping-cart"></i> Order Request
+                    </a>
+                    <button class="btn btn-secondary" onclick="closeProductModal()" data-i18n="common.close">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ToolGostar Industrial Group</h3>
+                    <p>Leading manufacturer of industrial water treatment solutions, mixers, aerators, and submersible pumps.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Access</h3>
+                    <ul>
+                        <li><a href="#water">Water Treatment</a></li>
+                        <li><a href="#mixers">Mixers & Aerators</a></li>
+                        <li><a href="#pumps">Pumps & Systems</a></li>
+                        <li><a href="contact.html">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Unit 10, Soheil Complex, Alameh Tabatabaie St, Saadat Abad, Tehran, Iran</p>
+                    <p><i class="fas fa-phone"></i> 021-22357761-3</p>
+                    <p><i class="fas fa-mobile-alt"></i> 09108108132</p>
+                    <p><i class="fas fa-envelope"></i> toolgostar@yahoo.com</p>
+                </div>
+                
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://linkedin.com/company/toolgostar" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/989108108132" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/toolgostar" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ToolGostar Industrial Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="shared/js/common.js"></script>
+    <script>
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (mobileMenu && hamburger) {
+                mobileMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            }
+        }
+    </script>
+    <script>
+        class ToolGostarAPI {
+            constructor() {
+                this.baseURL = window.frontendConfig.getApiBaseUrl();
+            }
+
+            async getProducts(lang = 'en') {
+                try {
+                    const response = await fetch(`${this.baseURL}/products?lang=${lang}`);
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch products');
+                    }
+                    return await response.json();
+                } catch (error) {
+                    console.error('Products fetch error:', error);
+                    return { success: false, data: [] };
+                }
+            }
+        }
+
+        // Helper functions to handle multilingual product data
+        function getProductName(product) {
+            let nameObj = product.name;
+            
+            // Handle stringified JSON
+            if (typeof product.name === 'string' && product.name.startsWith('{')) {
+                try {
+                    nameObj = JSON.parse(product.name);
+                } catch (e) {
+                    return product.name || 'Unnamed Product';
+                }
+            }
+            
+            // Handle object format
+            if (typeof nameObj === 'object' && nameObj !== null) {
+                // Get current language from multiple sources
+                const lang = getCurrentLanguage();
+                console.log('Getting product name for language:', lang, 'Available:', Object.keys(nameObj));
+                return nameObj[lang] || nameObj.en || nameObj.fa || 'Unnamed Product';
+            }
+            
+            return product.name || 'Unnamed Product';
+        }
+
+        function getProductDescription(product) {
+            let descObj = product.shortDescription;
+            
+            // Handle stringified JSON
+            if (typeof product.shortDescription === 'string' && product.shortDescription.startsWith('{')) {
+                try {
+                    descObj = JSON.parse(product.shortDescription);
+                } catch (e) {
+                    return product.shortDescription || '';
+                }
+            }
+            
+            // Handle object format
+            if (typeof descObj === 'object' && descObj !== null) {
+                // Get current language from multiple sources
+                const lang = getCurrentLanguage();
+                console.log('Getting product description for language:', lang, 'Available:', Object.keys(descObj));
+                return descObj[lang] || descObj.en || descObj.fa || '';
+            }
+            
+            return product.shortDescription || '';
+        }
+
+        // Function to get current language from multiple sources
+        function getCurrentLanguage() {
+            // Try multiple ways to get the current language
+            if (window.i18n && window.i18n.currentLanguage) {
+                console.log('Using i18n.currentLanguage:', window.i18n.currentLanguage);
+                return window.i18n.currentLanguage;
+            }
+            if (window.i18n && window.i18n.getCurrentLanguage) {
+                const lang = window.i18n.getCurrentLanguage();
+                console.log('Using i18n.getCurrentLanguage():', lang);
+                return lang;
+            }
+            // Check localStorage
+            const storedLang = localStorage.getItem('language');
+            if (storedLang) {
+                console.log('Using localStorage language:', storedLang);
+                return storedLang;
+            }
+            // Check URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            if (urlLang) {
+                console.log('Using URL language:', urlLang);
+                return urlLang;
+            }
+            // Check body class
+            if (document.body.classList.contains('fa')) {
+                console.log('Using body class fa');
+                return 'fa';
+            }
+            // Default to English
+            console.log('Using default language: en');
+            return 'en';
+        }
+
+        // Function to apply language-specific styling
+        function applyLanguageStyling(language) {
+            const body = document.body;
+            const html = document.documentElement;
+            
+            console.log('Applying language styling for:', language);
+            
+            // Remove existing language classes
+            body.classList.remove('fa', 'en');
+            html.removeAttribute('lang');
+            body.removeAttribute('dir');
+            
+            if (language === 'fa') {
+                // Apply Farsi styling
+                body.classList.add('fa');
+                html.setAttribute('lang', 'fa');
+                body.setAttribute('dir', 'rtl');
+                body.style.direction = 'rtl';
+                body.style.textAlign = 'right';
+                body.style.width = '100%';
+                body.style.maxWidth = '100%';
+                body.style.overflowX = 'hidden';
+                console.log('Applied Farsi styling with Vazir font');
+                console.log('Body classes:', body.className);
+                console.log('Body dir:', body.getAttribute('dir'));
+                
+                // Force layout refresh
+                setTimeout(() => {
+                    const containers = document.querySelectorAll('.container, .main-content, .products-intro, .products-section');
+                    containers.forEach(container => {
+                        container.style.width = '100%';
+                        container.style.maxWidth = '100%';
+                        container.style.direction = 'rtl';
+                        container.style.textAlign = 'right';
+                    });
+                }, 100);
+            } else {
+                // Apply English styling
+                body.classList.add('en');
+                html.setAttribute('lang', 'en');
+                body.setAttribute('dir', 'ltr');
+                body.style.direction = 'ltr';
+                body.style.textAlign = 'left';
+                body.style.width = '100%';
+                body.style.maxWidth = '100%';
+                body.style.overflowX = 'hidden';
+                console.log('Applied English styling with Inter font');
+                console.log('Body classes:', body.className);
+                console.log('Body dir:', body.getAttribute('dir'));
+                
+                // Force layout refresh
+                setTimeout(() => {
+                    const containers = document.querySelectorAll('.container, .main-content, .products-intro, .products-section');
+                    containers.forEach(container => {
+                        container.style.width = '100%';
+                        container.style.maxWidth = '100%';
+                        container.style.direction = 'ltr';
+                        container.style.textAlign = 'left';
+                    });
+                }, 100);
+            }
+        }
+
+        // Listen for language changes and refresh products
+        window.addEventListener('languageChanged', () => {
+            console.log('Language changed event received, refreshing products...');
+            const currentLang = getCurrentLanguage();
+            applyLanguageStyling(currentLang);
+            
+            // Re-apply fallback translations for new language
+            setTimeout(() => {
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const translation = window.i18n?.t(key);
+                    if (!translation || translation === key) {
+                        // Apply fallback for new language
+                        const fallbackTranslations = {
+                            'navigation.home': currentLang === 'fa' ? 'خانه' : 'Home',
+                            'navigation.products': currentLang === 'fa' ? 'محصولات' : 'Products',
+                            'navigation.gallery': currentLang === 'fa' ? 'گالری' : 'Gallery',
+                            'navigation.about': currentLang === 'fa' ? 'درباره ما' : 'About',
+                            'navigation.contact': currentLang === 'fa' ? 'تماس' : 'Contact',
+                            'navigation.news': currentLang === 'fa' ? 'اخبار' : 'News',
+                            'products.title': currentLang === 'fa' ? 'محصولات ما' : 'Our Product Range',
+                            'products.subtitle': currentLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                            'products.filters.all': currentLang === 'fa' ? 'همه محصولات' : 'All Products',
+                            'products.actions.view_details': currentLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                            'products.actions.order_request': currentLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                            'common.close': currentLang === 'fa' ? 'بستن' : 'Close'
+                        };
+                        
+                        if (fallbackTranslations[key]) {
+                            el.textContent = fallbackTranslations[key];
+                        }
+                    }
+                });
+            }, 100);
+            
+            if (window.loadAndRenderProducts) {
+                window.loadAndRenderProducts();
+            }
+        });
+
+        // Also listen for i18n system changes
+        if (window.i18n) {
+            const originalApplyLanguage = window.i18n.applyLanguage;
+            if (originalApplyLanguage) {
+                window.i18n.applyLanguage = function(language) {
+                    console.log('i18n applyLanguage called with:', language);
+                    const result = originalApplyLanguage.call(this, language);
+                    // Trigger product reload after language change
+                    setTimeout(() => {
+                        const currentLang = getCurrentLanguage();
+                        applyLanguageStyling(currentLang);
+                        
+                        // Re-apply fallback translations for new language
+                        const elements = document.querySelectorAll('[data-i18n]');
+                        elements.forEach(el => {
+                            const key = el.getAttribute('data-i18n');
+                            const translation = window.i18n?.t(key);
+                            if (!translation || translation === key) {
+                                // Apply fallback for new language
+                                const fallbackTranslations = {
+                                    'navigation.home': currentLang === 'fa' ? 'خانه' : 'Home',
+                                    'navigation.products': currentLang === 'fa' ? 'محصولات' : 'Products',
+                                    'navigation.gallery': currentLang === 'fa' ? 'گالری' : 'Gallery',
+                                    'navigation.about': currentLang === 'fa' ? 'درباره ما' : 'About',
+                                    'navigation.contact': currentLang === 'fa' ? 'تماس' : 'Contact',
+                                    'navigation.news': currentLang === 'fa' ? 'اخبار' : 'News',
+                                    'products.title': currentLang === 'fa' ? 'محصولات ما' : 'Our Product Range',
+                                    'products.subtitle': currentLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                                    'products.filters.all': currentLang === 'fa' ? 'همه محصولات' : 'All Products',
+                                    'products.actions.view_details': currentLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                                    'products.actions.order_request': currentLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                                    'common.close': currentLang === 'fa' ? 'بستن' : 'Close'
+                                };
+                                
+                                if (fallbackTranslations[key]) {
+                                    el.textContent = fallbackTranslations[key];
+                                }
+                            }
+                        });
+                        
+                        if (window.loadAndRenderProducts) {
+                            console.log('Reloading products after i18n language change...');
+                            window.loadAndRenderProducts();
+                        }
+                    }, 100);
+                    return result;
+                };
+            }
+        }
+
+        // Also listen for clicks on language buttons
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="switchLanguage"]') || e.target.closest('.language-switcher') || e.target.closest('.lang-btn')) {
+                console.log('Language button clicked, refreshing products...');
+                // Wait a bit for the language to be set, then refresh
+                setTimeout(() => {
+                    const currentLang = getCurrentLanguage();
+                    console.log('Language button click - detected language:', currentLang);
+                    applyLanguageStyling(currentLang);
+                    
+                    // Re-apply fallback translations for new language
+                    const elements = document.querySelectorAll('[data-i18n]');
+                    elements.forEach(el => {
+                        const key = el.getAttribute('data-i18n');
+                        const translation = window.i18n?.t(key);
+                        if (!translation || translation === key) {
+                            // Apply fallback for new language
+                            const fallbackTranslations = {
+                                'navigation.home': currentLang === 'fa' ? 'خانه' : 'Home',
+                                'navigation.products': currentLang === 'fa' ? 'محصولات' : 'Products',
+                                'navigation.gallery': currentLang === 'fa' ? 'گالری' : 'Gallery',
+                                'navigation.about': currentLang === 'fa' ? 'درباره ما' : 'About',
+                                'navigation.contact': currentLang === 'fa' ? 'تماس' : 'Contact',
+                                'navigation.news': currentLang === 'fa' ? 'اخبار' : 'News',
+                                'products.title': currentLang === 'fa' ? 'محصولات ما' : 'Our Product Range',
+                                'products.subtitle': currentLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                                'products.filters.all': currentLang === 'fa' ? 'همه محصولات' : 'All Products',
+                                'products.actions.view_details': currentLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                                'products.actions.order_request': currentLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                                'common.close': currentLang === 'fa' ? 'بستن' : 'Close'
+                            };
+                            
+                            if (fallbackTranslations[key]) {
+                                el.textContent = fallbackTranslations[key];
+                            }
+                        }
+                    });
+                    
+                    if (window.loadAndRenderProducts) {
+                        window.loadAndRenderProducts();
+                    }
+                }, 200);
+            }
+        });
+
+        // Poll for language changes every 500ms as a fallback
+        let lastLanguage = getCurrentLanguage();
+        setInterval(() => {
+            const currentLanguage = getCurrentLanguage();
+            if (currentLanguage !== lastLanguage) {
+                console.log('Language changed from', lastLanguage, 'to', currentLanguage);
+                lastLanguage = currentLanguage;
+                applyLanguageStyling(currentLanguage);
+                
+                // Re-apply fallback translations for new language
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const translation = window.i18n?.t(key);
+                    if (!translation || translation === key) {
+                        // Apply fallback for new language
+                        const fallbackTranslations = {
+                            'navigation.home': currentLanguage === 'fa' ? 'خانه' : 'Home',
+                            'navigation.products': currentLanguage === 'fa' ? 'محصولات' : 'Products',
+                            'navigation.gallery': currentLanguage === 'fa' ? 'گالری' : 'Gallery',
+                            'navigation.about': currentLanguage === 'fa' ? 'درباره ما' : 'About',
+                            'navigation.contact': currentLanguage === 'fa' ? 'تماس' : 'Contact',
+                            'navigation.news': currentLanguage === 'fa' ? 'اخبار' : 'News',
+                            'products.title': currentLanguage === 'fa' ? 'محصولات ما' : 'Our Product Range',
+                            'products.subtitle': currentLanguage === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                            'products.filters.all': currentLanguage === 'fa' ? 'همه محصولات' : 'All Products',
+                            'products.actions.view_details': currentLanguage === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                            'products.actions.order_request': currentLanguage === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                            'common.close': currentLanguage === 'fa' ? 'بستن' : 'Close'
+                        };
+                        
+                        if (fallbackTranslations[key]) {
+                            el.textContent = fallbackTranslations[key];
+                        }
+                    }
+                });
+                
+                if (window.loadAndRenderProducts) {
+                    console.log('Reloading products due to language change...');
+                    window.loadAndRenderProducts();
+                }
+            }
+        }, 500);
+
+        // Global helper functions
+        window.showMessage = function(message, type = 'info') {
+            console.log(`[${type.toUpperCase()}] ${message}`);
+            // You can add visual notification here if needed
+        };
+
+        // Global function to load and render products
+        window.loadAndRenderProducts = async function() {
+            try {
+                console.log('Loading products...');
+                const api = new ToolGostarAPI();
+                const currentLang = getCurrentLanguage();
+                console.log('Current language for API call:', currentLang);
+                const response = await api.getProducts(currentLang);
+                
+                console.log('API Response for', currentLang + ':', response);
+                
+                if (response.success && response.data) {
+                    window.allProducts = response.data;
+                    console.log('Products loaded:', window.allProducts);
+                    
+                    // Create dynamic categories from products
+                    const categories = [...new Set(window.allProducts.map(product => product.category).filter(Boolean))];
+                    const categoryFilters = document.getElementById('categoryFilters');
+                    
+                    if (categoryFilters) {
+                        // Keep the "All Products" button and remove others
+                        const allProductsBtn = categoryFilters.querySelector('[data-category="all"]');
+                        categoryFilters.innerHTML = '';
+                        if (allProductsBtn) {
+                            categoryFilters.appendChild(allProductsBtn);
+                        }
+                        
+                        // Add dynamic category buttons
+                        categories.forEach(category => {
+                            const button = document.createElement('button');
+                            button.className = 'filter-btn';
+                            button.setAttribute('data-category', category.slug);
+                            button.textContent = category.name;
+                            button.onclick = () => filterProducts(category.slug);
+                            categoryFilters.appendChild(button);
+                        });
+                        
+                        console.log('Dynamic categories created:', categories.map(c => c.name));
+                    }
+                    
+                    // Call the renderProducts function if it exists
+                    if (window.renderProducts) {
+                        window.renderProducts(window.allProducts);
+                    }
+                } else {
+                    console.log('Failed to load products from API:', response.error);
+                    if (window.showMessage) {
+                        window.showMessage('Failed to load products. Please try again.', 'error');
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading products:', error);
+                if (window.showMessage) {
+                    window.showMessage('Error loading products. Please check your connection.', 'error');
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply initial language styling
+            const initialLang = getCurrentLanguage();
+            applyLanguageStyling(initialLang);
+            
+            const productsGrid = document.querySelector('.products-grid');
+            const categoryFilters = document.querySelector('.category-filters');
+
+            window.renderProducts = function(products) {
+                productsGrid.innerHTML = ''; // Clear existing
+                products.forEach(product => {
+                    const productCard = createProductCard(product);
+                    productsGrid.appendChild(productCard);
+                });
+                
+                // Apply i18n translations to the newly created elements
+                if (window.i18n && window.i18n.applyLanguage) {
+                    const currentLang = getCurrentLanguage();
+                    window.i18n.applyLanguage(currentLang);
+                }
+            }
+
+            function renderCategories(products) {
+                // Logic to dynamically create category filters can be added here
+                // For now, we assume the static filters are sufficient
+            }
+
+            function createProductCard(product) {
+                const article = document.createElement('article');
+                article.className = 'product-category'; // Keeping class name for styling
+                article.dataset.category = product.category ? product.category.slug : 'uncategorized';
+
+                const specsHtml = Object.entries(product.specifications || {})
+                    .map(([key, value]) => `
+                        <div class="spec-row">
+                            <span class="spec-label">${key}:</span>
+                            <span class="spec-value">${value}</span>
+                        </div>
+                    `).join('');
+
+                // Handle multilingual features
+                let features = [];
+                if (typeof product.features === 'object' && product.features !== null) {
+                    const lang = getCurrentLanguage();
+                    console.log('Getting features for language:', lang, 'Available:', Object.keys(product.features));
+                    features = product.features[lang] || product.features.en || [];
+                } else if (Array.isArray(product.features)) {
+                    features = product.features;
+                }
+                
+                const featuresHtml = features
+                    .map(feature => `<li>${feature}</li>`)
+                    .join('');
+
+                // Handle multilingual applications
+                let applications = [];
+                if (typeof product.applications === 'object' && product.applications !== null) {
+                    const lang = getCurrentLanguage();
+                    console.log('Getting applications for language:', lang, 'Available:', Object.keys(product.applications));
+                    applications = product.applications[lang] || product.applications.en || [];
+                } else if (Array.isArray(product.applications)) {
+                    applications = product.applications;
+                }
+                
+                const applicationsHtml = applications
+                    .map(application => `<li>${application}</li>`)
+                    .join('');
+
+                console.log('Product image data:', {
+                    name: product.name,
+                    featuredImage: product.featuredImage,
+                    icon: product.icon
+                });
+
+                const lang = window.i18n?.currentLanguage || 'en';
+                const iconClass = lang === 'fa' && product.iconFa ? product.iconFa : product.iconEn;
+                
+                // Always show the icon in the grid view
+                const imageHtml = `<i class="fas ${iconClass || 'fa-cog'}"></i>`;
+
+                article.innerHTML = `
+                    <div class="product-image">
+                        ${imageHtml}
+                    </div>
+                    <h3>${getProductName(product)}</h3>
+                    <p>${getProductDescription(product)}</p>
+                    <div class="product-specs">${specsHtml}</div>
+                    <ul class="product-features">${featuresHtml}</ul>
+                    ${applicationsHtml ? `<ul class="product-applications">${applicationsHtml}</ul>` : ''}
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="showProductDetails('${product.id}')" data-i18n="products.actions.view_details">
+                            <i class="fas fa-eye"></i> View Details
+                        </button>
+                        <a href="contact.html" class="btn btn-secondary" data-i18n="products.actions.order_request">
+                            <i class="fas fa-shopping-cart"></i> Order Request
+                        </a>
+                    </div>
+                `;
+                return article;
+            }
+
+            function showEmptyState(message = 'No products found.') {
+                productsGrid.innerHTML = `<div class="col-12 text-center"><p>${message}</p></div>`;
+            }
+
+            let allProducts = [];
+
+            
+            window.showProductDetails = function(productId) {
+                const product = (window.allProducts || []).find(p => p.id == productId);
+                if (!product) {
+                    console.log('Product not found for ID:', productId);
+                    return;
+                }
+
+                console.log('Showing product details for:', product);
+                console.log('Product featuredImage:', product.featuredImage);
+
+                const modal = document.getElementById('productModal');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalImage = document.getElementById('modalImage');
+                const modalContent = document.getElementById('modalContent');
+                const orderButton = modal.querySelector('.btn-primary');
+                
+                modalTitle.textContent = getProductName(product);
+
+                const lang = window.i18n?.currentLanguage || 'en';
+                const iconClass = lang === 'fa' && product.iconFa ? product.iconFa : product.iconEn;
+
+                if (product.featuredImage) {
+                    const imageUrl = window.frontendConfig.getImageUrl(product.featuredImage);
+                    console.log('Modal Image URL:', imageUrl);
+                    modalImage.innerHTML = `
+                        <img src="${imageUrl}" alt="${getProductName(product)}" style="max-width: 100%; height: auto; border-radius: 8px; display: block;" 
+                             onerror="console.error('Modal image failed to load:', this.src); this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <i class="fas ${iconClass || 'fa-cog'}" style="display: none; font-size: 5rem; color: #007bff; text-align: center; width: 100%;"></i>
+                    `;
+                } else {
+                    console.log('No featured image, using icon');
+                    modalImage.innerHTML = `<i class="fas ${iconClass || 'fa-cog'}" style="font-size: 5rem; color: #007bff; text-align: center; width: 100%;"></i>`;
+                }
+
+                const specsHtml = Object.entries(product.specifications || {})
+                    .map(([key, value]) => `<li><strong>${key}:</strong> ${value}</li>`).join('');
+                
+                // Handle multilingual features
+                let features = [];
+                if (typeof product.features === 'object' && product.features !== null) {
+                    const lang = getCurrentLanguage();
+                    features = product.features[lang] || product.features.en || [];
+                } else if (Array.isArray(product.features)) {
+                    features = product.features;
+                }
+                const featuresHtml = features.map(f => `<li>${f}</li>`).join('');
+                
+                // Handle multilingual applications
+                let applications = [];
+                if (typeof product.applications === 'object' && product.applications !== null) {
+                    const lang = getCurrentLanguage();
+                    applications = product.applications[lang] || product.applications.en || [];
+                } else if (Array.isArray(product.applications)) {
+                    applications = product.applications;
+                }
+                const applicationsHtml = applications.map(a => `<li>${a}</li>`).join('');
+
+                let catalogButtonHtml = '';
+                if (product.catalogUrl) {
+                    const catalogUrl = window.frontendConfig.getImageUrl(product.catalogUrl);
+                    catalogButtonHtml = `<a href="${catalogUrl}" target="_blank" class="btn btn-success" download>
+                        <i class="fas fa-file-pdf"></i> Download Catalog
+                    </a>`;
+                }
+
+                modalContent.innerHTML = `
+                    <p>${getProductDescription(product)}</p>
+                    ${featuresHtml ? `<h4>Features</h4><ul>${featuresHtml}</ul>` : ''}
+                    ${applicationsHtml ? `<h4>Applications</h4><ul>${applicationsHtml}</ul>` : ''}
+                    ${specsHtml ? `<h4>Specifications</h4><ul>${specsHtml}</ul>` : ''}
+                    ${catalogButtonHtml}
+                `;
+                
+                modal.style.display = 'block';
+            }
+
+            window.closeProductModal = function() {
+                document.getElementById('productModal').style.display = 'none';
+            }
+
+            // Add filter functionality
+            function setupFilters() {
+                const categoryFilters = document.getElementById('categoryFilters');
+                if (categoryFilters) {
+                    // Use event delegation to handle clicks on filter buttons
+                    categoryFilters.addEventListener('click', (event) => {
+                        if (event.target.classList.contains('filter-btn')) {
+                            const button = event.target;
+                            // Remove active class from all buttons
+                            categoryFilters.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                            // Add active class to clicked button
+                            button.classList.add('active');
+                            
+                            // Get the category to filter by
+                            const category = button.getAttribute('data-category');
+                            window.filterProducts(category);
+                        }
+                    });
+                }
+            }
+
+            // Initialize the page
+            loadAndRenderProducts();
+            setupFilters();
+        });
+
+    </script>
+    <!-- i18n Script -->
+    <script src="shared/js/config.js"></script>
+    <script src="shared/js/server-config.js"></script>
+    <script src="js/i18n.js"></script>
+    <script>
+        // Initialize i18n system when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('🚀 DOM loaded, initializing i18n...');
+            
+            // Wait for i18n to be available
+            if (window.i18n) {
+                console.log('🔧 i18n found, initializing...');
+                await window.i18n.init();
+                console.log('✅ i18n initialized');
+                
+                // Force translation of all elements
+                setTimeout(() => {
+                    console.log('🔄 Force translating all elements...');
+                    const elements = document.querySelectorAll('[data-i18n]');
+                    console.log('Found elements with data-i18n:', elements.length);
+                    elements.forEach(el => {
+                        const key = el.getAttribute('data-i18n');
+                        const translation = window.i18n.t(key);
+                        if (translation && translation !== key) {
+                            el.textContent = translation;
+                            console.log(`Translated ${key}: ${translation}`);
+                        } else {
+                            // Fallback for common navigation items
+                            const currentLang = window.i18n?.currentLanguage || 'en';
+                            const fallbackTranslations = {
+                                'navigation.home': currentLang === 'fa' ? 'خانه' : 'Home',
+                                'navigation.products': currentLang === 'fa' ? 'محصولات' : 'Products',
+                                'navigation.gallery': currentLang === 'fa' ? 'گالری' : 'Gallery',
+                                'navigation.about': currentLang === 'fa' ? 'درباره ما' : 'About',
+                                'navigation.contact': currentLang === 'fa' ? 'تماس' : 'Contact',
+                                'navigation.news': currentLang === 'fa' ? 'اخبار' : 'News',
+                                'products.title': currentLang === 'fa' ? 'محصولات ما' : 'Our Product Range',
+                                'products.subtitle': currentLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                                'products.filters.all': currentLang === 'fa' ? 'همه محصولات' : 'All Products',
+                                'products.actions.view_details': currentLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                                'products.actions.order_request': currentLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                                'common.close': currentLang === 'fa' ? 'بستن' : 'Close'
+                            };
+                            
+                            if (fallbackTranslations[key]) {
+                                el.textContent = fallbackTranslations[key];
+                                console.log(`Applied fallback for ${key}: ${fallbackTranslations[key]}`);
+                            }
+                        }
+                    });
+                }, 1000);
+            } else {
+                console.error('❌ i18n not available');
+            }
+        });
+    </script>
+</body>
+</html>
