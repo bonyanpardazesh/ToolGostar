@@ -1,0 +1,428 @@
+{
+
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Get in touch with our experts for consultation, quotes, and technical support for your water treatment needs."
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "firstName": "First Name *",
+      "lastName": "Last Name *",
+      "email": "Email Address *",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "industry": "Industry",
+      "selectIndustry": "Select Industry",
+      "projectType": "Project Type",
+      "selectProjectType": "Select Project Type",
+      "subject": "Subject *",
+      "message": "Message *",
+      "messagePlaceholder": "Please describe your requirements, capacity needs, and any specific questions...",
+      "capacity": "Required Capacity",
+      "budget": "Budget Range",
+      "selectBudget": "Select Budget Range",
+      "timeline": "Project Timeline",
+      "selectTimeline": "Select Timeline"
+    },
+    "info": {
+      "title": "Get in Touch",
+      "headOffice": "Head Office",
+      "phone": "Phone & Fax",
+      "email": "Email",
+      "hours": "Business Hours"
+    },
+    "team": {
+      "title": "Meet Our Team",
+      "subtitle": "Our experienced professionals are ready to help with your water treatment needs",
+      "contact": "Contact:",
+      "email": "Email:",
+      "sales": {
+        "title": "Sales & Business Development",
+        "description": "Our sales team is ready to discuss your project requirements and provide detailed quotes for water treatment solutions."
+      },
+      "technical": {
+        "title": "Technical Support & Engineering",
+        "description": "Our engineering team provides technical consultation, system design, and ongoing support for all your water treatment challenges."
+      }
+    }
+  },
+  "team": {
+    "title": "Our Leadership Team",
+    "subtitle": "Meet the experts who drive our company's success and innovation",
+    "ceo": {
+      "name": "Mohammad Ahmadi",
+      "position": "Chief Executive Officer",
+      "description": "Leading ToolGostar with over 20 years of experience in industrial engineering and water treatment technology."
+    },
+    "cto": {
+      "name": "Sara Hosseini",
+      "position": "Chief Technology Officer",
+      "description": "Expert in advanced water treatment technologies with PhD in Environmental Engineering from Tehran University."
+    },
+    "ops": {
+      "name": "Ali Rezaei",
+      "position": "Operations Director",
+      "description": "Manages global operations and project delivery with expertise in international business development."
+    },
+    "eng": {
+      "name": "Fateme Karimi",
+      "position": "Engineering Manager",
+      "description": "Leads our engineering team in developing innovative solutions for complex water treatment challenges."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "view": "View",
+    "read_more": "Read More",
+    "learn_more": "Learn More",
+    "contact_us": "Contact Us",
+    "get_quote": "Get in Contact",
+    "order_request": "Order Request",
+    "download": "Download",
+    "share": "Share",
+    "industrial_equipment": "Industrial Equipment",
+    "project_placeholder": "Project Image"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "gallery": "Gallery",
+    "news": "News",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "home": {
+    "hero": {
+      "title": "ToolGostar Industrial Group",
+      "subtitle": "Leading Manufacturer of Water & Wastewater Treatment Equipment",
+      "description": "We provide innovative solutions for industrial water treatment, mixing systems, and pumping solutions. With over 20 years of experience, we deliver reliable and efficient equipment for various industries.",
+      "cta_primary": "Our Products",
+      "cta_secondary": "Learn More About Us"
+    },
+    "features": {
+      "title": "Why Choose ToolGostar?",
+      "subtitle": "Excellence in Water Treatment Solutions",
+      "feature1": {
+        "title": "20+ Years Experience",
+        "description": "Decades of expertise in water treatment technology"
+      },
+      "feature2": {
+        "title": "Quality Products",
+        "description": "High-quality equipment built to last"
+      },
+      "feature3": {
+        "title": "Expert Support",
+        "description": "Professional technical support and service"
+      },
+      "feature4": {
+        "title": "Custom Solutions",
+        "description": "Tailored solutions for your specific needs"
+      }
+    },
+    "products_preview": {
+      "title": "Our Products",
+      "subtitle": "Comprehensive Water Treatment Solutions",
+      "view_all": "View All Products"
+    },
+    "projects_preview": {
+      "title": "Recent Projects",
+      "subtitle": "Successfully Completed Installations",
+      "view_all": "View All Projects"
+    },
+    "news_preview": {
+      "title": "Latest News",
+      "subtitle": "Stay Updated with Industry News",
+      "view_all": "View All News"
+    }
+  },
+  "about": {
+    "title": "About ToolGostar",
+    "subtitle": "Leading the way in industrial water treatment solutions with over 15 years of engineering excellence and innovation",
+    "story": {
+      "title": "Our Story",
+      "description1": "Founded in 2009, ToolGostar Industrial Group has grown from a small engineering firm to a leading manufacturer of industrial water treatment equipment. Our journey began with a simple mission: to provide reliable, efficient, and innovative solutions for water treatment challenges.",
+      "description2": "Today, we serve clients across 15+ countries, delivering cutting-edge technology and unmatched expertise in every project. Our commitment to quality and innovation has made us a trusted partner for industries worldwide."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description1": "To provide innovative, reliable, and sustainable water treatment solutions that help our clients achieve their operational goals while protecting the environment. We are committed to engineering excellence, customer satisfaction, and continuous improvement.",
+      "description2": "Our vision is to be the global leader in industrial water treatment technology, setting new standards for efficiency, reliability, and environmental responsibility."
+    },
+    "achievements": {
+      "title": "Our Achievements",
+      "subtitle": "Numbers that speak to our experience and commitment to excellence",
+      "projects": "Projects Completed",
+      "countries": "Countries Served",
+      "engineers": "Expert Engineers",
+      "experience": "Years Experience"
+    },
+    "values": {
+      "title": "Our Core Values",
+      "quality": "Quality",
+      "innovation": "Innovation",
+      "reliability": "Reliability",
+      "service": "Service"
+    },
+    "certifications": {
+      "title": "Certifications & Standards",
+      "description": "We adhere to international quality and safety standards and hold certifications from recognized organizations."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with our experts for consultation, quotes, and technical support for your water treatment needs",
+    "form": {
+      "title": "Send Us a Message",
+      "first_name": "First Name *",
+      "last_name": "Last Name *",
+      "email": "Email Address *",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "industry": "Industry",
+      "select_industry": "Select Industry",
+      "project_type": "Project Type",
+      "select_project": "Select Project Type",
+      "subject": "Subject *",
+      "message": "Message *",
+      "message_placeholder": "Please describe your requirements, capacity needs, and any specific questions...",
+      "capacity": "Required Capacity",
+      "capacity_placeholder": "e.g., 1000 m³/day",
+      "budget": "Budget Range",
+      "select_budget": "Select Budget Range",
+      "timeline": "Project Timeline",
+      "select_timeline": "Select Timeline",
+      "send_message": "Send Message",
+      "sending": "Sending...",
+      "industries": {
+        "manufacturing": "Manufacturing",
+        "chemical": "Chemical Processing",
+        "pharmaceutical": "Pharmaceutical",
+        "food_beverage": "Food & Beverage",
+        "municipal": "Municipal",
+        "mining": "Mining",
+        "power": "Power Generation",
+        "other": "Other"
+      },
+      "projects": {
+        "new_installation": "New Installation",
+        "upgrade": "System Upgrade",
+        "maintenance": "Maintenance",
+        "consultation": "Consultation",
+        "spare_parts": "Spare Parts"
+      },
+      "budgets": {
+        "under_10k": "Under $10,000",
+        "10k_50k": "$10,000 - $50,000",
+        "50k_100k": "$50,000 - $100,000",
+        "100k_500k": "$100,000 - $500,000",
+        "500k_1m": "$500,000 - $1,000,000",
+        "over_1m": "Over $1,000,000"
+      },
+      "timelines": {
+        "immediate": "Immediate",
+        "within_month": "Within 1 Month",
+        "within_quarter": "Within 3 Months",
+        "within_6_months": "Within 6 Months",
+        "within_year": "Within 1 Year"
+      }
+    },
+    "info": {
+      "title": "Get in Touch",
+      "head_office": "Head Office",
+      "phone_fax": "Phone & Fax",
+      "email": "Email",
+      "business_hours": "Business Hours",
+      "phone": "Phone",
+      "fax": "Fax",
+      "mobile": "Mobile",
+      "general_inquiries": "General Inquiries",
+      "sales_quotes": "Sales & Orders",
+      "saturday_wednesday": "Saturday - Wednesday: 8:00 AM - 5:00 PM",
+      "thursday": "Thursday: 8:00 AM - 1:00 PM",
+      "friday": "Friday: Closed",
+      "iran_time": "Iran Standard Time (IRST)"
+    },
+    "facilities": {
+      "title": "Our Facilities",
+      "subtitle": "Multiple locations to serve you better",
+      "head_office": "Head Office",
+      "manufacturing_plant": "Manufacturing Plant",
+      "service_center": "Service Center",
+      "tehran": "Tehran, Iran",
+      "takestan": "Takestan, Ghazvin",
+      "administration": "Administration, Sales, and Engineering",
+      "production": "Production and Quality Control",
+      "regional_support": "Regional Support",
+      "maintenance": "Maintenance and Technical Support",
+      "emergency_service": "24/7 Emergency Service Available"
+    },
+    "map": {
+      "title": "Find Us",
+      "subtitle": "Visit our head office in Tehran",
+      "map_placeholder": "Interactive map integration would be added here",
+      "map_service": "Google Maps or similar mapping service"
+    },
+      "sales": {
+        "title": "Sales & Business Development",
+        "description": "Our sales team is ready to discuss your project requirements and provide detailed quotes for water treatment solutions."
+      },
+      "technical": {
+        "title": "Technical Support & Engineering",
+        "description": "Our engineering team provides technical consultation, system design, and ongoing support for all your water treatment challenges."
+      },
+      "contact": "Contact",
+      "email": "Email"
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Comprehensive Water Treatment Solutions",
+    "categories": {
+      "water_treatment": "Water Treatment Systems",
+      "pumps": "Pumps",
+      "filters": "Filters",
+      "control_systems": "Control Systems"
+    },
+    "filters": {
+      "category": "Category",
+      "all": "All Categories",
+      "search": "Search Products",
+      "sort_by": "Sort By",
+      "name": "Name",
+      "date": "Date",
+      "price": "Price"
+    },
+    "water_treatment": {
+      "description": "Complete water treatment systems including filtration, disinfection, and purification equipment for industrial applications.",
+      "item1": "Water Treatment Systems",
+      "item2": "Wastewater Treatment Plants",
+      "item3": "Filtration Equipment",
+      "item4": "Disinfection Systems"
+    },
+    "mixers": {
+      "description": "High-efficiency mixing and aeration equipment for optimal water treatment processes and oxygen transfer.",
+      "item1": "Submersible Mixers",
+      "item2": "Surface Aerators",
+      "item3": "Fine Bubble Diffusers",
+      "item4": "Mechanical Aerators"
+    },
+    "pumps": {
+      "description": "Robust pumping solutions and submersible mixing systems for reliable water circulation and treatment.",
+      "item1": "Submersible Pumps",
+      "item2": "Centrifugal Pumps",
+      "item3": "Submersible Mixers",
+      "item4": "Pump Control Systems"
+    }
+  },
+  "gallery": {
+    "title": "Project Gallery",
+    "subtitle": "Our Successfully Completed Projects",
+    "filters": {
+      "all": "All Projects",
+      "water_treatment": "Water Treatment Plants",
+      "industrial": "Industrial Projects",
+      "municipal": "Municipal Projects",
+      "commercial": "Commercial Projects"
+    },
+    "sample_project1": {
+      "title": "Water Treatment Plant - Tehran",
+      "description": "Complete water treatment system installation"
+    },
+    "sample_project2": {
+      "title": "Industrial Mixing System",
+      "description": "Custom mixing solution for industrial application"
+    },
+    "sample_project3": {
+      "title": "Municipal Wastewater Treatment",
+      "description": "Large-scale municipal wastewater treatment facility"
+    }
+  },
+  "news": {
+    "title": "News & Updates",
+    "subtitle": "Stay Informed with Latest Industry News",
+    "categories": {
+      "company_news": "Company News",
+      "product_updates": "Product Updates",
+      "industry_insights": "Industry Insights",
+      "project_showcases": "Project Showcases"
+    },
+    "read_more": "Read More",
+    "published_on": "Published on",
+    "author": "Author",
+    "sample_article1": {
+      "title": "New Water Treatment Technology",
+      "excerpt": "Latest advancements in water treatment technology and their applications in industrial settings."
+    },
+    "sample_article2": {
+      "title": "Product Launch: Advanced Mixers",
+      "excerpt": "Introducing our new line of high-efficiency mixing equipment for improved water treatment processes."
+    },
+    "sample_article3": {
+      "title": "Industry Recognition Award",
+      "excerpt": "ToolGostar receives recognition for excellence in water treatment equipment manufacturing."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in Touch with Our Team",
+    "form": {
+      "title": "Send us a Message",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send Message",
+      "required": "Required fields"
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Working Hours"
+    },
+    "quote": {
+      "title": "Request an Order",
+      "subtitle": "Get a customized order for your project",
+      "project_type": "Project Type",
+      "budget": "Budget Range",
+      "timeline": "Project Timeline",
+      "additional_info": "Additional Information"
+    }
+  },
+  "footer": {
+    "company_info": "Company Information",
+    "company_description": "ToolGostar Industrial Group is a leading manufacturer of water and wastewater treatment equipment, providing innovative solutions for industrial applications.",
+    "quick_links": "Quick Links",
+    "products": "Products",
+    "services": "Services",
+    "contact_info": "Contact Information",
+    "follow_us": "Follow Us",
+    "copyright": "© 2025 ToolGostar Industrial Group. All rights reserved.",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "main_office": "Main Office",
+    "factory": "Factory",
+    "phone": "Phone",
+    "mobile": "Mobile",
+    "fax": "Fax",
+    "email": "Email"
+  }
+}

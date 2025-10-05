@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Test - ToolGostar Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Projects API Test</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="test-results">
+                            <div class="text-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-2">Testing projects API calls...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axios for API calls -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- API Service -->
+    <script src="assets/js/api-service.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const testResults = document.getElementById('test-results');
+            
+            const runTests = async () => {
+                let results = [];
+                
+                // Test 0: Check Authentication
+                const isAuthenticated = apiService.isAuthenticated();
+                results.push({
+                    name: 'Authentication Check',
+                    status: isAuthenticated ? 'success' : 'error',
+                    message: isAuthenticated ? 
+                        'User is authenticated and can perform protected operations' : 
+                        'User is not authenticated - please login first to test protected operations'
+                });
+                
+                // If not authenticated, try to login automatically
+                if (!isAuthenticated) {
+                    try {
+                        const loginResult = await apiService.login('admin@toolgostar.com', 'admin123');
+                        if (loginResult.success) {
+                            results.push({
+                                name: 'Auto Login',
+                                status: 'success',
+                                message: 'Successfully logged in as admin user'
+                            });
+                            // Update authentication status
+                            const newAuthStatus = apiService.isAuthenticated();
+                            results[0] = {
+                                name: 'Authentication Check',
+                                status: newAuthStatus ? 'success' : 'error',
+                                message: newAuthStatus ? 
+                                    'User is now authenticated and can perform protected operations' : 
+                                    'Login failed - please login manually'
+                            };
+                        } else {
+                            results.push({
+                                name: 'Auto Login',
+                                status: 'error',
+                                message: 'Failed to login automatically: ' + (loginResult.error?.message || 'Unknown error')
+                            });
+                        }
+                    } catch (error) {
+                        results.push({
+                            name: 'Auto Login',
+                            status: 'error',
+                            message: 'Auto login failed: ' + error.message
+                        });
+                    }
+                }
+                
+                // Test 1: Get Projects
+                try {
+                    const projectsResult = await apiService.getProjects();
+                    results.push({
+                        name: 'Get Projects',
+                        status: projectsResult.success ? 'success' : 'error',
+                        message: projectsResult.success ? 
+                            `Found ${projectsResult.data.projects?.length || 0} projects` : 
+                            projectsResult.error?.message || 'Get projects failed'
+                    });
+                } catch (error) {
+                    results.push({
+                        name: 'Get Projects',
+                        status: 'error',
+                        message: 'Network error: ' + error.message
+                    });
+                }
+                
+                // Test 2: Create Project (if authenticated)
+                const currentAuthStatus = apiService.isAuthenticated();
+                console.log('Authentication status:', currentAuthStatus);
+                console.log('Token:', localStorage.getItem('toolgostar_token'));
+                
+                if (currentAuthStatus) {
+                    try {
+                        const testProject = {
+                            title: 'Test Project - ' + new Date().getTime(),
+                            client: 'Test Client Company',
+                            location: 'Test Location, Iran',
+                            capacity: '5000 L/day',
+                            description: 'This is a test project created via API testing',
+                            status: 'completed',
+                            completionDate: new Date().toISOString(),
+                            equipmentUsed: ['Test Equipment 1', 'Test Equipment 2']
+                        };
+                        
+                        const createResult = await apiService.createProject(testProject);
+                        results.push({
+                            name: 'Create Project',
+                            status: createResult.success ? 'success' : 'error',
+                            message: createResult.success ? 
+                                `Project created successfully with ID: ${createResult.data.project?.id || 'Unknown'}` : 
+                                createResult.error?.message || 'Create project failed'
+                        });
+                        
+                        // Store created project ID for further tests
+                        if (createResult.success && createResult.data.project?.id) {
+                            window.testProjectId = createResult.data.project.id;
+                        }
+                    } catch (error) {
+                        results.push({
+                            name: 'Create Project',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Create Project',
+                        status: 'warning',
+                        message: 'Skipped - Authentication required'
+                    });
+                }
+                
+                // Test 3: Get Single Project (if we created one)
+                if (window.testProjectId) {
+                    try {
+                        const singleProjectResult = await apiService.getProject(window.testProjectId);
+                        results.push({
+                            name: 'Get Single Project',
+                            status: singleProjectResult.success ? 'success' : 'error',
+                            message: singleProjectResult.success ? 
+                                `Project retrieved: ${singleProjectResult.data.project?.title || 'Unknown'}` : 
+                                singleProjectResult.error?.message || 'Get single project failed'
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Get Single Project',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Get Single Project',
+                        status: 'warning',
+                        message: 'Skipped - No project ID available'
+                    });
+                }
+                
+                // Test 4: Update Project (if we created one and authenticated)
+                if (window.testProjectId && currentAuthStatus) {
+                    try {
+                        const updateData = {
+                            title: 'Updated Test Project - ' + new Date().getTime(),
+                            client: 'Updated Test Client',
+                            location: 'Updated Test Location',
+                            capacity: '10000 L/day',
+                            description: 'This is an updated test project',
+                            status: 'completed'
+                        };
+                        
+                        const updateResult = await apiService.updateProject(window.testProjectId, updateData);
+                        results.push({
+                            name: 'Update Project',
+                            status: updateResult.success ? 'success' : 'error',
+                            message: updateResult.success ? 
+                                `Project updated successfully` : 
+                                updateResult.error?.message || 'Update project failed'
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Update Project',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Update Project',
+                        status: 'warning',
+                        message: 'Skipped - No project ID or authentication required'
+                    });
+                }
+                
+                // Test 5: Delete Project (if we created one and authenticated)
+                if (window.testProjectId && currentAuthStatus) {
+                    try {
+                        const deleteResult = await apiService.deleteProject(window.testProjectId);
+                        results.push({
+                            name: 'Delete Project',
+                            status: deleteResult.success ? 'success' : 'error',
+                            message: deleteResult.success ? 
+                                `Project deleted successfully` : 
+                                deleteResult.error?.message || 'Delete project failed'
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Delete Project',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Delete Project',
+                        status: 'warning',
+                        message: 'Skipped - No project ID or authentication required'
+                    });
+                }
+                
+                // Render results
+                renderResults(results);
+            };
+            
+            const renderResults = (results) => {
+                const successCount = results.filter(r => r.status === 'success').length;
+                const warningCount = results.filter(r => r.status === 'warning').length;
+                const totalCount = results.length;
+                
+                testResults.innerHTML = `
+                    <div class="alert alert-${successCount === totalCount ? 'success' : successCount > 0 ? 'warning' : 'danger'}">
+                        <h5>Test Results: ${successCount}/${totalCount} tests passed</h5>
+                        ${successCount === totalCount ? 
+                            'All tests passed! Projects API is working perfectly.' : 
+                            successCount > 0 ?
+                            'Some tests passed. Check the details below.' :
+                            'All tests failed. Check the details below.'
+                        }
+                        ${warningCount > 0 ? `<br><small>${warningCount} tests were skipped (authentication required)</small>` : ''}
+                    </div>
+                    
+                    <div class="row">
+                        ${results.map(result => `
+                            <div class="col-md-6 mb-3">
+                                <div class="card border-${result.status === 'success' ? 'success' : result.status === 'warning' ? 'warning' : 'danger'}">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-${result.status === 'success' ? 'check-circle text-success' : result.status === 'warning' ? 'exclamation-triangle text-warning' : 'x-circle text-danger'} fs-4 me-3"></i>
+                                            <div>
+                                                <h6 class="mb-1">${result.name}</h6>
+                                                <p class="mb-0 text-muted">${result.message}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="pages/projects.html" class="btn btn-primary">Go to Projects Page</a>
+                        <a href="login.html" class="btn btn-warning ms-2">Login First</a>
+                        <button class="btn btn-outline-secondary ms-2" onclick="location.reload()">Run Tests Again</button>
+                    </div>
+                    
+                    <div class="alert alert-info mt-3">
+                        <h6><i class="bi bi-info-circle me-2"></i>Authentication Required</h6>
+                        <p class="mb-2">To test project creation, editing, and deletion, you need to be logged in as an admin or editor user.</p>
+                        <p class="mb-0"><strong>Test Credentials:</strong> admin@toolgostar.com / admin123</p>
+                    </div>
+                `;
+            };
+            
+            // Run tests
+            await runTests();
+        });
+    </script>
+</body>
+</html>

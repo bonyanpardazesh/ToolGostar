@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Language Test - English vs Farsi</title>
+    
+    <!-- Load CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+        }
+        
+        .language-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        
+        .english-section {
+            background: #f8f9fa;
+        }
+        
+        .farsi-section {
+            background: #e8f4fd;
+            direction: rtl;
+            text-align: right;
+        }
+        
+        .font-info {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: #fff;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Font Language Test</h1>
+        <p>This page tests font loading for English vs Farsi languages.</p>
+        
+        <div class="language-section english-section">
+            <div class="font-info">
+                <strong>English Section:</strong> Should use Arial/Helvetica (system fonts)
+            </div>
+            <h2>English Text Sample</h2>
+            <p>This is English text that should be displayed in Arial or Helvetica font.</p>
+            <p><strong>Bold text</strong> and <em>italic text</em> should also use system fonts.</p>
+            <h3>Heading 3</h3>
+            <p>Regular paragraph text with various font weights.</p>
+        </div>
+        
+        <div class="language-section farsi-section" dir="rtl" lang="fa">
+            <div class="font-info">
+                <strong>Farsi Section:</strong> Should use Vazir font
+            </div>
+            <h2>متن فارسی نمونه</h2>
+            <p>این متن فارسی است که باید با فونت وزیر نمایش داده شود.</p>
+            <p><strong>متن ضخیم</strong> و <em>متن کج</em> نیز باید از فونت وزیر استفاده کنند.</p>
+            <h3>عنوان ۳</h3>
+            <p>متن پاراگراف معمولی با وزن‌های مختلف فونت.</p>
+        </div>
+        
+        <div class="language-section">
+            <h3>Font Detection Test</h3>
+            <div id="font-detection">
+                <p>Checking fonts...</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const detectionDiv = document.getElementById('font-detection');
+            
+            // Test English section font
+            const englishP = document.querySelector('.english-section p');
+            const englishFont = window.getComputedStyle(englishP).fontFamily;
+            
+            // Test Farsi section font
+            const farsiP = document.querySelector('.farsi-section p');
+            const farsiFont = window.getComputedStyle(farsiP).fontFamily;
+            
+            detectionDiv.innerHTML = `
+                <p><strong>English Font:</strong> ${englishFont}</p>
+                <p><strong>Farsi Font:</strong> ${farsiFont}</p>
+                <p><strong>Expected:</strong> English should use Arial/Helvetica, Farsi should use Vazir</p>
+            `;
+            
+            // Check if Vazir is loaded
+            if ('fonts' in document) {
+                document.fonts.load('400 16px Vazir').then(() => {
+                    console.log('✅ Vazir font is available');
+                }).catch(() => {
+                    console.log('❌ Vazir font not loaded');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

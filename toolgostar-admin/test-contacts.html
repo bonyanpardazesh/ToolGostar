@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts API Test - ToolGostar Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Contacts API Test</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="test-results">
+                            <div class="text-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-2">Testing contacts API calls...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axios for API calls -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Configuration -->
+    <script src="config.js"></script>
+    <!-- API Service -->
+    <script src="assets/js/api-service.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const testResults = document.getElementById('test-results');
+            
+            const runTests = async () => {
+                let results = [];
+                
+                // Test 0: Check Authentication
+                const isAuthenticated = apiService.isAuthenticated();
+                results.push({
+                    name: 'Authentication Check',
+                    status: isAuthenticated ? 'success' : 'error',
+                    message: isAuthenticated ? 
+                        'User is authenticated and can perform protected operations' : 
+                        'User is not authenticated - please login first to test protected operations'
+                });
+                
+                // If not authenticated, try to login automatically
+                if (!isAuthenticated) {
+                    try {
+                        const loginResult = await apiService.login('admin@toolgostar.com', 'admin123');
+                        if (loginResult.success) {
+                            results.push({
+                                name: 'Auto Login',
+                                status: 'success',
+                                message: 'Successfully logged in as admin user'
+                            });
+                            // Update authentication status
+                            const newAuthStatus = apiService.isAuthenticated();
+                            results[0] = {
+                                name: 'Authentication Check',
+                                status: newAuthStatus ? 'success' : 'error',
+                                message: newAuthStatus ? 
+                                    'User is now authenticated and can perform protected operations' : 
+                                    'Login failed - please login manually'
+                            };
+                        } else {
+                            results.push({
+                                name: 'Auto Login',
+                                status: 'error',
+                                message: 'Failed to login automatically: ' + (loginResult.error?.message || 'Unknown error')
+                            });
+                        }
+                    } catch (error) {
+                        results.push({
+                            name: 'Auto Login',
+                            status: 'error',
+                            message: 'Auto login failed: ' + error.message
+                        });
+                    }
+                }
+                
+                // Test 1: Get Contacts
+                try {
+                    const contactsResult = await apiService.getContacts();
+                    results.push({
+                        name: 'Get Contacts',
+                        status: contactsResult.success ? 'success' : 'error',
+                        message: contactsResult.success ? 
+                            `Found ${contactsResult.data.contacts?.length || 0} contacts` : 
+                            contactsResult.error?.message || 'Get contacts failed'
+                    });
+                } catch (error) {
+                    results.push({
+                        name: 'Get Contacts',
+                        status: 'error',
+                        message: 'Network error: ' + error.message
+                    });
+                }
+                
+                // Test 2: Submit Contact (if authenticated)
+                const currentAuthStatus = apiService.isAuthenticated();
+                if (currentAuthStatus) {
+                    try {
+                        const testContact = {
+                            firstName: 'Test',
+                            lastName: 'User',
+                            email: 'test@example.com',
+                            company: 'Test Company',
+                            phone: '+1234567890',
+                            subject: 'Test Contact - ' + new Date().getTime(),
+                            message: 'This is a test contact submission via API testing',
+                            urgency: 'medium',
+                            preferredContactMethod: 'email',
+                            gdprConsent: true
+                        };
+                        
+                        const submitResult = await apiService.submitContact(testContact);
+                        results.push({
+                            name: 'Submit Contact',
+                            status: submitResult.success ? 'success' : 'error',
+                            message: submitResult.success ? 
+                                `Contact submitted successfully with ID: ${submitResult.data.contact?.id || 'Unknown'}` : 
+                                submitResult.error?.message || 'Submit contact failed'
+                        });
+                        
+                        // Store created contact ID for further tests
+                        if (submitResult.success && submitResult.data.contact?.id) {
+                            window.testContactId = submitResult.data.contact.id;
+                        }
+                    } catch (error) {
+                        results.push({
+                            name: 'Submit Contact',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Submit Contact',
+                        status: 'warning',
+                        message: 'Skipped - Authentication required'
+                    });
+                }
+                
+                // Test 3: Get Single Contact (if we created one)
+                if (window.testContactId) {
+                    try {
+                        const singleContactResult = await apiService.getContact(window.testContactId);
+                        results.push({
+                            name: 'Get Single Contact',
+                            status: singleContactResult.success ? 'success' : 'error',
+                            message: singleContactResult.success ? 
+                                `Contact retrieved: ${singleContactResult.data.contact?.firstName || 'Unknown'} ${singleContactResult.data.contact?.lastName || ''}` : 
+                                singleContactResult.error?.message || 'Get single contact failed'
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Get Single Contact',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Get Single Contact',
+                        status: 'warning',
+                        message: 'Skipped - No contact ID available'
+                    });
+                }
+                
+                // Test 4: Update Contact Status (if we created one and authenticated)
+                if (window.testContactId && currentAuthStatus) {
+                    try {
+                        const updateResult = await apiService.updateContactStatus(window.testContactId, 'in_progress');
+                        results.push({
+                            name: 'Update Contact Status',
+                            status: updateResult.success ? 'success' : 'error',
+                            message: updateResult.success ? 
+                                `Contact status updated successfully` : 
+                                updateResult.error?.message || 'Update contact status failed'
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Update Contact Status',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Update Contact Status',
+                        status: 'warning',
+                        message: 'Skipped - No contact ID or authentication required'
+                    });
+                }
+                
+                // Test 5: Submit Quote Request (if authenticated)
+                if (currentAuthStatus) {
+                    try {
+                        const testQuote = {
+                            contactInfo: {
+                                firstName: 'Test',
+                                lastName: 'User',
+                                email: 'test@example.com',
+                                phone: '+1234567890',
+                                company: 'Test Company',
+                                jobTitle: 'Manager',
+                                industry: 'manufacturing',
+                                address: {
+                                    street: '123 Test Street',
+                                    city: 'Test City',
+                                    state: 'TC',
+                                    zipCode: '12345',
+                                    country: 'USA'
+                                }
+                            },
+                            projectDetails: {
+                                projectType: 'new_installation',
+                                industry: 'manufacturing',
+                                budget: '100k_500k',
+                                timeline: 'within_6_months',
+                                description: 'This is a test quote request via API testing',
+                                products: ['Test Product 1', 'Test Product 2'],
+                                productCategories: ['Water Treatment', 'Pumps'],
+                                applicationArea: 'industrial_process',
+                                requiredCapacity: '1000 m3/day'
+                            },
+                            gdprConsent: true
+                        };
+                        
+                        const quoteResult = await apiService.submitQuote(testQuote);
+                        results.push({
+                            name: 'Submit Quote Request',
+                            status: quoteResult.success ? 'success' : 'error',
+                            message: quoteResult.success ? 
+                                `Quote request submitted successfully` : 
+                                quoteResult.error?.message || 'Submit quote request failed'
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Submit Quote Request',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Submit Quote Request',
+                        status: 'warning',
+                        message: 'Skipped - Authentication required'
+                    });
+                }
+                
+                // Render results
+                renderResults(results);
+            };
+            
+            const renderResults = (results) => {
+                const successCount = results.filter(r => r.status === 'success').length;
+                const warningCount = results.filter(r => r.status === 'warning').length;
+                const totalCount = results.length;
+                
+                testResults.innerHTML = `
+                    <div class="alert alert-${successCount === totalCount ? 'success' : successCount > 0 ? 'warning' : 'danger'}">
+                        <h5>Test Results: ${successCount}/${totalCount} tests passed</h5>
+                        ${successCount === totalCount ? 
+                            'All tests passed! Contacts API is working perfectly.' : 
+                            successCount > 0 ?
+                            'Some tests passed. Check the details below.' :
+                            'All tests failed. Check the details below.'
+                        }
+                        ${warningCount > 0 ? `<br><small>${warningCount} tests were skipped (authentication required)</small>` : ''}
+                    </div>
+                    
+                    <div class="row">
+                        ${results.map(result => `
+                            <div class="col-md-6 mb-3">
+                                <div class="card border-${result.status === 'success' ? 'success' : result.status === 'warning' ? 'warning' : 'danger'}">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-${result.status === 'success' ? 'check-circle text-success' : result.status === 'warning' ? 'exclamation-triangle text-warning' : 'x-circle text-danger'} fs-4 me-3"></i>
+                                            <div>
+                                                <h6 class="mb-1">${result.name}</h6>
+                                                <p class="mb-0 text-muted">${result.message}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="pages/contacts.html" class="btn btn-primary">Go to Contacts Page</a>
+                        <a href="login.html" class="btn btn-warning ms-2">Login First</a>
+                        <button class="btn btn-outline-secondary ms-2" onclick="location.reload()">Run Tests Again</button>
+                    </div>
+                    
+                    <div class="alert alert-info mt-3">
+                        <h6><i class="bi bi-info-circle me-2"></i>Contacts Management Features</h6>
+                        <p class="mb-2">The contacts system includes:</p>
+                        <ul class="mb-0">
+                            <li><strong>Contact Listing:</strong> View all contact inquiries with filtering</li>
+                            <li><strong>Contact Details:</strong> View detailed contact information</li>
+                            <li><strong>Status Management:</strong> Update contact status and priority</li>
+                            <li><strong>Search & Filter:</strong> Find contacts by name, email, company, or message</li>
+                            <li><strong>Quote Requests:</strong> Handle quote requests from contacts</li>
+                        </ul>
+                    </div>
+                `;
+            };
+            
+            // Run tests
+            await runTests();
+        });
+    </script>
+</body>
+</html>
