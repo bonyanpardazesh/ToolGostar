@@ -1,0 +1,952 @@
+/* Products Page Specific Styles */
+
+/* Fonts are handled by common.css - Vazir only for Farsi, Arial for English */
+
+/* RTL Layout Fixes for Farsi */
+body[dir="rtl"],
+body.fa {
+    direction: rtl;
+    text-align: right;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden;
+}
+
+body[dir="rtl"] .container,
+body.fa .container {
+    direction: rtl;
+    text-align: right;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+body[dir="rtl"] .main-content,
+body.fa .main-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    direction: rtl;
+    text-align: right;
+}
+
+/* Ensure products-intro is centered in both languages */
+.products-intro,
+body[dir="rtl"] .products-intro,
+body.fa .products-intro,
+body[dir="ltr"] .products-intro,
+body.en .products-intro {
+    text-align: center;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.products-intro h1,
+body[dir="rtl"] .products-intro h1,
+body.fa .products-intro h1,
+body[dir="ltr"] .products-intro h1,
+body.en .products-intro h1 {
+    text-align: center;
+}
+
+.products-intro p,
+body[dir="rtl"] .products-intro p,
+body.fa .products-intro p,
+body[dir="ltr"] .products-intro p,
+body.en .products-intro p {
+    text-align: center;
+}
+
+body[dir="rtl"] .category-filters,
+body.fa .category-filters {
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+
+body[dir="rtl"] .products-section,
+body.fa .products-section {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+body[dir="rtl"] .products-grid,
+body.fa .products-grid {
+    direction: ltr; /* Keep grid layout LTR for proper alignment */
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+body[dir="rtl"] .product-card,
+body.fa .product-card {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Fix for why-choose section in RTL */
+body[dir="rtl"] .why-choose-section,
+body.fa .why-choose-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center;
+}
+
+body[dir="rtl"] .why-choose-section h2,
+body.fa .why-choose-section h2 {
+    text-align: center;
+}
+
+body[dir="rtl"] .why-choose-section p,
+body.fa .why-choose-section p {
+    text-align: center;
+}
+
+body[dir="rtl"] .why-choose-section .page-header,
+body.fa .why-choose-section .page-header {
+    text-align: center;
+}
+
+body[dir="rtl"] .why-choose-section .page-header h2,
+body.fa .why-choose-section .page-header h2 {
+    text-align: center;
+}
+
+body[dir="rtl"] .why-choose-section .page-header p,
+body.fa .why-choose-section .page-header p {
+    text-align: center;
+}
+
+body[dir="rtl"] .why-choose-item,
+body.fa .why-choose-item {
+    text-align: center;
+}
+
+body[dir="rtl"] .why-choose-item h4,
+body.fa .why-choose-item h4 {
+    text-align: center;
+}
+
+body[dir="rtl"] .why-choose-item p,
+body.fa .why-choose-item p {
+    text-align: center;
+}
+
+/* Vazir font is handled by common.css - no duplicate rules needed */
+
+/* Modal Vazir font is handled by common.css */
+.products-intro {
+    background: linear-gradient(135deg, #1e3a8a 0%, #334155 100%);
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.products-intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%);
+    pointer-events: none;
+}
+
+.products-intro h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.products-intro p {
+    font-size: 1.3rem;
+    color: #f8fafc;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    line-height: 1.6;
+}
+
+.category-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.filter-btn.active {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 1);
+    color: #1e3a8a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.product-category {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 500px;
+}
+
+.product-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #2563eb;
+}
+
+.product-image {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: white;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.product-category:hover .product-image {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.product-category h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+.product-category p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.product-features {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.product-features li {
+    padding: 0.5rem 0;
+    color: #475569;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.product-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #10b981;
+    font-weight: bold;
+}
+
+.product-applications {
+    list-style: none;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.product-applications li {
+    padding: 0.5rem 0;
+    color: #475569;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.product-applications li::before {
+    content: '\f0b1';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    font-size: 0.9rem;
+    color: #2563eb;
+}
+
+/* Product Actions - Always at bottom */
+.product-actions {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-actions .btn {
+    flex: 1;
+    max-width: 150px;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.product-actions .btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.product-actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.product-actions .btn-secondary {
+    background: white;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-actions .btn-secondary:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Product Specifications */
+.product-specs {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-label {
+    font-weight: 600;
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+.spec-value {
+    color: #2563eb;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.catalog-download {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+.catalog-download h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.catalog-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-download {
+    background-color: #4f46e5;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #4338ca;
+}
+
+.btn-download i {
+    font-size: 1rem;
+}
+
+.product-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.product-actions .btn {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem 1rem;
+}
+
+.product-specs {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-label {
+    font-weight: 500;
+    color: #374151;
+}
+
+.spec-value {
+    color: #6b7280;
+    font-weight: 400;
+}
+
+/* Product Detail Modal */
+.product-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.3s ease-out;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.product-modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 95vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    animation: slideUp 0.3s ease-out;
+    margin: 0 auto;
+    display: block;
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    padding: 2rem 2.5rem 1.5rem;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+}
+
+.modal-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.025em;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    padding: 2.5rem;
+}
+
+.modal-image {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #64748b;
+    margin-bottom: 2.5rem;
+    border: 2px solid #e2e8f0;
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.modal-body h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin: 2rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    position: relative;
+}
+
+.modal-body h4::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #2563eb;
+}
+
+.modal-body p {
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+}
+
+.modal-body ul li {
+    padding: 0.75rem 0;
+    color: #475569;
+    position: relative;
+    padding-left: 2rem;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 1rem;
+}
+
+.modal-body ul li:last-child {
+    border-bottom: none;
+}
+
+.modal-body ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.catalog-download-modal {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+.catalog-download-modal h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
+
+.product-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.product-actions .btn {
+    padding: 0.875rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.product-actions .btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.product-actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.product-actions .btn-secondary {
+    background: #f8fafc;
+    color: #64748b;
+    border: 2px solid #e2e8f0;
+}
+
+.product-actions .btn-secondary:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.product-actions .btn-success {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.product-actions .btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.4);
+}
+
+/* Why Choose Section */
+.why-choose-section {
+    background: #1e293b;
+    color: white;
+    padding: 4rem 0;
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.why-choose-section .page-header {
+    text-align: center;
+}
+
+.why-choose-section .page-header h2 {
+    text-align: center;
+}
+
+.why-choose-section .page-header p {
+    text-align: center;
+}
+
+.why-choose-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    justify-items: center;
+}
+
+.why-choose-item {
+    text-align: center;
+    padding: 1.5rem;
+    max-width: 300px;
+}
+
+.why-choose-icon {
+    font-size: 3rem;
+    color: #2563eb;
+    margin-bottom: 1rem;
+}
+
+/* Ensure Font Awesome icons are not affected by Vazir font */
+.why-choose-icon i,
+.why-choose-icon .fas,
+.why-choose-icon .far,
+.why-choose-icon .fab,
+.why-choose-icon .fal,
+.why-choose-icon .fa {
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 6 Pro' !important;
+    font-weight: 900 !important;
+}
+
+/* RTL protection for icons */
+body[dir="rtl"] .why-choose-icon i,
+body.fa .why-choose-icon i,
+[lang="fa"] .why-choose-icon i {
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 6 Pro' !important;
+    font-weight: 900 !important;
+}
+
+.why-choose-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.why-choose-item p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .products-intro h1 {
+        font-size: 2rem;
+    }
+    
+    .products-intro p {
+        font-size: 1rem;
+    }
+    
+    .category-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 200px;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+    }
+    
+    .why-choose-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .modal-content {
+        margin: 1rem;
+        max-height: 95vh;
+    }
+    
+    .modal-header,
+    .modal-body {
+        padding: 1.5rem;
+    }
+}
+
+/* Footer Protection - Ensure footer styles are not overridden */
+.footer {
+    background: #1e293b !important;
+    color: #ffffff !important;
+    padding: 3rem 0 2rem !important;
+    margin-top: 4rem !important;
+    text-align: center !important;
+}
+
+.footer-content {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 2rem !important;
+    margin-bottom: 2rem !important;
+    text-align: center !important;
+}
+
+.footer-section {
+    text-align: center !important;
+}
+
+.footer-section h3 {
+    color: #2563eb !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.2rem !important;
+    text-align: center !important;
+}
+
+.footer-section p,
+.footer-section li {
+    color: #94a3b8 !important;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
+}
+
+.footer-section ul {
+    list-style: none !important;
+    text-align: center !important;
+}
+
+.footer-section a {
+    color: #94a3b8 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+    text-align: center !important;
+}
+
+.footer-section a:hover {
+    color: #2563eb !important;
+}
+
+.footer-bottom {
+    border-top: 1px solid #334155 !important;
+    padding-top: 2rem !important;
+    text-align: center !important;
+    color: #64748b !important;
+}
+
+/* RTL Footer Protection */
+body[dir="rtl"] .footer,
+body.fa .footer {
+    text-align: center !important;
+}
+
+body[dir="rtl"] .footer-content,
+body.fa .footer-content {
+    text-align: center !important;
+}
+
+body[dir="rtl"] .footer-section,
+body.fa .footer-section {
+    text-align: center !important;
+}
+
+body[dir="rtl"] .footer-section h3,
+body.fa .footer-section h3 {
+    text-align: center !important;
+}
+
+body[dir="rtl"] .footer-section p,
+body.fa .footer-section p {
+    text-align: center !important;
+}
+
+body[dir="rtl"] .footer-section ul,
+body.fa .footer-section ul {
+    text-align: center !important;
+}
+
+body[dir="rtl"] .footer-section li,
+body.fa .footer-section li {
+    text-align: center !important;
+}
+
+body[dir="rtl"] .footer-bottom,
+body.fa .footer-bottom {
+    text-align: center !important;
+}
+
+/* Vazir font for footer is handled by common.css */

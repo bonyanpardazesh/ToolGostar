@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Article - ToolGostar Industrial Group</title>
+    <link rel="stylesheet" href="shared/css/common.css">
+    <link rel="stylesheet" href="shared/css/header.css">
+    <link rel="stylesheet" href="shared/css/footer.css">
+    <link rel="stylesheet" href="css/news.css">
+    <link rel="stylesheet" href="css/rtl.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* News Article Specific Styles */
+        .article-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        .article-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-hero .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .article-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 1rem;
+            background: #f8fafc;
+        }
+
+        /* Fix main content margin for article page */
+        .main-content {
+            margin-top: 0;
+        }
+
+        /* Ensure proper spacing */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Fix header positioning */
+        .navbar {
+            position: relative;
+            z-index: 1000;
+        }
+
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 2rem;
+        }
+
+        .article-text h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 2rem 0 1rem 0;
+        }
+
+        .article-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .article-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-text ul, .article-text ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-text li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #3b82f6;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .article-tag {
+            background: #e0f2fe;
+            color: #0c4a6e;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .loading-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #64748b;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e5e7eb;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #dc2626;
+        }
+
+        .error-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.7;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .article-meta {
+            direction: rtl;
+        }
+
+        [dir="rtl"] .back-button {
+            direction: rtl;
+        }
+
+        [dir="rtl"] .article-text ul,
+        [dir="rtl"] .article-text ol {
+            padding-right: 2rem;
+            padding-left: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .article-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .article-hero .article-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .article-content {
+                padding: 2rem 1rem;
+            }
+            
+            .article-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" title="English">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag-icon">
+            <span>EN</span>
+        </button>
+        <button class="lang-btn" data-lang="fa" title="فارسی">
+            <img src="https://flagcdn.com/w20/ir.png" alt="فارسی" class="flag-icon">
+            <span>فا</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation -->
+            <ul class="nav-left">
+                <li><a href="loading.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Products</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            </ul>
+            
+            <!-- Center logo -->
+            <a href="home.html" class="nav-logo">
+                <img src="public/images/logo/logo.png" alt="ToolGostar Industrial Group" />
+            </a>
+            
+            <!-- Right side navigation -->
+            <ul class="nav-right">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="news.html" class="nav-link">News</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <ul class="nav-mobile" id="mobileMenu">
+            <li><a href="loading.html" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link">Products</a></li>
+            <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+            <li><a href="news.html" class="nav-link">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
+        <div class="container">
+            <div id="article-loading" class="loading-state">
+                <div class="loading-spinner"></div>
+                <h3>Loading Article...</h3>
+                <p>Please wait while we fetch the article content.</p>
+            </div>
+            
+            <div id="article-error" class="error-state" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <h3>Article Not Found</h3>
+                <p>Sorry, we couldn't find the article you're looking for.</p>
+                <a href="news.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to News</span>
+                </a>
+            </div>
+            
+            <div id="article-content" style="display: none;">
+                <h1 id="article-title">Article Title</h1>
+                <div class="article-meta">
+                    <div class="article-meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span id="article-date">Published Date</span>
+                    </div>
+                    <div class="article-meta-item">
+                        <i class="fas fa-user"></i>
+                        <span id="article-author">Author Name</span>
+                    </div>
+                    <div class="article-meta-item">
+                        <i class="fas fa-tag"></i>
+                        <span id="article-category">Category</span>
+                    </div>
+                    <div class="article-meta-item">
+                        <i class="fas fa-eye"></i>
+                        <span id="article-views">0 views</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="article-content">
+        <div class="container">
+            <a href="news.html" class="back-button" id="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to News</span>
+            </a>
+            
+            <div id="article-body" style="display: none;">
+                <img id="article-featured-image" src="" alt="" class="article-image" style="display: none;">
+                <div id="article-text" class="article-text">
+                    <!-- Article content will be loaded here -->
+                </div>
+                <div id="article-tags" class="article-tags" style="display: none;">
+                    <!-- Tags will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ToolGostar Industrial Group</h3>
+                    <p>Leading provider of industrial water treatment solutions, mixers, and pumps in Iran.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Tehran, Iran</p>
+                    <p><i class="fas fa-phone"></i> 021-22357761-3</p>
+                    <p><i class="fas fa-envelope"></i> toolgostar@yahoo.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ToolGostar Industrial Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="shared/js/common.js"></script>
+    <script src="js/i18n.js"></script>
+    <script>
+        // News Article Manager
+        class NewsArticleManager {
+            constructor() {
+                this.articleId = this.getArticleIdFromURL();
+                this.article = null;
+                this.init();
+            }
+
+            getArticleIdFromURL() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get('id');
+            }
+
+            async init() {
+                if (!this.articleId) {
+                    this.showError();
+                    return;
+                }
+
+                try {
+                    await this.loadArticle();
+                    this.renderArticle();
+                } catch (error) {
+                    console.error('Failed to load article:', error);
+                    this.showError();
+                }
+            }
+
+            async loadArticle() {
+                try {
+                    console.log('🔄 Loading article:', this.articleId);
+                    const response = await fetch(`http://localhost:3001/api/v1/news/${this.articleId}`);
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.article = data.data.news;
+                        console.log('✅ Article loaded:', this.article);
+                    } else {
+                        throw new Error('Failed to fetch article');
+                    }
+                } catch (error) {
+                    console.error('❌ Error loading article:', error);
+                    throw error;
+                }
+            }
+
+            renderArticle() {
+                if (!this.article) return;
+
+                const currentLang = this.getCurrentLanguage();
+                console.log('🎨 Rendering article in language:', currentLang);
+
+                // Get translated content
+                const title = this.article.title[currentLang] || this.article.title.en || this.article.title;
+                const content = this.article.content[currentLang] || this.article.content.en || this.article.content;
+                const categoryName = this.article.category?.name ? 
+                    (typeof this.article.category.name === 'object' ? 
+                        (this.article.category.name[currentLang] || this.article.category.name.en) : 
+                        this.article.category.name) : 
+                    'News';
+
+                // Format date
+                const publishedDate = new Date(this.article.publishedAt).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                // Convert numbers to Farsi if needed
+                const finalTitle = currentLang === 'fa' ? this.convertToFarsiNumbers(title) : title;
+                const finalContent = currentLang === 'fa' ? this.convertToFarsiNumbers(content) : content;
+                const finalDate = currentLang === 'fa' ? this.convertToFarsiNumbers(publishedDate) : publishedDate;
+
+                // Update page title
+                document.title = `${finalTitle} - ToolGostar Industrial Group`;
+
+                // Hide loading state
+                document.getElementById('article-loading').style.display = 'none';
+
+                // Show article content
+                document.getElementById('article-content').style.display = 'block';
+                document.getElementById('article-body').style.display = 'block';
+
+                // Update article title
+                document.getElementById('article-title').textContent = finalTitle;
+
+                // Update article meta
+                document.getElementById('article-date').textContent = finalDate;
+                document.getElementById('article-author').textContent = 
+                    this.article.author?.firstName ? 
+                    `${this.article.author.firstName} ${this.article.author.lastName}` : 
+                    'ToolGostar Team';
+                document.getElementById('article-category').textContent = categoryName;
+                document.getElementById('article-views').textContent = 
+                    `${this.article.viewsCount || 0} ${currentLang === 'fa' ? 'بازدید' : 'views'}`;
+
+                // Update featured image
+                if (this.article.featuredImage) {
+                    const img = document.getElementById('article-featured-image');
+                    img.src = this.article.featuredImage;
+                    img.alt = finalTitle;
+                    img.style.display = 'block';
+                }
+
+                // Update article content
+                document.getElementById('article-text').innerHTML = this.formatContent(finalContent);
+
+                // Update tags
+                if (this.article.tags && this.article.tags.length > 0) {
+                    const tagsContainer = document.getElementById('article-tags');
+                    tagsContainer.innerHTML = this.article.tags.map(tag => 
+                        `<span class="article-tag">${tag}</span>`
+                    ).join('');
+                    tagsContainer.style.display = 'flex';
+                }
+
+                // Update back button text
+                const backButton = document.getElementById('back-button');
+                const backText = backButton.querySelector('span');
+                backText.textContent = currentLang === 'fa' ? 'بازگشت به اخبار' : 'Back to News';
+            }
+
+            formatContent(content) {
+                // Simple content formatting - you can enhance this with a proper markdown parser
+                return content
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/\n/g, '<br>')
+                    .replace(/^/, '<p>')
+                    .replace(/$/, '</p>');
+            }
+
+            getCurrentLanguage() {
+                if (window.i18n && window.i18n.currentLanguage) {
+                    return window.i18n.currentLanguage;
+                }
+                return localStorage.getItem('language') || 'en';
+            }
+
+            convertToFarsiNumbers(text) {
+                if (typeof text !== 'string') {
+                    text = String(text);
+                }
+                
+                const farsiNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                const englishNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+                
+                for (let i = 0; i < 10; i++) {
+                    text = text.replace(new RegExp(englishNumbers[i], 'g'), farsiNumbers[i]);
+                }
+                
+                return text;
+            }
+
+            showError() {
+                document.getElementById('article-loading').style.display = 'none';
+                document.getElementById('article-error').style.display = 'block';
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new NewsArticleManager();
+        });
+
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
