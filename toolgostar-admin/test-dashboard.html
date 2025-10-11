@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Test - ToolGostar Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Dashboard API Test</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="test-results">
+                            <div class="text-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-2">Testing dashboard API calls...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axios for API calls -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- API Service -->
+    <script src="assets/js/api-service.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const testResults = document.getElementById('test-results');
+            
+            const runTests = async () => {
+                let results = [];
+                
+                // Test 1: Health Check
+                try {
+                    const healthResult = await apiService.getHealth();
+                    results.push({
+                        name: 'Health Check',
+                        status: healthResult.success ? 'success' : 'error',
+                        message: healthResult.success ? 'Backend is online' : healthResult.error?.message || 'Health check failed'
+                    });
+                } catch (error) {
+                    results.push({
+                        name: 'Health Check',
+                        status: 'error',
+                        message: 'Network error: ' + error.message
+                    });
+                }
+                
+                // Test 2: Products API
+                try {
+                    const productsResult = await apiService.getProducts();
+                    results.push({
+                        name: 'Products API',
+                        status: productsResult.success ? 'success' : 'error',
+                        message: productsResult.success ? 
+                            `Found ${productsResult.data.products?.length || 0} products` : 
+                            productsResult.error?.message || 'Products API failed'
+                    });
+                } catch (error) {
+                    results.push({
+                        name: 'Products API',
+                        status: 'error',
+                        message: 'Network error: ' + error.message
+                    });
+                }
+                
+                // Test 3: Projects API
+                try {
+                    const projectsResult = await apiService.getProjects();
+                    results.push({
+                        name: 'Projects API',
+                        status: projectsResult.success ? 'success' : 'error',
+                        message: projectsResult.success ? 
+                            `Found ${projectsResult.data.projects?.length || 0} projects` : 
+                            projectsResult.error?.message || 'Projects API failed'
+                    });
+                } catch (error) {
+                    results.push({
+                        name: 'Projects API',
+                        status: 'error',
+                        message: 'Network error: ' + error.message
+                    });
+                }
+                
+                // Test 4: Dashboard Data
+                try {
+                    const dashboardResult = await apiService.getDashboardData();
+                    results.push({
+                        name: 'Dashboard Data',
+                        status: dashboardResult.success ? 'success' : 'error',
+                        message: dashboardResult.success ? 
+                            `Dashboard data loaded: ${dashboardResult.data.totalProducts} products, ${dashboardResult.data.totalProjects} projects, ${dashboardResult.data.newContacts} contacts` : 
+                            dashboardResult.error?.message || 'Dashboard data failed'
+                    });
+                } catch (error) {
+                    results.push({
+                        name: 'Dashboard Data',
+                        status: 'error',
+                        message: 'Network error: ' + error.message
+                    });
+                }
+                
+                // Render results
+                renderResults(results);
+            };
+            
+            const renderResults = (results) => {
+                const successCount = results.filter(r => r.status === 'success').length;
+                const totalCount = results.length;
+                
+                testResults.innerHTML = `
+                    <div class="alert alert-${successCount === totalCount ? 'success' : 'warning'}">
+                        <h5>Test Results: ${successCount}/${totalCount} tests passed</h5>
+                        ${successCount === totalCount ? 
+                            'All tests passed! Dashboard is ready to use real data.' : 
+                            'Some tests failed. Check the details below.'
+                        }
+                    </div>
+                    
+                    <div class="row">
+                        ${results.map(result => `
+                            <div class="col-md-6 mb-3">
+                                <div class="card border-${result.status === 'success' ? 'success' : 'danger'}">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-${result.status === 'success' ? 'check-circle text-success' : 'x-circle text-danger'} fs-4 me-3"></i>
+                                            <div>
+                                                <h6 class="mb-1">${result.name}</h6>
+                                                <p class="mb-0 text-muted">${result.message}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="index.html" class="btn btn-primary">Go to Dashboard</a>
+                        <button class="btn btn-outline-secondary ms-2" onclick="location.reload()">Run Tests Again</button>
+                    </div>
+                `;
+            };
+            
+            // Run tests
+            await runTests();
+        });
+    </script>
+</body>
+</html>

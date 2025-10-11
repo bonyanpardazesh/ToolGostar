@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Test - ToolGostar Admin</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Products API Test</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="test-results">
+                            <div class="text-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-2">Testing products API calls...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Axios for API calls -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- API Service -->
+    <script src="assets/js/api-service.js"></script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const testResults = document.getElementById('test-results');
+            
+            const runTests = async () => {
+                let results = [];
+                
+                // Test 1: Get Products
+                try {
+                    const productsResult = await apiService.getProducts();
+                    results.push({
+                        name: 'Get Products',
+                        status: productsResult.success ? 'success' : 'error',
+                        message: productsResult.success ? 
+                            `Found ${productsResult.data.products?.length || 0} products` : 
+                            productsResult.error?.message || 'Get products failed'
+                    });
+                } catch (error) {
+                    results.push({
+                        name: 'Get Products',
+                        status: 'error',
+                        message: 'Network error: ' + error.message
+                    });
+                }
+                
+                // Test 2: Create Product (if authenticated)
+                if (apiService.isAuthenticated()) {
+                    try {
+                        const testProduct = {
+                            name: 'Test Product - ' + new Date().getTime(),
+                            category: 'test',
+                            description: 'This is a test product created via API testing',
+                            capacity: '1000 L/day',
+                            powerRange: '1-5 HP',
+                            features: ['Test Feature 1', 'Test Feature 2'],
+                            applications: ['Test Application'],
+                            specifications: {
+                                material: 'Stainless Steel',
+                                warranty: '2 years'
+                            }
+                        };
+                        
+                        const createResult = await apiService.createProduct(testProduct);
+                        results.push({
+                            name: 'Create Product',
+                            status: createResult.success ? 'success' : 'error',
+                            message: createResult.success ? 
+                                `Product created successfully with ID: ${createResult.data.product?.id || 'Unknown'}` : 
+                                createResult.error?.message || 'Create product failed'
+                        });
+                        
+                        // Store created product ID for further tests
+                        if (createResult.success && createResult.data.product?.id) {
+                            window.testProductId = createResult.data.product.id;
+                        }
+                    } catch (error) {
+                        results.push({
+                            name: 'Create Product',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Create Product',
+                        status: 'warning',
+                        message: 'Skipped - Authentication required'
+                    });
+                }
+                
+                // Test 3: Get Single Product (if we created one)
+                if (window.testProductId) {
+                    try {
+                        const singleProductResult = await apiService.getProduct(window.testProductId);
+                        results.push({
+                            name: 'Get Single Product',
+                            status: singleProductResult.success ? 'success' : 'error',
+                            message: singleProductResult.success ? 
+                                `Product retrieved: ${singleProductResult.data.product?.name || 'Unknown'}` : 
+                                singleProductResult.error?.message || 'Get single product failed'
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Get Single Product',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Get Single Product',
+                        status: 'warning',
+                        message: 'Skipped - No product ID available'
+                    });
+                }
+                
+                // Test 4: Update Product (if we created one and authenticated)
+                if (window.testProductId && apiService.isAuthenticated()) {
+                    try {
+                        const updateData = {
+                            name: 'Updated Test Product - ' + new Date().getTime(),
+                            category: 'test',
+                            description: 'This is an updated test product',
+                            capacity: '2000 L/day',
+                            powerRange: '2-10 HP'
+                        };
+                        
+                        const updateResult = await apiService.updateProduct(window.testProductId, updateData);
+                        results.push({
+                            name: 'Update Product',
+                            status: updateResult.success ? 'success' : 'error',
+                            message: updateResult.success ? 
+                                `Product updated successfully` : 
+                                updateResult.error?.message || 'Update product failed'
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Update Product',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Update Product',
+                        status: 'warning',
+                        message: 'Skipped - No product ID or authentication required'
+                    });
+                }
+                
+                // Test 5: Delete Product (if we created one and authenticated)
+                if (window.testProductId && apiService.isAuthenticated()) {
+                    try {
+                        const deleteResult = await apiService.deleteProduct(window.testProductId);
+                        results.push({
+                            name: 'Delete Product',
+                            status: deleteResult.success ? 'success' : 'error',
+                            message: deleteResult.success ? 
+                                `Product deleted successfully` : 
+                                deleteResult.error?.message || 'Delete product failed'
+                        });
+                    } catch (error) {
+                        results.push({
+                            name: 'Delete Product',
+                            status: 'error',
+                            message: 'Network error: ' + error.message
+                        });
+                    }
+                } else {
+                    results.push({
+                        name: 'Delete Product',
+                        status: 'warning',
+                        message: 'Skipped - No product ID or authentication required'
+                    });
+                }
+                
+                // Render results
+                renderResults(results);
+            };
+            
+            const renderResults = (results) => {
+                const successCount = results.filter(r => r.status === 'success').length;
+                const warningCount = results.filter(r => r.status === 'warning').length;
+                const totalCount = results.length;
+                
+                testResults.innerHTML = `
+                    <div class="alert alert-${successCount === totalCount ? 'success' : successCount > 0 ? 'warning' : 'danger'}">
+                        <h5>Test Results: ${successCount}/${totalCount} tests passed</h5>
+                        ${successCount === totalCount ? 
+                            'All tests passed! Products API is working perfectly.' : 
+                            successCount > 0 ?
+                            'Some tests passed. Check the details below.' :
+                            'All tests failed. Check the details below.'
+                        }
+                        ${warningCount > 0 ? `<br><small>${warningCount} tests were skipped (authentication required)</small>` : ''}
+                    </div>
+                    
+                    <div class="row">
+                        ${results.map(result => `
+                            <div class="col-md-6 mb-3">
+                                <div class="card border-${result.status === 'success' ? 'success' : result.status === 'warning' ? 'warning' : 'danger'}">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <i class="bi bi-${result.status === 'success' ? 'check-circle text-success' : result.status === 'warning' ? 'exclamation-triangle text-warning' : 'x-circle text-danger'} fs-4 me-3"></i>
+                                            <div>
+                                                <h6 class="mb-1">${result.name}</h6>
+                                                <p class="mb-0 text-muted">${result.message}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="mt-4">
+                        <a href="pages/products.html" class="btn btn-primary">Go to Products Page</a>
+                        <button class="btn btn-outline-secondary ms-2" onclick="location.reload()">Run Tests Again</button>
+                    </div>
+                `;
+            };
+            
+            // Run tests
+            await runTests();
+        });
+    </script>
+</body>
+</html>

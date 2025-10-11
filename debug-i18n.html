@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug i18n</title>
+</head>
+<body>
+    <h1>Debug i18n System</h1>
+    <div>
+        <h2 data-i18n="team.ceo.name">CEO Name</h2>
+        <p data-i18n="team.ceo.position">CEO Position</p>
+    </div>
+    
+    <button onclick="debugI18n()">Debug i18n</button>
+    <button onclick="forceTranslate()">Force Translate</button>
+    
+    <script src="js/i18n.js"></script>
+    <script>
+        function debugI18n() {
+            console.log('=== i18n Debug Info ===');
+            console.log('i18n object exists:', !!window.i18n);
+            console.log('i18n initialized:', window.i18n?.initialized);
+            console.log('Current language:', window.i18n?.currentLanguage);
+            console.log('Translations loaded:', !!window.i18n?.translations);
+            console.log('English translations:', window.i18n?.translations?.en);
+            console.log('Team data:', window.i18n?.translations?.en?.team);
+            console.log('CEO name translation:', window.i18n?.t('team.ceo.name'));
+        }
+        
+        function forceTranslate() {
+            if (window.i18n) {
+                console.log('Forcing translation...');
+                window.i18n.applyLanguage('en');
+            }
+        }
+        
+        // Auto-debug after 2 seconds
+        setTimeout(debugI18n, 2000);
+    </script>
+</body>
+</html>

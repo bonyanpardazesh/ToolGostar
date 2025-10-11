@@ -1,0 +1,300 @@
+{
+
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "Get in touch with our experts for consultation, quotes, and technical support for your water treatment needs."
+    },
+    "form": {
+      "title": "Send Us a Message",
+      "firstName": "First Name *",
+      "lastName": "Last Name *",
+      "email": "Email Address *",
+      "phone": "Phone Number",
+      "company": "Company Name",
+      "industry": "Industry",
+      "selectIndustry": "Select Industry",
+      "projectType": "Project Type",
+      "selectProjectType": "Select Project Type",
+      "subject": "Subject *",
+      "message": "Message *",
+      "messagePlaceholder": "Please describe your requirements, capacity needs, and any specific questions...",
+      "capacity": "Required Capacity",
+      "budget": "Budget Range",
+      "selectBudget": "Select Budget Range",
+      "timeline": "Project Timeline",
+      "selectTimeline": "Select Timeline"
+    },
+    "info": {
+      "title": "Get in Touch",
+      "headOffice": "Head Office",
+      "phone": "Phone & Fax",
+      "email": "Email",
+      "hours": "Business Hours",
+      "officeHours": "Office Hours",
+      "satWed": "Saturday - Wednesday: 8:00 AM - 5:00 PM",
+      "thursday": "Thursday: 8:00 AM - 1:00 PM",
+      "friday": "Friday: Closed",
+      "timezone": "Iran Standard Time (IRST)",
+      "followUs": "Follow Us"
+    }
+  },
+  "team": {
+    "title": "Our Leadership Team",
+    "subtitle": "Meet the experts who drive our company's success and innovation",
+    "ceo": {
+      "name": "Mohammad Ahmadi",
+      "position": "Chief Executive Officer",
+      "description": "Leading ToolGostar with over 20 years of experience in industrial engineering and water treatment technology."
+    },
+    "cto": {
+      "name": "Sara Hosseini",
+      "position": "Chief Technology Officer",
+      "description": "Expert in advanced water treatment technologies with PhD in Environmental Engineering from Tehran University."
+    },
+    "ops": {
+      "name": "Ali Rezaei",
+      "position": "Operations Director",
+      "description": "Manages global operations and project delivery with expertise in international business development."
+    },
+    "eng": {
+      "name": "Fateme Karimi",
+      "position": "Engineering Manager",
+      "description": "Leads our engineering team in developing innovative solutions for complex water treatment challenges."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "view": "View",
+    "read_more": "Read More",
+    "learn_more": "Learn More",
+    "contact_us": "Contact Us",
+    "get_quote": "Get in Contact",
+    "order_request": "Order Request",
+    "download": "Download",
+    "share": "Share",
+    "industrial_equipment": "Industrial Equipment",
+    "project_placeholder": "Project Image"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "products": "Products",
+    "gallery": "Executive Records",
+    "news": "News",
+    "contact": "Contact",
+    "admin": "Admin"
+  },
+  "home": {
+    "hero": {
+      "title": "ToolGostar Industrial Group",
+      "subtitle": "Leading Manufacturer of Water & Wastewater Treatment Equipment",
+      "description": "We provide innovative solutions for industrial water treatment, mixing systems, and pumping solutions. With over 20 years of experience, we deliver reliable and efficient equipment for various industries.",
+      "cta_primary": "Our Products",
+      "cta_secondary": "Learn More About Us"
+    },
+    "features": {
+      "title": "Why Choose ToolGostar?",
+      "subtitle": "Excellence in Water Treatment Solutions",
+      "feature1": {
+        "title": "20+ Years Experience",
+        "description": "Decades of expertise in water treatment technology"
+      },
+      "feature2": {
+        "title": "Quality Products",
+        "description": "High-quality equipment built to last"
+      },
+      "feature3": {
+        "title": "Expert Support",
+        "description": "Professional technical support and service"
+      },
+      "feature4": {
+        "title": "Custom Solutions",
+        "description": "Tailored solutions for your specific needs"
+      }
+    },
+    "products_preview": {
+      "title": "Our Products",
+      "subtitle": "Comprehensive Water Treatment Solutions",
+      "view_all": "View All Products"
+    },
+    "projects_preview": {
+      "title": "Recent Projects",
+      "subtitle": "Successfully Completed Installations",
+      "view_all": "View All Projects"
+    },
+    "news_preview": {
+      "title": "Latest News",
+      "subtitle": "Stay Updated with Industry News",
+      "view_all": "View All News"
+    }
+  },
+  "about": {
+    "title": "About ToolGostar",
+    "subtitle": "Leading the way in industrial water treatment solutions with over 15 years of engineering excellence and innovation",
+    "story": {
+      "title": "Our Story",
+      "description1": "Founded in 2009, ToolGostar Industrial Group has grown from a small engineering firm to a leading manufacturer of industrial water treatment equipment. Our journey began with a simple mission: to provide reliable, efficient, and innovative solutions for water treatment challenges.",
+      "description2": "Today, we serve clients across 15+ countries, delivering cutting-edge technology and unmatched expertise in every project. Our commitment to quality and innovation has made us a trusted partner for industries worldwide."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description1": "To provide innovative, reliable, and sustainable water treatment solutions that help our clients achieve their operational goals while protecting the environment. We are committed to engineering excellence, customer satisfaction, and continuous improvement.",
+      "description2": "Our vision is to be the global leader in industrial water treatment technology, setting new standards for efficiency, reliability, and environmental responsibility."
+    },
+    "achievements": {
+      "title": "Our Achievements",
+      "subtitle": "Numbers that speak to our experience and commitment to excellence",
+      "projects": "Projects Completed",
+      "countries": "Countries Served",
+      "engineers": "Expert Engineers",
+      "experience": "Years Experience"
+    },
+    "values": {
+      "title": "Our Core Values",
+      "quality": "Quality",
+      "innovation": "Innovation",
+      "reliability": "Reliability",
+      "service": "Service"
+    },
+    "certifications": {
+      "title": "Certifications & Standards",
+      "description": "We adhere to international quality and safety standards and hold certifications from recognized organizations."
+    }
+  },
+  "products": {
+    "title": "Our Product Range",
+    "subtitle": "Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.",
+    "categories": {
+      "water_treatment": "Water Treatment Systems",
+      "pumps": "Pumps",
+      "filters": "Filters",
+      "control_systems": "Control Systems"
+    },
+    "filters": {
+      "category": "Category",
+      "all": "All Products",
+      "search": "Search Products",
+      "sort_by": "Sort By",
+      "name": "Name",
+      "date": "Date",
+      "price": "Price"
+    },
+    "water_treatment": {
+      "description": "Complete water treatment systems including filtration, disinfection, and purification equipment for industrial applications.",
+      "item1": "Water Treatment Systems",
+      "item2": "Wastewater Treatment Plants",
+      "item3": "Filtration Equipment",
+      "item4": "Disinfection Systems"
+    },
+    "mixers": {
+      "description": "High-efficiency mixing and aeration equipment for optimal water treatment processes and oxygen transfer.",
+      "item1": "Submersible Mixers",
+      "item2": "Surface Aerators",
+      "item3": "Fine Bubble Diffusers",
+      "item4": "Mechanical Aerators"
+    },
+    "pumps": {
+      "description": "Robust pumping solutions and submersible mixing systems for reliable water circulation and treatment.",
+      "item1": "Submersible Pumps",
+      "item2": "Centrifugal Pumps",
+      "item3": "Submersible Mixers",
+      "item4": "Pump Control Systems"
+    },
+    "actions": {
+      "view_details": "View Details",
+      "order_request": "Order Request"
+    }
+  },
+    "gallery": {
+        "title": "Executive Records",
+        "subtitle": "Explore our portfolio of successful industrial water treatment installations and projects completed worldwide.",
+    "filters": {
+      "all": "All Projects",
+      "water_treatment": "Water Treatment",
+      "mixers": "Mixers & Aerators",
+      "pumps": "Pumps & Systems"
+    },
+    "project_types": {
+      "water": "Water Treatment Plants",
+      "mixers": "Mixing Systems",
+      "pumps": "Pumping Stations",
+      "custom": "Custom Projects"
+    },
+    "sample_project1": {
+      "title": "Water Treatment Plant - Tehran",
+      "description": "Complete water treatment system installation"
+    },
+    "sample_project2": {
+      "title": "Industrial Mixing System",
+      "description": "Custom mixing solution for industrial application"
+    },
+    "sample_project3": {
+      "title": "Municipal Wastewater Treatment",
+      "description": "Large-scale municipal wastewater treatment facility"
+    }
+  },
+  "news": {
+    "title": "News & Updates",
+    "subtitle": "Stay Informed with Latest Industry News",
+    "ticker": {
+      "label": "Latest News"
+    },
+    "categories": {
+      "company_news": "Company News",
+      "product_updates": "Product Updates",
+      "industry_insights": "Industry Insights",
+      "project_showcases": "Project Showcases"
+    },
+    "read_more": "Read More",
+    "published_on": "Published on",
+    "author": "Author",
+    "sample_article1": {
+      "title": "New Water Treatment Technology",
+      "excerpt": "Latest advancements in water treatment technology and their applications in industrial settings."
+    },
+    "sample_article2": {
+      "title": "Product Launch: Advanced Mixers",
+      "excerpt": "Introducing our new line of high-efficiency mixing equipment for improved water treatment processes."
+    },
+    "sample_article3": {
+      "title": "Industry Recognition Award",
+      "excerpt": "ToolGostar receives recognition for excellence in water treatment equipment manufacturing."
+    }
+  },
+  "footer": {
+    "company_info": "Company Information",
+    "company_description": "ToolGostar Industrial Group is a leading manufacturer of water and wastewater treatment equipment, providing innovative solutions for industrial applications.",
+    "quick_links": "Quick Links",
+    "products": "Products",
+    "services": "Services",
+    "contact_info": "Contact Information",
+    "follow_us": "Follow Us",
+    "copyright": "© 2025 ToolGostar Industrial Group. All rights reserved.",
+    "privacy_policy": "Privacy Policy",
+    "terms_of_service": "Terms of Service",
+    "main_office": "Main Office",
+    "factory": "Factory",
+    "phone": "Phone",
+    "mobile": "Mobile",
+    "fax": "Fax",
+    "email": "Email"
+  },
+  "masked_section": {
+    "title": "Innovation in Every Drop",
+    "subtitle": "Experience the future of water treatment technology"
+  }
+}

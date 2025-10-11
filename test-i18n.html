@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test i18n</title>
+</head>
+<body>
+    <h1>Test i18n System</h1>
+    <div>
+        <h2 data-i18n="team.ceo.name">CEO Name</h2>
+        <p data-i18n="team.ceo.position">CEO Position</p>
+        <p data-i18n="team.ceo.description">CEO Description</p>
+    </div>
+    
+    <div>
+        <h2 data-i18n="team.cto.name">CTO Name</h2>
+        <p data-i18n="team.cto.position">CTO Position</p>
+        <p data-i18n="team.cto.description">CTO Description</p>
+    </div>
+    
+    <button onclick="testTranslation()">Test Translation</button>
+    <button onclick="switchToFarsi()">Switch to Farsi</button>
+    <button onclick="switchToEnglish()">Switch to English</button>
+    
+    <script src="js/i18n.js"></script>
+    <script>
+        function testTranslation() {
+            console.log('Current language:', window.i18n?.currentLanguage);
+            console.log('Translations loaded:', window.i18n?.translations);
+            console.log('CEO name translation:', window.i18n?.t('team.ceo.name'));
+        }
+        
+        function switchToFarsi() {
+            if (window.i18n) {
+                window.i18n.switchLanguage('fa');
+            }
+        }
+        
+        function switchToEnglish() {
+            if (window.i18n) {
+                window.i18n.switchLanguage('en');
+            }
+        }
+        
+        // Wait for i18n to initialize
+        setTimeout(() => {
+            console.log('i18n initialized:', window.i18n?.initialized);
+            console.log('Current language:', window.i18n?.currentLanguage);
+            console.log('Translations:', window.i18n?.translations);
+        }, 2000);
+    </script>
+</body>
+</html>

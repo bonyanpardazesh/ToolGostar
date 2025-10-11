@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="settings.title">ToolGostar Admin - Site Settings</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../public/images/logo/logo1.svg">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- RTL Support -->
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="bg-light">
+
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-dark border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <i class="bi bi-tools me-2"></i>ToolGostar
+            </div>
+            <div class="list-group list-group-flush my-3">
+                <a href="../index.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-speedometer2 me-2"></i><span data-i18n="navigation.dashboard">Dashboard</span>
+                </a>
+                <a href="products.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-box-seam me-2"></i><span data-i18n="navigation.products">Products</span>
+                </a>
+                <a href="projects.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-building me-2"></i><span data-i18n="navigation.projects">Projects</span>
+                </a>
+                <a href="news.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-newspaper me-2"></i><span data-i18n="navigation.news">News</span>
+                </a>
+                <a href="contacts.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-envelope-paper me-2"></i><span data-i18n="navigation.contacts">Contacts</span>
+                </a>
+                <a href="quotes.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-file-earmark-text me-2"></i><span data-i18n="navigation.quotes">Quote Requests</span>
+                </a>
+                <a href="media.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-images me-2"></i><span data-i18n="navigation.media">Media Library</span>
+                </a>
+                <a href="settings.html" class="list-group-item list-group-item-action bg-transparent second-text active">
+                    <i class="bi bi-sliders me-2"></i><span data-i18n="navigation.settings">Site Settings</span>
+                </a>
+                <a href="users.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-people me-2"></i><span data-i18n="navigation.users">User Management</span>
+                </a>
+                <a href="#" id="logout-btn" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+                    <i class="bi bi-box-arrow-right me-2"></i><span data-i18n="navigation.logout">Logout</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-list fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0" data-i18n="settings.title">Site Settings</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <!-- Language Switcher -->
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="languageDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-translate me-2"></i><span id="current-language">EN</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">
+                                    <i class="bi bi-flag me-2"></i>English
+                                </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="switchLanguage('fa')">
+                                    <i class="bi bi-flag me-2"></i>فارسی
+                                </a></li>
+                            </ul>
+                        </li>
+                        <!-- User Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle me-2"></i><span id="user-name">Admin</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="profile.html" data-i18n="user.profile">Profile</a></li>
+                                <li><a class="dropdown-item" href="#" data-i18n="user.settings">Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" id="logout-link" data-i18n="navigation.logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid px-4">
+                <!-- Settings Navigation -->
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="mb-0" data-i18n="settings.configuration.title">Site Configuration</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <button class="btn btn-outline-primary active" data-category="general">
+                                        <i class="bi bi-gear me-2"></i><span data-i18n="settings.categories.general">General</span>
+                                    </button>
+                                    <button class="btn btn-outline-primary" data-category="company">
+                                        <i class="bi bi-building me-2"></i><span data-i18n="settings.categories.company">Company</span>
+                                    </button>
+                                    <button class="btn btn-outline-primary" data-category="contact">
+                                        <i class="bi bi-telephone me-2"></i><span data-i18n="settings.categories.contact">Contact</span>
+                                    </button>
+                                    <button class="btn btn-outline-primary" data-category="social">
+                                        <i class="bi bi-share me-2"></i><span data-i18n="settings.categories.social">Social Media</span>
+                                    </button>
+                                    <button class="btn btn-outline-primary" data-category="seo">
+                                        <i class="bi bi-search me-2"></i><span data-i18n="settings.categories.seo">SEO</span>
+                                    </button>
+                                    <button class="btn btn-outline-primary" data-category="analytics">
+                                        <i class="bi bi-graph-up me-2"></i><span data-i18n="settings.categories.analytics">Analytics</span>
+                                    </button>
+                                    <button class="btn btn-outline-primary" data-category="email">
+                                        <i class="bi bi-envelope me-2"></i><span data-i18n="settings.categories.email">Email</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0" id="settings-category-title" data-i18n="settings.general.title">General Settings</h6>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-success btn-sm" id="export-settings-btn">
+                                        <i class="bi bi-download me-1"></i><span data-i18n="settings.actions.export">Export</span>
+                                    </button>
+                                    <button class="btn btn-info btn-sm" id="import-settings-btn">
+                                        <i class="bi bi-upload me-1"></i><span data-i18n="settings.actions.import">Import</span>
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" id="add-setting-btn">
+                                        <i class="bi bi-plus me-1"></i><span data-i18n="settings.actions.addSetting">Add Setting</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- Loading State -->
+                                <div id="loading-state" class="text-center py-4" style="display: none;">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="mt-2 text-muted" data-i18n="settings.messages.loading">Loading settings...</p>
+                                </div>
+
+                                <!-- Error State -->
+                                <div id="error-state" class="text-center py-4" style="display: none;">
+                                    <i class="bi bi-exclamation-triangle fs-1 text-danger mb-3"></i>
+                                    <h5 class="text-danger" data-i18n="settings.messages.error">Error Loading Settings</h5>
+                                    <p class="text-muted" id="error-message" data-i18n="settings.messages.loadError">Failed to load settings</p>
+                                    <button class="btn btn-primary" id="retry-btn">
+                                        <i class="bi bi-arrow-clockwise me-2"></i><span data-i18n="settings.messages.retry">Retry</span>
+                                    </button>
+                                </div>
+
+                                <!-- Settings Form -->
+                                <div id="settings-container">
+                                    <form id="settings-form">
+                                        <div id="settings-fields">
+                                            <!-- Settings fields will be loaded here -->
+                                        </div>
+                                        <div class="mt-4">
+                                            <button type="submit" class="btn btn-primary" id="save-settings-btn">
+                                                <i class="bi bi-check me-2"></i><span data-i18n="settings.actions.saveAll">Save All Settings</span>
+                                            </button>
+                                            <button type="button" class="btn btn-secondary ms-2" id="reset-settings-btn">
+                                                <i class="bi bi-arrow-clockwise me-2"></i><span data-i18n="settings.actions.reset">Reset to Default</span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Axios for API calls -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Configuration -->
+    <script src="../config.js"></script>
+    <!-- Admin i18n System -->
+    <script src="../assets/js/i18n-admin.js"></script>
+    <!-- Force immediate translation application -->
+    <script>
+        // Force translations immediately after i18n loads
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.translations) {
+                window.adminI18n.applyTranslations();
+            }
+        }, 10);
+        
+        // Multiple fallback attempts to ensure translations are applied
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.translations) {
+                window.adminI18n.applyTranslations();
+            }
+        }, 100);
+        
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.translations) {
+                window.adminI18n.applyTranslations();
+            }
+        }, 500);
+        
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.translations) {
+                window.adminI18n.applyTranslations();
+            }
+        }, 1000);
+    </script>
+    <!-- API Service -->
+    <script src="../assets/js/api-service.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+    <!-- Settings JS -->
+    <script src="../assets/js/settings.js"></script>
+    <!-- Force translation refresh after all scripts load -->
+    <script>
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.refresh) {
+                window.adminI18n.refresh();
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

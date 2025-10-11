@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vazir Font Loading Test</title>
+    
+    <!-- Load CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        
+        .farsi-test {
+            direction: rtl;
+            text-align: right;
+            background: #e8f4fd;
+            border-color: #2563eb;
+        }
+        
+        .english-test {
+            background: #f0f8f0;
+            border-color: #10b981;
+        }
+        
+        .font-weight-100 { font-weight: 100; }
+        .font-weight-300 { font-weight: 300; }
+        .font-weight-400 { font-weight: 400; }
+        .font-weight-500 { font-weight: 500; }
+        .font-weight-700 { font-weight: 700; }
+        
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+        
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+    </style>
+</head>
+<body>
+    <h1>Font Loading Test</h1>
+    <p>Testing font loading from: <code>D:\code\Project\ToolGostar\Web\font\</code></p>
+    
+    <div class="test-section english-test">
+        <h2>English Text (Should use Arial)</h2>
+        <p>This is English text that should be displayed in Arial font.</p>
+        <p><strong>Bold English text</strong> and <em>italic English text</em>.</p>
+        <p class="font-weight-400">Regular weight (400)</p>
+        <p class="font-weight-700">Bold weight (700)</p>
+    </div>
+    
+    <div class="test-section farsi-test" dir="rtl" lang="fa">
+        <h2>فارسی (Should use Vazir)</h2>
+        <p>این متن فارسی است که باید با فونت وزیر نمایش داده شود.</p>
+        <p><strong>متن ضخیم فارسی</strong> و <em>متن کج فارسی</em>.</p>
+        <p class="font-weight-100">وزن نازک (100)</p>
+        <p class="font-weight-300">وزن سبک (300)</p>
+        <p class="font-weight-400">وزن معمولی (400)</p>
+        <p class="font-weight-500">وزن متوسط (500)</p>
+        <p class="font-weight-700">وزن ضخیم (700)</p>
+    </div>
+    
+    <div class="test-section">
+        <h2>Font Loading Status</h2>
+        <div id="loading-status">Checking font loading...</div>
+        <div id="font-detection">Detecting fonts...</div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusDiv = document.getElementById('loading-status');
+            const detectionDiv = document.getElementById('font-detection');
+            
+            // Test font loading
+            if ('fonts' in document) {
+                const fontTests = [
+                    { name: 'Vazir Regular (400)', font: '400 16px Vazir' },
+                    { name: 'Vazir Light (300)', font: '300 16px Vazir' },
+                    { name: 'Vazir Medium (500)', font: '500 16px Vazir' },
+                    { name: 'Vazir Bold (700)', font: '700 16px Vazir' },
+                    { name: 'Vazir Thin (100)', font: '100 16px Vazir' }
+                ];
+                
+                let loadedCount = 0;
+                const totalTests = fontTests.length;
+                
+                Promise.all(fontTests.map(test => 
+                    document.fonts.load(test.font).then(() => {
+                        loadedCount++;
+                        return { name: test.name, status: 'success' };
+                    }).catch(() => {
+                        return { name: test.name, status: 'error' };
+                    })
+                )).then(results => {
+                    let statusHTML = '<h3>Font Loading Results:</h3>';
+                    results.forEach(result => {
+                        const statusClass = result.status === 'success' ? 'success' : 'error';
+                        const statusIcon = result.status === 'success' ? '✅' : '❌';
+                        statusHTML += `<div class="status ${statusClass}">${statusIcon} ${result.name}</div>`;
+                    });
+                    
+                    statusDiv.innerHTML = statusHTML;
+                    
+                    if (loadedCount === totalTests) {
+                        statusDiv.innerHTML += '<div class="status success">🎉 All Vazir fonts loaded successfully!</div>';
+                    } else {
+                        statusDiv.innerHTML += `<div class="status error">⚠️ Only ${loadedCount}/${totalTests} fonts loaded</div>`;
+                    }
+                });
+            } else {
+                statusDiv.innerHTML = '<div class="status error">❌ Font loading API not supported</div>';
+            }
+            
+            // Test actual font detection
+            const englishP = document.querySelector('.english-test p');
+            const farsiP = document.querySelector('.farsi-test p');
+            
+            const englishFont = window.getComputedStyle(englishP).fontFamily;
+            const farsiFont = window.getComputedStyle(farsiP).fontFamily;
+            
+            detectionDiv.innerHTML = `
+                <h3>Font Detection:</h3>
+                <div class="status ${englishFont.includes('Arial') ? 'success' : 'error'}">
+                    English Font: ${englishFont}
+                </div>
+                <div class="status ${farsiFont.includes('Vazir') ? 'success' : 'error'}">
+                    Farsi Font: ${farsiFont}
+                </div>
+            `;
+        });
+    </script>
+</body>
+</html>

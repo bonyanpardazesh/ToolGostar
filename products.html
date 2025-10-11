@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - ToolGostar Industrial Equipment</title>
+    <meta name="description" content="Explore our comprehensive range of industrial water treatment equipment, mixers, aerators, and submersible pumps.">
+    <meta name="keywords" content="water treatment equipment, industrial mixers, aerators, submersible pumps, wastewater treatment, ToolGostar products">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="public/images/logo/logo1.svg">
+    
+    <!-- Fonts - Using local Vazir font -->
+    <!-- Preload Vazir fonts for better performance -->
+    <link rel="preload" href="font/Vazir.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="font/Vazir-Bold.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="font/Vazir-Medium.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="font/Vazir-Light.woff2" as="font" type="font/woff2">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    <link rel="stylesheet" href="shared/css/header.css">
+    <link rel="stylesheet" href="shared/css/footer.css">
+    
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/products.css">
+    
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" title="English">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag-icon">
+            <span>EN</span>
+        </button>
+        <button class="lang-btn" data-lang="fa" title="فارسی">
+            <img src="https://flagcdn.com/w20/ir.png" alt="فارسی" class="flag-icon">
+            <span>فا</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation -->
+            <ul class="nav-left">
+                <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+                <li class="nav-dropdown">
+                    <a href="products.html" class="nav-link" data-i18n="navigation.products">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="filterProductsByCategory('water-treatment'); return false;" data-i18n="products.categories.water_treatment" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
+                        <li><a href="#" onclick="filterProductsByCategory('mixers'); return false;" data-i18n="products.categories.mixers" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
+                        <li><a href="#" onclick="filterProductsByCategory('pumps'); return false;" data-i18n="products.categories.pumps" data-en="Pumps & Systems" data-fa="پمپ‌ها و سیستم‌ها">Pumps & Systems</a></li>
+                        <li><a href="#" onclick="filterProductsByCategory('filters'); return false;" data-i18n="products.categories.filters" data-en="Filters & Media" data-fa="فیلترها و رسانه‌ها">Filters & Media</a></li>
+                        <li><a href="#" onclick="filterProductsByCategory('control'); return false;" data-i18n="products.categories.control_systems" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Gallery</a></li>
+            </ul>
+            
+            <!-- Center logo -->
+            <a href="home.html" class="nav-logo">
+                <img src="public/images/logo/logo.png" alt="ToolGostar Industrial Group" />
+            </a>
+            
+            <!-- Right side navigation -->
+            <ul class="nav-right">
+                <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+                <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="hamburger" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <ul class="nav-mobile" id="mobileMenu">
+            <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+            <li class="nav-dropdown-mobile">
+                <a href="products.html" class="nav-link" data-i18n="navigation.products" onclick="toggleMobileDropdown(this); return false;">Products</a>
+                <ul class="dropdown-menu-mobile">
+                    <li><a href="#" onclick="filterProductsByCategory('water-treatment'); return false;" data-i18n="products.categories.water_treatment" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
+                    <li><a href="#" onclick="filterProductsByCategory('mixers'); return false;" data-i18n="products.categories.mixers" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
+                    <li><a href="#" onclick="filterProductsByCategory('pumps'); return false;" data-i18n="products.categories.pumps" data-en="Pumps & Systems" data-fa="پمپ‌ها و سیستم‌ها">Pumps & Systems</a></li>
+                    <li><a href="#" onclick="filterProductsByCategory('filters'); return false;" data-i18n="products.categories.filters" data-en="Filters & Media" data-fa="فیلترها و رسانه‌ها">Filters & Media</a></li>
+                    <li><a href="#" onclick="filterProductsByCategory('control'); return false;" data-i18n="products.categories.control_systems" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Gallery</a></li>
+            <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+            <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+            <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Products Introduction -->
+        <section class="products-intro">
+            <div class="container">
+                <h1 data-i18n="products.title">Our Product Range</h1>
+                <p data-i18n="products.subtitle">Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.</p>
+                
+                <!-- Search Bar -->
+                <div class="products-search" id="productsSearch">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search products..." class="search-input" data-i18n="products.search.placeholder">
+                        <button class="search-btn" onclick="searchProducts()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()" style="display: none;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="category-filters" id="categoryFilters">
+                    <button class="filter-btn active" data-category="all" data-i18n="products.filters.all">All Products</button>
+                    <button class="filter-btn" data-category="water-treatment" data-i18n="products.categories.water_treatment">Water Treatment</button>
+                    <button class="filter-btn" data-category="mixers-aerators" data-i18n="products.categories.mixers_aerators">Mixers & Aerators</button>
+                    <button class="filter-btn" data-category="pumps-systems" data-i18n="products.categories.pumps_systems">Pumps & Systems</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="products-section">
+            <div class="container">
+                <!-- Loading State -->
+                <div id="productsLoading" class="products-loading" style="display: none;">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p data-i18n="products.loading">Loading products...</p>
+                            </div>
+                        </div>
+                
+                <!-- Error State -->
+                <div id="productsError" class="products-error" style="display: none;">
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3 data-i18n="products.error.title">Unable to load products</h3>
+                        <p data-i18n="products.error.message">Please check your connection and try again.</p>
+                        <button class="btn btn-primary" onclick="loadProducts()" data-i18n="products.error.retry">Try Again</button>
+                        </div>
+                        </div>
+                
+                <!-- Products Grid Container -->
+                <div id="productsGrid" class="products-grid">
+                    <!-- Products will be dynamically loaded here -->
+                        </div>
+                
+                <!-- No Products Message -->
+                <div id="noProductsMessage" class="no-products-message" style="display: none;">
+                    <div class="no-products-content">
+                        <i class="fas fa-box-open"></i>
+                        <h3 data-i18n="products.empty.title">No products found</h3>
+                        <p data-i18n="products.empty.message">No products are available at the moment.</p>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Section -->
+        <section class="why-choose-section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Why Choose Our Equipment?</h2>
+                    <p>Discover the advantages that set our industrial equipment apart from the competition</p>
+                </div>
+                
+                <div class="why-choose-grid">
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4>ISO Certified Quality</h4>
+                        <p>All our products meet international quality standards with ISO 9001:2015 certification.</p>
+                    </div>
+                    
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h4>Expert Engineering</h4>
+                        <p>Designed by experienced engineers with deep knowledge of industrial applications.</p>
+                    </div>
+                    
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h4>24/7 Support</h4>
+                        <p>Comprehensive technical support and maintenance services worldwide.</p>
+                    </div>
+                    
+                    <div class="why-choose-item">
+                        <div class="why-choose-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h4>Fast Delivery</h4>
+                        <p>Quick delivery and installation services to minimize downtime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Product Details</h2>
+                <button class="modal-close" onclick="closeProductModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImage">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <div id="modalContent">
+                    <!-- Content will be dynamically loaded -->
+                </div>
+                <div class="product-actions">
+                    <a href="contact.html" class="btn btn-primary" data-i18n="products.actions.order_request">
+                        <i class="fas fa-shopping-cart"></i> Order Request
+                    </a>
+                    <button class="btn btn-secondary" onclick="closeProductModal()" data-i18n="common.close">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ToolGostar Industrial Group</h3>
+                    <p>Leading manufacturer of industrial water treatment solutions, mixers, aerators, and submersible pumps.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Access</h3>
+                    <ul>
+                        <li><a href="#water">Water Treatment</a></li>
+                        <li><a href="#mixers">Mixers & Aerators</a></li>
+                        <li><a href="#pumps">Pumps & Systems</a></li>
+                        <li><a href="contact.html">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Unit 10, Soheil Complex, Alameh Tabatabaie St, Saadat Abad, Tehran, Iran</p>
+                    <p><i class="fas fa-phone"></i> 021-22357761-3</p>
+                    <p><i class="fas fa-mobile-alt"></i> 09108108132</p>
+                    <p><i class="fas fa-envelope"></i> toolgostar@yahoo.com</p>
+                </div>
+                
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://linkedin.com/company/toolgostar" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/989108108132" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/toolgostar" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ToolGostar Industrial Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="shared/js/config.js"></script>
+    <script src="shared/js/server-config.js"></script>
+    <script src="shared/js/common.js"></script>
+    <script src="shared/js/api-integration.js"></script>
+    <script>
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (mobileMenu && hamburger) {
+                mobileMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            }
+        }
+        
+        // Mobile dropdown toggle function
+        function toggleMobileDropdown(element) {
+            const dropdown = element.closest('.nav-dropdown-mobile');
+            if (dropdown) {
+                dropdown.classList.toggle('active');
+            }
+        }
+        
+        // Function to filter products by category from dropdown
+        function filterProductsByCategory(category) {
+            
+            // Update the filter buttons to show the selected category
+            const categoryFilters = document.getElementById('categoryFilters');
+            if (categoryFilters) {
+                
+                // Remove active class from all buttons
+                categoryFilters.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.style.background = '';
+                    btn.style.color = '';
+                });
+                
+                // Find and activate the corresponding filter button
+                const targetButton = categoryFilters.querySelector(`[data-category="${category}"]`);
+                if (targetButton) {
+                    targetButton.classList.add('active');
+                    targetButton.style.background = '#2563eb';
+                    targetButton.style.color = 'white';
+                } else {
+                    // Default to "all" if no specific category found
+                    const allButton = categoryFilters.querySelector('[data-category="all"]');
+                    if (allButton) {
+                        allButton.classList.add('active');
+                        allButton.style.background = '#2563eb';
+                        allButton.style.color = 'white';
+                    }
+                }
+            } else {
+                console.error('Category filters element not found');
+            }
+            
+            // Apply the filter directly here
+            const products = document.querySelectorAll('.product-category');
+            
+            let visibleCount = 0;
+            products.forEach(product => {
+                const productCategory = product.dataset.category;
+                
+                if (category === 'all' || productCategory === category) {
+                    product.style.display = 'block';
+                    product.style.opacity = '1';
+                    product.style.transform = 'scale(1)';
+                    visibleCount++;
+                } else {
+                    product.style.display = 'none';
+                    product.style.opacity = '0';
+                    product.style.transform = 'scale(0.95)';
+                }
+            });
+            
+            // Show message if no products found
+            if (visibleCount === 0 && category !== 'all') {
+                showNoProductsMessage(category);
+            } else {
+                hideNoProductsMessage();
+            }
+            
+            // Scroll to products section
+            const productsSection = document.querySelector('.products-section');
+            if (productsSection) {
+                productsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            // Close mobile dropdown if open
+            const mobileDropdown = document.querySelector('.nav-dropdown-mobile');
+            if (mobileDropdown && mobileDropdown.classList.contains('active')) {
+                mobileDropdown.classList.remove('active');
+            }
+        }
+        
+        // Function to show no products message
+        function showNoProductsMessage(category) {
+            let messageElement = document.getElementById('noProductsMessage');
+            if (!messageElement) {
+                messageElement = document.createElement('div');
+                messageElement.id = 'noProductsMessage';
+                messageElement.className = 'no-products-message';
+                messageElement.style.cssText = `
+                    text-align: center;
+                    padding: 2rem;
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    margin: 2rem 0;
+                    color: #6c757d;
+                `;
+                
+                const productsGrid = document.querySelector('.products-grid');
+                if (productsGrid) {
+                    productsGrid.appendChild(messageElement);
+                }
+            }
+            
+            const currentLang = getCurrentLanguage();
+            const message = currentLang === 'fa' 
+                ? `هیچ محصولی در دسته‌بندی "${getCategoryName(category, currentLang)}" یافت نشد.`
+                : `No products found in "${getCategoryName(category, currentLang)}" category.`;
+            
+            messageElement.textContent = message;
+            messageElement.style.display = 'block';
+        }
+        
+        // Function to hide no products message
+        function hideNoProductsMessage() {
+            const messageElement = document.getElementById('noProductsMessage');
+            if (messageElement) {
+                messageElement.style.display = 'none';
+            }
+        }
+        
+        // Function to get category name in current language
+        function getCategoryName(category, lang) {
+            const categoryNames = {
+                'water-treatment': {
+                    'en': 'Water Treatment',
+                    'fa': 'تصفیه آب'
+                },
+                'mixers-aerators': {
+                    'en': 'Mixers & Aerators',
+                    'fa': 'مخلوط‌کن‌ها و هواده‌ها'
+                },
+                'pumps-systems': {
+                    'en': 'Pumps & Systems',
+                    'fa': 'پمپ‌ها و سیستم‌ها'
+                }
+            };
+            
+            return categoryNames[category]?.[lang] || category;
+        }
+    </script>
+    <script>
+        // Static products - no API needed
+
+        // Static products - no helper functions needed
+
+        // Function to get current language from multiple sources
+        function getCurrentLanguage() {
+            // Try multiple ways to get the current language
+            if (window.i18n && window.i18n.currentLanguage) {
+                return window.i18n.currentLanguage;
+            }
+            if (window.i18n && window.i18n.getCurrentLanguage) {
+                return window.i18n.getCurrentLanguage();
+            }
+            // Check localStorage
+            const storedLang = localStorage.getItem('language');
+            if (storedLang) {
+                return storedLang;
+            }
+            // Check URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const urlLang = urlParams.get('lang');
+            if (urlLang) {
+                return urlLang;
+            }
+            // Check body class
+            if (document.body.classList.contains('fa')) {
+                return 'fa';
+            }
+            // Default to English
+            return 'en';
+        }
+
+        // Function to apply language-specific styling
+        function applyLanguageStyling(language) {
+            const body = document.body;
+            const html = document.documentElement;
+            
+            // Remove existing language classes
+            body.classList.remove('fa', 'en');
+            html.removeAttribute('lang');
+            body.removeAttribute('dir');
+            
+            if (language === 'fa') {
+                // Apply Farsi styling
+                body.classList.add('fa');
+                html.setAttribute('lang', 'fa');
+                body.setAttribute('dir', 'rtl');
+                body.style.direction = 'rtl';
+                body.style.textAlign = 'right';
+                body.style.width = '100%';
+                body.style.maxWidth = '100%';
+                body.style.overflowX = 'hidden';
+                
+                // Force layout refresh
+                setTimeout(() => {
+                    const containers = document.querySelectorAll('.container, .main-content, .products-intro, .products-section');
+                    containers.forEach(container => {
+                        container.style.width = '100%';
+                        container.style.maxWidth = '100%';
+                        container.style.direction = 'rtl';
+                        container.style.textAlign = 'right';
+                    });
+                }, 100);
+            } else {
+                // Apply English styling
+                body.classList.add('en');
+                html.setAttribute('lang', 'en');
+                body.setAttribute('dir', 'ltr');
+                body.style.direction = 'ltr';
+                body.style.textAlign = 'left';
+                body.style.width = '100%';
+                body.style.maxWidth = '100%';
+                body.style.overflowX = 'hidden';
+                
+                // Force layout refresh
+                setTimeout(() => {
+                    const containers = document.querySelectorAll('.container, .main-content, .products-intro, .products-section');
+                    containers.forEach(container => {
+                        container.style.width = '100%';
+                        container.style.maxWidth = '100%';
+                        container.style.direction = 'ltr';
+                        container.style.textAlign = 'left';
+                    });
+                }, 100);
+            }
+        }
+
+        // Listen for language changes and refresh products
+        window.addEventListener('languageChanged', () => {
+            const currentLang = getCurrentLanguage();
+            applyLanguageStyling(currentLang);
+            
+            // Re-apply fallback translations for new language
+            setTimeout(() => {
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const translation = window.i18n?.t(key);
+                    if (!translation || translation === key) {
+                        // Apply fallback for new language
+                        const fallbackTranslations = {
+                            'navigation.home': currentLang === 'fa' ? 'خانه' : 'Home',
+                            'navigation.products': currentLang === 'fa' ? 'محصولات' : 'Products',
+                            'navigation.gallery': currentLang === 'fa' ? 'سوابق اجرایی' : 'Executive Records',
+                            'navigation.about': currentLang === 'fa' ? 'درباره ما' : 'About',
+                            'navigation.contact': currentLang === 'fa' ? 'تماس' : 'Contact',
+                            'navigation.news': currentLang === 'fa' ? 'اخبار' : 'News',
+                            'products.title': currentLang === 'fa' ? 'محدوده محصولات ما' : 'Our Product Range',
+                            'products.subtitle': currentLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                            'products.categories.water_treatment': currentLang === 'fa' ? 'سیستم‌های تصفیه آب' : 'Water Treatment Systems',
+                            'products.categories.mixers': currentLang === 'fa' ? 'مخلوط‌کن‌ها و هواده‌ها' : 'Mixers & Aerators',
+                            'products.categories.pumps': currentLang === 'fa' ? 'پمپ‌ها و سیستم‌ها' : 'Pumps & Systems',
+                            'products.categories.filters': currentLang === 'fa' ? 'فیلترها و رسانه‌ها' : 'Filters & Media',
+                            'products.categories.control_systems': currentLang === 'fa' ? 'سیستم‌های کنترل' : 'Control Systems',
+                            'products.filters.all': currentLang === 'fa' ? 'همه محصولات' : 'All Products',
+                            'products.search.placeholder': currentLang === 'fa' ? 'جستجوی محصولات...' : 'Search products...',
+                            'products.loading': currentLang === 'fa' ? 'در حال بارگذاری محصولات...' : 'Loading products...',
+                            'products.error.title': currentLang === 'fa' ? 'قادر به بارگذاری محصولات نیست' : 'Unable to load products',
+                            'products.error.message': currentLang === 'fa' ? 'لطفاً اتصال خود را بررسی کرده و دوباره تلاش کنید.' : 'Please check your connection and try again.',
+                            'products.error.retry': currentLang === 'fa' ? 'تلاش مجدد' : 'Try Again',
+                            'products.empty.title': currentLang === 'fa' ? 'هیچ محصولی یافت نشد' : 'No products found',
+                            'products.empty.message': currentLang === 'fa' ? 'در حال حاضر هیچ محصولی در دسترس نیست.' : 'No products are available at the moment.',
+                            'products.actions.view_details': currentLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                            'products.actions.order_request': currentLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                            'common.close': currentLang === 'fa' ? 'بستن' : 'Close'
+                        };
+                        
+                        if (fallbackTranslations[key]) {
+                            el.textContent = fallbackTranslations[key];
+                        }
+                    }
+                });
+            }, 100);
+            
+            if (window.loadAndRenderProducts) {
+                window.loadAndRenderProducts();
+            }
+        });
+
+        // Also listen for i18n system changes
+        if (window.i18n) {
+            const originalApplyLanguage = window.i18n.applyLanguage;
+            if (originalApplyLanguage) {
+                window.i18n.applyLanguage = function(language) {
+                    const result = originalApplyLanguage.call(this, language);
+                    // Trigger product reload after language change
+                    setTimeout(() => {
+                        const currentLang = getCurrentLanguage();
+                        applyLanguageStyling(currentLang);
+                        
+                        // Re-apply fallback translations for new language
+                        const elements = document.querySelectorAll('[data-i18n]');
+                        elements.forEach(el => {
+                            const key = el.getAttribute('data-i18n');
+                            const translation = window.i18n?.t(key);
+                            if (!translation || translation === key) {
+                                // Apply fallback for new language
+                                const fallbackTranslations = {
+                                    'navigation.home': currentLang === 'fa' ? 'خانه' : 'Home',
+                                    'navigation.products': currentLang === 'fa' ? 'محصولات' : 'Products',
+                                    'navigation.gallery': currentLang === 'fa' ? 'سوابق اجرایی' : 'Executive Records',
+                                    'navigation.about': currentLang === 'fa' ? 'درباره ما' : 'About',
+                                    'navigation.contact': currentLang === 'fa' ? 'تماس' : 'Contact',
+                                    'navigation.news': currentLang === 'fa' ? 'اخبار' : 'News',
+                                    'products.title': currentLang === 'fa' ? 'محدوده محصولات ما' : 'Our Product Range',
+                                    'products.subtitle': currentLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                                    'products.categories.water_treatment': currentLang === 'fa' ? 'سیستم‌های تصفیه آب' : 'Water Treatment Systems',
+                                    'products.categories.mixers': currentLang === 'fa' ? 'مخلوط‌کن‌ها و هواده‌ها' : 'Mixers & Aerators',
+                                    'products.categories.pumps': currentLang === 'fa' ? 'پمپ‌ها و سیستم‌ها' : 'Pumps & Systems',
+                                    'products.categories.filters': currentLang === 'fa' ? 'فیلترها و رسانه‌ها' : 'Filters & Media',
+                                    'products.categories.control_systems': currentLang === 'fa' ? 'سیستم‌های کنترل' : 'Control Systems',
+                                    'products.filters.all': currentLang === 'fa' ? 'همه محصولات' : 'All Products',
+                                    'products.search.placeholder': currentLang === 'fa' ? 'جستجوی محصولات...' : 'Search products...',
+                                    'products.loading': currentLang === 'fa' ? 'در حال بارگذاری محصولات...' : 'Loading products...',
+                                    'products.error.title': currentLang === 'fa' ? 'قادر به بارگذاری محصولات نیست' : 'Unable to load products',
+                                    'products.error.message': currentLang === 'fa' ? 'لطفاً اتصال خود را بررسی کرده و دوباره تلاش کنید.' : 'Please check your connection and try again.',
+                                    'products.error.retry': currentLang === 'fa' ? 'تلاش مجدد' : 'Try Again',
+                                    'products.empty.title': currentLang === 'fa' ? 'هیچ محصولی یافت نشد' : 'No products found',
+                                    'products.empty.message': currentLang === 'fa' ? 'در حال حاضر هیچ محصولی در دسترس نیست.' : 'No products are available at the moment.',
+                                    'products.actions.view_details': currentLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                                    'products.actions.order_request': currentLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                                    'common.close': currentLang === 'fa' ? 'بستن' : 'Close'
+                                };
+                                
+                                if (fallbackTranslations[key]) {
+                                    el.textContent = fallbackTranslations[key];
+                                }
+                            }
+                        });
+                        
+                        if (window.loadAndRenderProducts) {
+                            window.loadAndRenderProducts();
+                        }
+                    }, 100);
+                    return result;
+                };
+            }
+        }
+
+        // Also listen for clicks on language buttons
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('[onclick*="switchLanguage"]') || e.target.closest('.language-switcher') || e.target.closest('.lang-btn')) {
+                
+                // Get the target language from the button
+                const button = e.target.closest('.lang-btn');
+                let targetLang = 'en';
+                if (button) {
+                    targetLang = button.getAttribute('data-lang') || 'en';
+                }
+                
+                // Wait a bit for the language to be set, then update
+                setTimeout(() => {
+                    const currentLang = getCurrentLanguage();
+                    // Use target language if available, otherwise use detected language
+                    const finalLang = targetLang || currentLang;
+                    
+                    applyLanguageStyling(finalLang);
+                    updateProductCards(finalLang);
+                    
+                    // Re-apply fallback translations for new language
+                    const elements = document.querySelectorAll('[data-i18n]');
+                    elements.forEach(el => {
+                        const key = el.getAttribute('data-i18n');
+                        const translation = window.i18n?.t(key);
+                        if (!translation || translation === key) {
+                            // Apply fallback for new language
+                            const fallbackTranslations = {
+                                'navigation.home': finalLang === 'fa' ? 'خانه' : 'Home',
+                                'navigation.products': finalLang === 'fa' ? 'محصولات' : 'Products',
+                                'navigation.gallery': finalLang === 'fa' ? 'گالری' : 'Gallery',
+                                'navigation.about': finalLang === 'fa' ? 'درباره ما' : 'About',
+                                'navigation.contact': finalLang === 'fa' ? 'تماس' : 'Contact',
+                                'navigation.news': finalLang === 'fa' ? 'اخبار' : 'News',
+                                'products.title': finalLang === 'fa' ? 'محدوده محصولات ما' : 'Our Product Range',
+                                'products.subtitle': finalLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                                'products.filters.all': finalLang === 'fa' ? 'همه محصولات' : 'All Products',
+                                'products.actions.view_details': finalLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                                'products.actions.order_request': finalLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                                'common.close': finalLang === 'fa' ? 'بستن' : 'Close'
+                            };
+                            
+                            if (fallbackTranslations[key]) {
+                                el.textContent = fallbackTranslations[key];
+                            }
+                        }
+                    });
+                }, 200);
+            }
+        });
+
+        // Poll for language changes every 500ms as a fallback
+        let lastLanguage = getCurrentLanguage();
+        setInterval(() => {
+            const currentLanguage = getCurrentLanguage();
+            if (currentLanguage !== lastLanguage) {
+                lastLanguage = currentLanguage;
+                applyLanguageStyling(currentLanguage);
+                updateProductCards(currentLanguage);
+                
+                // Re-apply fallback translations for new language
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const translation = window.i18n?.t(key);
+                    if (!translation || translation === key) {
+                        // Apply fallback for new language
+                        const fallbackTranslations = {
+                            'navigation.home': currentLanguage === 'fa' ? 'خانه' : 'Home',
+                            'navigation.products': currentLanguage === 'fa' ? 'محصولات' : 'Products',
+                            'navigation.gallery': currentLanguage === 'fa' ? 'گالری' : 'Gallery',
+                            'navigation.about': currentLanguage === 'fa' ? 'درباره ما' : 'About',
+                            'navigation.contact': currentLanguage === 'fa' ? 'تماس' : 'Contact',
+                            'navigation.news': currentLanguage === 'fa' ? 'اخبار' : 'News',
+                            'products.title': currentLanguage === 'fa' ? 'محدوده محصولات ما' : 'Our Product Range',
+                            'products.subtitle': currentLanguage === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                            'products.categories.water_treatment': currentLanguage === 'fa' ? 'سیستم‌های تصفیه آب' : 'Water Treatment Systems',
+                            'products.categories.mixers': currentLanguage === 'fa' ? 'مخلوط‌کن‌ها و هواده‌ها' : 'Mixers & Aerators',
+                            'products.categories.pumps': currentLanguage === 'fa' ? 'پمپ‌ها و سیستم‌ها' : 'Pumps & Systems',
+                            'products.categories.filters': currentLanguage === 'fa' ? 'فیلترها و رسانه‌ها' : 'Filters & Media',
+                            'products.categories.control_systems': currentLanguage === 'fa' ? 'سیستم‌های کنترل' : 'Control Systems',
+                            'products.filters.all': currentLanguage === 'fa' ? 'همه محصولات' : 'All Products',
+                            'products.search.placeholder': currentLanguage === 'fa' ? 'جستجوی محصولات...' : 'Search products...',
+                            'products.loading': currentLanguage === 'fa' ? 'در حال بارگذاری محصولات...' : 'Loading products...',
+                            'products.error.title': currentLanguage === 'fa' ? 'قادر به بارگذاری محصولات نیست' : 'Unable to load products',
+                            'products.error.message': currentLanguage === 'fa' ? 'لطفاً اتصال خود را بررسی کرده و دوباره تلاش کنید.' : 'Please check your connection and try again.',
+                            'products.error.retry': currentLanguage === 'fa' ? 'تلاش مجدد' : 'Try Again',
+                            'products.empty.title': currentLanguage === 'fa' ? 'هیچ محصولی یافت نشد' : 'No products found',
+                            'products.empty.message': currentLanguage === 'fa' ? 'در حال حاضر هیچ محصولی در دسترس نیست.' : 'No products are available at the moment.',
+                            'products.actions.view_details': currentLanguage === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                            'products.actions.order_request': currentLanguage === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                            'common.close': currentLanguage === 'fa' ? 'بستن' : 'Close'
+                        };
+                        
+                        if (fallbackTranslations[key]) {
+                            el.textContent = fallbackTranslations[key];
+                        }
+                    }
+                });
+            }
+        }, 500);
+
+        // Global helper functions
+        window.showMessage = function(message, type = 'info') {
+            // You can add visual notification here if needed
+        };
+
+        // Global function to load and render products (static version)
+        window.loadAndRenderProducts = function() {
+            // Static products are already in the HTML, just update language
+                const currentLang = getCurrentLanguage();
+            updateProductCards(currentLang);
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Apply initial language styling
+            const initialLang = getCurrentLanguage();
+            applyLanguageStyling(initialLang);
+            
+            // Load products from API
+            setTimeout(() => {
+                if (window.loadProducts) {
+                    window.loadProducts();
+                }
+            }, 500);
+            
+            // Check for category in URL and apply filter
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            if (category) {
+                // Apply filter after products are loaded
+                setTimeout(() => {
+                filterProductsByCategory(category);
+                }, 1000);
+            }
+            
+            // Immediately apply translations without waiting for i18n
+            const elements = document.querySelectorAll('[data-i18n]');
+            
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const fallbackTranslations = {
+                    'navigation.home': initialLang === 'fa' ? 'خانه' : 'Home',
+                    'navigation.products': initialLang === 'fa' ? 'محصولات' : 'Products',
+                    'navigation.gallery': initialLang === 'fa' ? 'گالری' : 'Gallery',
+                    'navigation.about': initialLang === 'fa' ? 'درباره ما' : 'About',
+                    'navigation.contact': initialLang === 'fa' ? 'تماس' : 'Contact',
+                    'navigation.news': initialLang === 'fa' ? 'اخبار' : 'News',
+                    'products.title': initialLang === 'fa' ? 'محدوده محصولات ما' : 'Our Product Range',
+                    'products.subtitle': initialLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                    'products.filters.all': initialLang === 'fa' ? 'همه محصولات' : 'All Products',
+                    'products.actions.view_details': initialLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                    'products.actions.order_request': initialLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                    'common.close': initialLang === 'fa' ? 'بستن' : 'Close'
+                };
+                
+                if (fallbackTranslations[key]) {
+                    el.textContent = fallbackTranslations[key];
+                    console.log(`✅ Applied immediate translation for ${key}: ${fallbackTranslations[key]}`);
+                }
+            });
+
+        // Global API instance
+        let api = null;
+        
+        // Initialize API immediately when ToolGostarAPI becomes available
+        function initializeAPI() {
+            if (window.ToolGostarAPI && !api) {
+                api = new window.ToolGostarAPI();
+                console.log('✅ API initialized');
+                return true;
+            }
+            return false;
+        }
+        
+        // Try to initialize immediately
+        if (!initializeAPI()) {
+            // If not available, wait for DOM ready
+            document.addEventListener('DOMContentLoaded', () => {
+                if (!initializeAPI()) {
+                    console.error('❌ ToolGostarAPI not available');
+                }
+            });
+        }
+
+        // Global function to update product cards (for compatibility)
+        window.updateProductCards = function() {
+            console.log('🔄 updateProductCards called - redirecting to loadProducts');
+            if (window.loadProducts) {
+                window.loadProducts();
+            }
+        };
+
+        // Global function for loading products with performance optimizations
+        window.loadProducts = async function() {
+            // Prevent multiple simultaneous loads
+            if (isLoading) {
+                console.log('⏳ Products already loading, skipping...');
+                    return;
+                }
+
+            const loadingEl = document.getElementById('productsLoading');
+            const errorEl = document.getElementById('productsError');
+            const gridEl = document.getElementById('productsGrid');
+            const noProductsEl = document.getElementById('noProductsMessage');
+            
+            isLoading = true;
+            
+            // Show loading state
+            loadingEl.style.display = 'block';
+            errorEl.style.display = 'none';
+            gridEl.innerHTML = '';
+            noProductsEl.style.display = 'none';
+            
+            try {
+                // Wait for API to be initialized with retry logic
+                if (!api) {
+                    console.log('⏳ Waiting for API to initialize...');
+                    // Try multiple times with increasing delays
+                    for (let i = 0; i < 10; i++) {
+                        await new Promise(resolve => setTimeout(resolve, 100));
+                        if (api) {
+                            console.log(`✅ API initialized after ${(i + 1) * 100}ms`);
+                            break;
+                        }
+                    }
+                    if (!api) {
+                        throw new Error('API not initialized after 1 second');
+                    }
+                }
+                
+                console.log('🔄 Loading products...');
+                const response = await api.getProducts();
+                
+                // Hide loading state
+                loadingEl.style.display = 'none';
+                
+                if (response.offline) {
+                    // Show offline message
+                    showOfflineMessage();
+                    return;
+                }
+                
+                if (!response.products || response.products.length === 0) {
+                    // Show no products message
+                    noProductsEl.style.display = 'block';
+                    return;
+                }
+                
+                // Render products with lazy loading
+                renderProductsWithLazyLoading(response.products);
+                
+            } catch (error) {
+                console.error('❌ Error loading products:', error);
+                
+                // Hide loading state
+                loadingEl.style.display = 'none';
+                
+                // Show error state
+                errorEl.style.display = 'block';
+            } finally {
+                isLoading = false;
+            }
+        };
+
+        // Function to render products
+        function renderProducts(products) {
+            const gridEl = document.getElementById('productsGrid');
+            const currentLang = getCurrentLanguage();
+            
+            if (!products || products.length === 0) {
+                document.getElementById('noProductsMessage').style.display = 'block';
+                    return;
+                }
+
+            gridEl.innerHTML = products.map(product => {
+                const productName = product.name?.[currentLang] || product.name?.en || product.name || 'Product';
+                const productDesc = product.shortDescription?.[currentLang] || product.shortDescription?.en || product.shortDescription || '';
+                // Handle image URLs - convert relative to absolute if needed (supports both localhost and production)
+                let productImage = product.featuredImage || product.galleryImages?.[0] || 'public/images/logo/logo.png';
+                productImage = CommonApp.getImageUrl(productImage);
+                const productCategory = product.category?.slug || product.category || 'general';
+                
+                // Get features for current language
+                const features = product.features?.[currentLang] || product.features?.en || product.features || [];
+                const featuresHtml = Array.isArray(features) ? features.map(feature => 
+                    `<li data-en="${feature}" data-fa="${feature}">${feature}</li>`
+                ).join('') : '';
+                
+                return `
+                    <article class="product-category" data-category="${productCategory}">
+                        <div class="product-image">
+                            <img src="${productImage}" alt="${productName}" 
+                                 style="width: 100%; height: 250px; object-fit: contain; border-radius: 8px; background-color: #f8f9fa; padding: 10px;"
+                                 onerror="this.src='public/images/logo/logo.png'">
+                        </div>
+                        <h3 class="product-name" data-en="${productName}" data-fa="${productName}">${productName}</h3>
+                        <p class="product-description" data-en="${productDesc}" data-fa="${productDesc}">${productDesc}</p>
+                        <ul class="product-features">
+                            ${featuresHtml}
+                        </ul>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="showProductDetails('${product.id || product.slug}')">
+                                <i class="fas fa-eye"></i> <span data-en="View Details" data-fa="مشاهده جزئیات">View Details</span>
+                            </button>
+                            <a href="contact.html" class="btn btn-secondary">
+                                <i class="fas fa-shopping-cart"></i> <span data-en="Order Request" data-fa="درخواست سفارش">Order Request</span>
+                            </a>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+            
+            // Update product cards for current language
+            updateProductCards(currentLang);
+        }
+
+        // Function to show offline message
+        function showOfflineMessage() {
+            const gridEl = document.getElementById('productsGrid');
+            const currentLang = getCurrentLanguage();
+            
+            const offlineMessage = currentLang === 'fa' 
+                ? 'سرور در دسترس نیست. لطفاً بعداً تلاش کنید.'
+                : 'Server is not available. Please try again later.';
+                
+            gridEl.innerHTML = `
+                <div class="offline-message" style="grid-column: 1 / -1; text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 8px; color: #6c757d;">
+                    <i class="fas fa-wifi" style="font-size: 3rem; margin-bottom: 1rem; color: #dc3545;"></i>
+                    <h3>${offlineMessage}</h3>
+                    <button class="btn btn-primary" onclick="loadProducts()" style="margin-top: 1rem;">
+                        <i class="fas fa-refresh"></i> ${currentLang === 'fa' ? 'تلاش مجدد' : 'Try Again'}
+                    </button>
+                </div>
+            `;
+        }
+
+        // Global function for showing product details with caching
+        window.showProductDetails = async function(productId) {
+            console.log('Product details requested for:', productId);
+
+                const modal = document.getElementById('productModal');
+                const modalTitle = document.getElementById('modalTitle');
+                const modalImage = document.getElementById('modalImage');
+                const modalContent = document.getElementById('modalContent');
+                
+            // Check cache first
+            if (productCache.has(productId)) {
+                console.log('📦 Using cached product details for:', productId);
+                const cachedProduct = productCache.get(productId);
+                displayProductDetails(cachedProduct, modal, modalTitle, modalImage, modalContent);
+                modal.style.display = 'block';
+                return;
+            }
+            
+            // Show loading state in modal
+            modalTitle.textContent = 'Loading...';
+            modalImage.innerHTML = '<i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: #2563eb;"></i>';
+            modalContent.innerHTML = '<p>Loading product details...</p>';
+            modal.style.display = 'block';
+            
+            try {
+                // Wait for API to be initialized with retry logic
+                if (!api) {
+                    console.log('⏳ Waiting for API to initialize...');
+                    // Try multiple times with increasing delays
+                    for (let i = 0; i < 10; i++) {
+                        await new Promise(resolve => setTimeout(resolve, 100));
+                        if (api) {
+                            console.log(`✅ API initialized after ${(i + 1) * 100}ms`);
+                            break;
+                        }
+                    }
+                    if (!api) {
+                        throw new Error('API not initialized after 1 second');
+                    }
+                }
+                
+                // Fetch product details from API using the API class method
+                const product = await api.getProduct(productId);
+                
+                // Cache the product
+                productCache.set(productId, product);
+                console.log('💾 Cached product details for:', productId);
+                
+                // Display the product details
+                displayProductDetails(product, modal, modalTitle, modalImage, modalContent);
+                
+            } catch (error) {
+                console.error('❌ Error loading product details:', error);
+                
+                // Show error state in modal
+                modalTitle.textContent = 'Error';
+                modalImage.innerHTML = '<i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #dc2626;"></i>';
+                modalContent.innerHTML = `
+                    <p>Failed to load product details. Please try again later.</p>
+                    <button class="btn btn-primary" onclick="showProductDetails('${productId}')">
+                        <i class="fas fa-refresh"></i> Try Again
+                    </button>
+                `;
+            }
+        }
+
+        // Function to display product details
+        function displayProductDetails(product, modal, modalTitle, modalImage, modalContent) {
+                const currentLang = getCurrentLanguage();
+                
+            // Get localized content using correct backend field names
+            const productName = product.name?.[currentLang] || product.name?.en || product.name || 'Product';
+            const productDesc = product.shortDescription?.[currentLang] || product.shortDescription?.en || product.shortDescription || product.fullDescription || '';
+            // Handle image URLs - convert relative to absolute if needed (supports both localhost and production)
+            let productImage = product.featuredImage || product.galleryImages?.[0] || 'public/images/logo/logo.png';
+            productImage = CommonApp.getImageUrl(productImage);
+            
+            // Get features, applications, and specifications
+            const features = product.features?.[currentLang] || product.features?.en || product.features || [];
+            const applications = product.applications?.[currentLang] || product.applications?.en || product.applications || [];
+            const specifications = product.specifications || {};
+            
+            // Update modal content
+                modalTitle.textContent = productName;
+
+                    modalImage.innerHTML = `
+                <img src="${productImage}" alt="${productName}" 
+                     style="max-width: 100%; height: auto; border-radius: 8px; display: block;"
+                     onerror="this.src='public/images/logo/logo.png'">
+            `;
+            
+            // Build content HTML
+            const featuresHtml = Array.isArray(features) ? features.map(f => `<li>${f}</li>`).join('') : '';
+            const applicationsHtml = Array.isArray(applications) ? applications.map(a => `<li>${a}</li>`).join('') : '';
+            const specsHtml = Object.entries(specifications).map(([key, value]) => 
+                `<li><strong>${key}:</strong> ${value}</li>`
+            ).join('');
+            
+            // Get localized titles
+            const featuresTitle = currentLang === 'fa' ? 'ویژگی‌ها' : 'Features';
+            const applicationsTitle = currentLang === 'fa' ? 'کاربردها' : 'Applications';
+            const specsTitle = currentLang === 'fa' ? 'مشخصات' : 'Specifications';
+            
+            // Build catalog download button if available
+                let catalogButtonHtml = '';
+            if (product.catalogUrl) {
+                const catalogUrl = product.catalogUrl;
+                    const catalogText = currentLang === 'fa' ? 'دانلود کاتالوگ' : 'Download Catalog';
+                catalogButtonHtml = `
+                    <div class="catalog-download-modal">
+                        <h4>${catalogText}</h4>
+                        <a href="${catalogUrl}" target="_blank" class="btn btn-success" download>
+                        <i class="fas fa-file-pdf"></i> ${catalogText}
+                        </a>
+                    </div>
+                `;
+                }
+
+                modalContent.innerHTML = `
+                    <p>${productDesc}</p>
+                ${featuresHtml ? `<h4>${featuresTitle}</h4><ul>${featuresHtml}</ul>` : ''}
+                ${applicationsHtml ? `<h4>${applicationsTitle}</h4><ul>${applicationsHtml}</ul>` : ''}
+                ${specsHtml ? `<h4>${specsTitle}</h4><ul>${specsHtml}</ul>` : ''}
+                    ${catalogButtonHtml}
+                `;
+            }
+
+        // Global function for closing product modal
+            window.closeProductModal = function() {
+                document.getElementById('productModal').style.display = 'none';
+            }
+
+        // Search functionality with performance optimizations
+        let allProducts = []; // Store all products for search
+        let currentSearchTerm = '';
+        let searchTimeout = null; // For debounced search
+        let productCache = new Map(); // Cache for product details
+        let isLoading = false; // Prevent multiple simultaneous loads
+
+        // Debounced search function for better performance
+        window.searchProducts = function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            const clearBtn = document.getElementById('clearSearchBtn');
+            
+            // Clear previous timeout
+            if (searchTimeout) {
+                clearTimeout(searchTimeout);
+            }
+            
+            // Debounce search by 300ms
+            searchTimeout = setTimeout(() => {
+                performSearch(searchTerm, clearBtn);
+            }, 300);
+        };
+
+        // Actual search function
+        function performSearch(searchTerm, clearBtn) {
+            currentSearchTerm = searchTerm;
+            
+            if (searchTerm === '') {
+                clearSearch();
+                return;
+            }
+            
+            // Show clear button
+            clearBtn.style.display = 'inline-block';
+            
+            // Use more efficient filtering with correct backend field names
+            const filteredProducts = allProducts.filter(product => {
+                const searchFields = [
+                    product.name?.en || product.name || '',
+                    product.shortDescription?.en || product.shortDescription || '',
+                    product.fullDescription || '',
+                    ...(Array.isArray(product.features?.en || product.features) 
+                        ? (product.features.en || product.features) 
+                        : [])
+                ].join(' ').toLowerCase();
+                
+                return searchFields.includes(searchTerm);
+            });
+            
+            // Render filtered products with lazy loading
+            renderProductsWithLazyLoading(filteredProducts);
+            
+            // Update filter buttons to show search is active
+            updateFilterButtonsForSearch();
+        }
+
+        // Global function for clearing search
+        window.clearSearch = function() {
+            const searchInput = document.getElementById('searchInput');
+            const clearBtn = document.getElementById('clearSearchBtn');
+            
+            searchInput.value = '';
+            currentSearchTerm = '';
+            clearBtn.style.display = 'none';
+            
+            // Show all products
+            renderProducts(allProducts);
+            
+            // Reset filter buttons
+            resetFilterButtons();
+        };
+
+        // Function to update filter buttons for search
+        function updateFilterButtonsForSearch() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = '';
+                btn.style.color = '';
+            });
+            
+            // Add search active state
+            const searchContainer = document.getElementById('productsSearch');
+            searchContainer.classList.add('search-active');
+        }
+
+        // Function to reset filter buttons
+        function resetFilterButtons() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = '';
+                btn.style.color = '';
+            });
+            
+            // Activate "All Products" button
+            const allButton = document.querySelector('[data-category="all"]');
+            if (allButton) {
+                allButton.classList.add('active');
+                allButton.style.background = '#2563eb';
+                allButton.style.color = 'white';
+            }
+            
+            // Remove search active state
+            const searchContainer = document.getElementById('productsSearch');
+            searchContainer.classList.remove('search-active');
+        }
+
+        // Lazy loading function for better performance
+        function renderProductsWithLazyLoading(products) {
+            const gridEl = document.getElementById('productsGrid');
+            const currentLang = getCurrentLanguage();
+            
+            // Store products for search
+            allProducts = products;
+            
+            if (!products || products.length === 0) {
+                if (currentSearchTerm) {
+                    // Show no search results message
+                    const currentLang = getCurrentLanguage();
+                    const noResultsTitle = currentLang === 'fa' 
+                        ? `هیچ محصولی برای "${currentSearchTerm}" یافت نشد`
+                        : `No products found for "${currentSearchTerm}"`;
+                    const tryDifferentText = currentLang === 'fa'
+                        ? 'عبارت جستجوی دیگری امتحان کنید یا همه محصولات را مرور کنید.'
+                        : 'Try a different search term or browse all products.';
+                    const showAllText = currentLang === 'fa'
+                        ? 'نمایش همه محصولات'
+                        : 'Show All Products';
+                        
+                    gridEl.innerHTML = `
+                        <div class="no-search-results" style="grid-column: 1 / -1; text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 8px; color: #6c757d;">
+                            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; color: #64748b;"></i>
+                            <h3>${noResultsTitle}</h3>
+                            <p>${tryDifferentText}</p>
+                            <button class="btn btn-primary" onclick="clearSearch()" style="margin-top: 1rem;">
+                                <i class="fas fa-list"></i> ${showAllText}
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('noProductsMessage').style.display = 'block';
+                }
+                return;
+            }
+            
+            // Render products with lazy loading
+            gridEl.innerHTML = products.map((product, index) => {
+                // Handle backend field names and structure
+                const productName = product.name?.[currentLang] || product.name?.en || product.name || 'Product';
+                const productDesc = product.shortDescription?.[currentLang] || product.shortDescription?.en || product.shortDescription || '';
+                // Handle image URLs - convert relative to absolute if needed (supports both localhost and production)
+                let productImage = product.featuredImage || product.galleryImages?.[0] || 'public/images/logo/logo.png';
+                productImage = CommonApp.getImageUrl(productImage);
+                const productCategory = product.category?.slug || product.category?.name || 'general';
+                
+                // Get features for current language
+                const features = product.features?.[currentLang] || product.features?.en || product.features || [];
+                const featuresHtml = Array.isArray(features) ? features.map(feature => 
+                    `<li data-en="${feature}" data-fa="${feature}">${feature}</li>`
+                ).join('') : '';
+                
+                return `
+                    <article class="product-category" data-category="${productCategory}" data-index="${index}">
+                        <div class="product-image">
+                            <img data-src="${productImage}" alt="${productName}" 
+                                 style="width: 100%; height: 250px; object-fit: contain; border-radius: 8px; background-color: #f8f9fa; padding: 10px;"
+                                 onerror="this.src='public/images/logo/logo.png'"
+                                 loading="lazy">
+                        </div>
+                        <h3 class="product-name" data-en="${productName}" data-fa="${productName}">${productName}</h3>
+                        <p class="product-description" data-en="${productDesc}" data-fa="${productDesc}">${productDesc}</p>
+                        <ul class="product-features">
+                            ${featuresHtml}
+                        </ul>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="showProductDetails('${product.id || product.slug}')">
+                                <i class="fas fa-eye"></i> <span data-en="View Details" data-fa="مشاهده جزئیات">View Details</span>
+                            </button>
+                            <a href="contact.html" class="btn btn-secondary">
+                                <i class="fas fa-shopping-cart"></i> <span data-en="Order Request" data-fa="درخواست سفارش">Order Request</span>
+                            </a>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+            
+            // Initialize lazy loading
+            initializeLazyLoading();
+            
+            // Update product cards for current language
+            updateProductCards(currentLang);
+        }
+
+        // Enhanced renderProducts function to store products (fallback)
+        function renderProducts(products) {
+            renderProductsWithLazyLoading(products);
+        }
+
+        // Initialize lazy loading for images
+        function initializeLazyLoading() {
+            const images = document.querySelectorAll('img[data-src]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            img.removeAttribute('loading');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                images.forEach(img => imageObserver.observe(img));
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                images.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                });
+            }
+        }
+
+        // Add search input event listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                // Search on Enter key
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        searchProducts();
+                    }
+                });
+                
+                // Clear search when input is empty
+                searchInput.addEventListener('input', (e) => {
+                    if (e.target.value.trim() === '') {
+                        clearSearch();
+                    }
+                });
+            }
+        });
+
+            // Add filter functionality
+            function setupFilters() {
+                const categoryFilters = document.getElementById('categoryFilters');
+                if (categoryFilters) {
+                    
+                    // Use event delegation to handle clicks on filter buttons
+                    categoryFilters.addEventListener('click', (event) => {
+                        if (event.target.classList.contains('filter-btn')) {
+                            const button = event.target;
+                            const category = button.getAttribute('data-category');
+                            
+                            
+                            // Remove active class from all buttons
+                            categoryFilters.querySelectorAll('.filter-btn').forEach(btn => {
+                                btn.classList.remove('active');
+                                btn.style.background = '';
+                                btn.style.color = '';
+                            });
+                            
+                            // Add active class to clicked button
+                            button.classList.add('active');
+                            button.style.background = '#2563eb';
+                            button.style.color = 'white';
+                            
+                            // Apply the filter
+                            filterProducts(category);
+                            
+                            // Scroll to products section
+                            const productsSection = document.querySelector('.products-section');
+                            if (productsSection) {
+                                productsSection.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    });
+                    
+                } else {
+                    console.error('Category filters element not found');
+                }
+            }
+
+            // Filter products function
+            function filterProducts(category) {
+                const products = document.querySelectorAll('.product-category');
+                const noProductsEl = document.getElementById('noProductsMessage');
+                
+                let visibleCount = 0;
+                products.forEach(product => {
+                    const productCategory = product.dataset.category;
+                    
+                    if (category === 'all' || productCategory === category) {
+                        product.style.display = 'block';
+                        product.style.opacity = '1';
+                        product.style.transform = 'scale(1)';
+                        visibleCount++;
+                    } else {
+                        product.style.display = 'none';
+                        product.style.opacity = '0';
+                        product.style.transform = 'scale(0.95)';
+                    }
+                });
+                
+                // Show message if no products found
+                if (visibleCount === 0 && category !== 'all') {
+                    showNoProductsMessage(category);
+                } else {
+                    hideNoProductsMessage();
+                }
+            }
+            
+            // Function to show no products message
+            function showNoProductsMessage(category) {
+                let messageElement = document.getElementById('noProductsMessage');
+                if (!messageElement) {
+                    messageElement = document.createElement('div');
+                    messageElement.id = 'noProductsMessage';
+                    messageElement.className = 'no-products-message';
+                    messageElement.style.cssText = `
+                        text-align: center;
+                        padding: 2rem;
+                        background: #f8f9fa;
+                        border-radius: 8px;
+                        margin: 2rem 0;
+                        color: #6c757d;
+                    `;
+                    
+                    const productsGrid = document.querySelector('.products-grid');
+                    if (productsGrid) {
+                        productsGrid.appendChild(messageElement);
+                    }
+                }
+                
+                const currentLang = getCurrentLanguage();
+                const message = currentLang === 'fa' 
+                    ? `هیچ محصولی در دسته‌بندی "${getCategoryName(category, currentLang)}" یافت نشد.`
+                    : `No products found in "${getCategoryName(category, currentLang)}" category.`;
+                
+                messageElement.textContent = message;
+                messageElement.style.display = 'block';
+            }
+            
+            // Function to hide no products message
+            function hideNoProductsMessage() {
+                const messageElement = document.getElementById('noProductsMessage');
+                if (messageElement) {
+                    messageElement.style.display = 'none';
+                }
+            }
+            
+            // Function to get category name in current language
+            function getCategoryName(category, lang) {
+                const categoryNames = {
+                    'water-treatment': {
+                        'en': 'Water Treatment Systems',
+                        'fa': 'سیستم‌های تصفیه آب'
+                    },
+                    'mixers': {
+                        'en': 'Mixers & Aerators',
+                        'fa': 'مخلوط‌کن‌ها و هواده‌ها'
+                    },
+                    'pumps': {
+                        'en': 'Pumps & Systems',
+                        'fa': 'پمپ‌ها و سیستم‌ها'
+                    },
+                    'filters': {
+                        'en': 'Filters & Media',
+                        'fa': 'فیلترها و رسانه‌ها'
+                    },
+                    'control': {
+                        'en': 'Control Systems',
+                        'fa': 'سیستم‌های کنترل'
+                    }
+                };
+                
+                return categoryNames[category]?.[lang] || category;
+            }
+
+        // Function to update product cards for language
+        function updateProductCards(language) {
+            
+            const productNames = document.querySelectorAll('.product-name');
+            const productDescriptions = document.querySelectorAll('.product-description');
+            const productFeatures = document.querySelectorAll('.product-features li');
+            const productActions = document.querySelectorAll('.product-actions span');
+            const dropdownItems = document.querySelectorAll('.dropdown-menu a, .dropdown-menu-mobile a');
+
+
+            productNames.forEach((element, index) => {
+                const enText = element.getAttribute('data-en');
+                const faText = element.getAttribute('data-fa');
+                if (enText && faText) {
+                    const newText = language === 'fa' ? faText : enText;
+                    element.textContent = newText;
+                }
+            });
+
+            productDescriptions.forEach((element, index) => {
+                const enText = element.getAttribute('data-en');
+                const faText = element.getAttribute('data-fa');
+                if (enText && faText) {
+                    const newText = language === 'fa' ? faText : enText;
+                    element.textContent = newText;
+                }
+            });
+
+            productFeatures.forEach((element, index) => {
+                const enText = element.getAttribute('data-en');
+                const faText = element.getAttribute('data-fa');
+                if (enText && faText) {
+                    const newText = language === 'fa' ? faText : enText;
+                    element.textContent = newText;
+                }
+            });
+
+            productActions.forEach((element, index) => {
+                const enText = element.getAttribute('data-en');
+                const faText = element.getAttribute('data-fa');
+                if (enText && faText) {
+                    const newText = language === 'fa' ? faText : enText;
+                    element.textContent = newText;
+                }
+            });
+            
+            // Update dropdown menu items
+            dropdownItems.forEach((element, index) => {
+                const enText = element.getAttribute('data-en');
+                const faText = element.getAttribute('data-fa');
+                if (enText && faText) {
+                    const newText = language === 'fa' ? faText : enText;
+                    element.textContent = newText;
+                }
+            });
+            
+        }
+
+        // Listen for language changes
+        window.addEventListener('languageChanged', () => {
+            const currentLang = getCurrentLanguage();
+            updateProductCards(currentLang);
+        });
+
+        // Also listen for i18n language changes
+        if (window.i18n) {
+            const originalApplyLanguage = window.i18n.applyLanguage;
+            if (originalApplyLanguage) {
+                window.i18n.applyLanguage = function(language) {
+                    const result = originalApplyLanguage.call(this, language);
+                    // Update product cards after language change
+                    setTimeout(() => {
+                        updateProductCards(language);
+                    }, 100);
+                    return result;
+                };
+                }
+            }
+
+            // Initialize the page
+            setupFilters();
+        
+        // Force apply translations on page load
+        setTimeout(() => {
+            const currentLang = getCurrentLanguage();
+            
+            // Apply fallback translations immediately
+            const elements = document.querySelectorAll('[data-i18n]');
+            
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const translation = window.i18n?.t(key);
+                
+                if (!translation || translation === key) {
+                    // Apply fallback for current language
+                    const fallbackTranslations = {
+                        'navigation.home': currentLang === 'fa' ? 'خانه' : 'Home',
+                        'navigation.products': currentLang === 'fa' ? 'محصولات' : 'Products',
+                        'navigation.gallery': currentLang === 'fa' ? 'گالری' : 'Gallery',
+                        'navigation.about': currentLang === 'fa' ? 'درباره ما' : 'About',
+                        'navigation.contact': currentLang === 'fa' ? 'تماس' : 'Contact',
+                        'navigation.news': currentLang === 'fa' ? 'اخبار' : 'News',
+                        'products.title': currentLang === 'fa' ? 'محدوده محصولات ما' : 'Our Product Range',
+                        'products.subtitle': currentLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                        'products.categories.water_treatment': currentLang === 'fa' ? 'تصفیه آب' : 'Water Treatment',
+                        'products.categories.mixers_aerators': currentLang === 'fa' ? 'مخلوط‌کن‌ها و هواده‌ها' : 'Mixers & Aerators',
+                        'products.categories.pumps_systems': currentLang === 'fa' ? 'پمپ‌ها و سیستم‌ها' : 'Pumps & Systems',
+                        'products.filters.all': currentLang === 'fa' ? 'همه محصولات' : 'All Products',
+                        'products.actions.view_details': currentLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                        'products.actions.order_request': currentLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                        'common.close': currentLang === 'fa' ? 'بستن' : 'Close'
+                    };
+                    
+                    if (fallbackTranslations[key]) {
+                        el.textContent = fallbackTranslations[key];
+                    } else {
+                    }
+                } else {
+                }
+            });
+            
+            // Also update product cards
+            updateProductCards(currentLang);
+        }, 1000);
+        });
+
+    </script>
+    <!-- i18n Script -->
+    <script src="js/i18n.js"></script>
+    
+    <!-- Embedded Translations for Direct File Access -->
+    <script>
+        // Override i18n translations with embedded data for direct file access
+        if (window.i18n) {
+            
+            // English translations
+            window.i18n.translations = window.i18n.translations || {};
+            window.i18n.translations.en = {
+                "navigation": {
+                    "home": "Home",
+                    "products": "Products", 
+                    "gallery": "Gallery",
+                    "about": "About",
+                    "contact": "Contact",
+                    "news": "News"
+                },
+                "products": {
+                    "title": "Our Product Range",
+                    "subtitle": "Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.",
+                    "loading": "Loading products...",
+                    "categories": {
+                        "water_treatment": "Water Treatment",
+                        "mixers_aerators": "Mixers & Aerators",
+                        "pumps_systems": "Pumps & Systems"
+                    },
+                    "filters": {
+                        "all": "All Products"
+                    },
+                    "actions": {
+                        "view_details": "View Details",
+                        "order_request": "Order Request"
+                    },
+                    "error": {
+                        "title": "Unable to load products",
+                        "message": "Please check your connection and try again.",
+                        "retry": "Try Again"
+                    },
+                    "empty": {
+                        "title": "No products found",
+                        "message": "No products are available at the moment."
+                    },
+                    "search": {
+                        "placeholder": "Search products...",
+                        "no_results": "No products found for",
+                        "try_different": "Try a different search term or browse all products.",
+                        "show_all": "Show All Products"
+                    }
+                },
+                "common": {
+                    "close": "Close"
+                }
+            };
+            
+            // Farsi translations
+            window.i18n.translations.fa = {
+                "navigation": {
+                    "home": "خانه",
+                    "products": "محصولات",
+                    "gallery": "سوابق اجرایی", 
+                    "about": "درباره ما",
+                    "contact": "تماس",
+                    "news": "اخبار"
+                },
+                "products": {
+                    "title": "محدوده محصولات ما",
+                    "subtitle": "مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.",
+                    "loading": "در حال بارگذاری محصولات...",
+                    "categories": {
+                        "water_treatment": "تصفیه آب",
+                        "mixers_aerators": "مخلوط‌کن‌ها و هواده‌ها",
+                        "pumps_systems": "پمپ‌ها و سیستم‌ها"
+                    },
+                    "filters": {
+                        "all": "همه محصولات"
+                    },
+                    "actions": {
+                        "view_details": "مشاهده جزئیات",
+                        "order_request": "درخواست سفارش"
+                    },
+                    "error": {
+                        "title": "قادر به بارگذاری محصولات نیست",
+                        "message": "لطفاً اتصال خود را بررسی کرده و دوباره تلاش کنید.",
+                        "retry": "تلاش مجدد"
+                    },
+                    "empty": {
+                        "title": "هیچ محصولی یافت نشد",
+                        "message": "در حال حاضر هیچ محصولی در دسترس نیست."
+                    },
+                    "search": {
+                        "placeholder": "جستجوی محصولات...",
+                        "no_results": "هیچ محصولی برای",
+                        "try_different": "عبارت جستجوی دیگری امتحان کنید یا همه محصولات را مرور کنید.",
+                        "show_all": "نمایش همه محصولات"
+                    }
+                },
+                "common": {
+                    "close": "بستن"
+                }
+            };
+            
+            
+            // Apply translations immediately
+            setTimeout(() => {
+                const currentLang = getCurrentLanguage();
+                
+                const elements = document.querySelectorAll('[data-i18n]');
+                
+                elements.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const translation = window.i18n.t(key);
+                    
+                    if (translation && translation !== key) {
+                        el.textContent = translation;
+                        console.log(`✅ Applied embedded translation for ${key}: ${translation}`);
+                    } else {
+                        console.log(`⚠️ No embedded translation found for ${key}`);
+                    }
+                });
+            }, 100);
+        }
+    </script>
+    <script>
+        // Initialize i18n system when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            console.log('🚀 DOM loaded, initializing i18n...');
+            
+            // Wait for i18n to be available
+            if (window.i18n) {
+                console.log('🔧 i18n found, initializing...');
+                await window.i18n.init();
+                console.log('✅ i18n initialized');
+                
+                // Force translation of all elements
+                setTimeout(() => {
+                    console.log('🔄 Force translating all elements...');
+                    const elements = document.querySelectorAll('[data-i18n]');
+                    console.log('Found elements with data-i18n:', elements.length);
+                    elements.forEach(el => {
+                        const key = el.getAttribute('data-i18n');
+                        const translation = window.i18n.t(key);
+                        if (translation && translation !== key) {
+                            el.textContent = translation;
+                            console.log(`Translated ${key}: ${translation}`);
+                        } else {
+                            // Fallback for common navigation items
+                            const currentLang = window.i18n?.currentLanguage || 'en';
+                            const fallbackTranslations = {
+                                'navigation.home': currentLang === 'fa' ? 'خانه' : 'Home',
+                                'navigation.products': currentLang === 'fa' ? 'محصولات' : 'Products',
+                                'navigation.gallery': currentLang === 'fa' ? 'سوابق اجرایی' : 'Executive Records',
+                                'navigation.about': currentLang === 'fa' ? 'درباره ما' : 'About',
+                                'navigation.contact': currentLang === 'fa' ? 'تماس' : 'Contact',
+                                'navigation.news': currentLang === 'fa' ? 'اخبار' : 'News',
+                                'products.title': currentLang === 'fa' ? 'محدوده محصولات ما' : 'Our Product Range',
+                                'products.subtitle': currentLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
+                                'products.categories.water_treatment': currentLang === 'fa' ? 'سیستم‌های تصفیه آب' : 'Water Treatment Systems',
+                                'products.categories.mixers': currentLang === 'fa' ? 'مخلوط‌کن‌ها و هواده‌ها' : 'Mixers & Aerators',
+                                'products.categories.pumps': currentLang === 'fa' ? 'پمپ‌ها و سیستم‌ها' : 'Pumps & Systems',
+                                'products.categories.filters': currentLang === 'fa' ? 'فیلترها و رسانه‌ها' : 'Filters & Media',
+                                'products.categories.control_systems': currentLang === 'fa' ? 'سیستم‌های کنترل' : 'Control Systems',
+                                'products.filters.all': currentLang === 'fa' ? 'همه محصولات' : 'All Products',
+                                'products.actions.view_details': currentLang === 'fa' ? 'مشاهده جزئیات' : 'View Details',
+                                'products.actions.order_request': currentLang === 'fa' ? 'درخواست سفارش' : 'Order Request',
+                                'common.close': currentLang === 'fa' ? 'بستن' : 'Close'
+                            };
+                            
+                            if (fallbackTranslations[key]) {
+                                el.textContent = fallbackTranslations[key];
+                                console.log(`Applied fallback for ${key}: ${fallbackTranslations[key]}`);
+                            }
+                        }
+                    });
+                }, 1000);
+            } else {
+                console.error('❌ i18n not available');
+            }
+        });
+    </script>
+</body>
+</html>

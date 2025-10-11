@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="quotes.title">ToolGostar Admin - Quote Requests</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../public/images/logo/logo1.svg">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <!-- RTL Support -->
+    <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="bg-light">
+
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-dark border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">
+                <i class="bi bi-tools me-2"></i>ToolGostar
+            </div>
+            <div class="list-group list-group-flush my-3">
+                <a href="../index.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-speedometer2 me-2"></i><span data-i18n="navigation.dashboard">Dashboard</span>
+                </a>
+                <a href="products.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-box-seam me-2"></i><span data-i18n="navigation.products">Products</span>
+                </a>
+                <a href="projects.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-building me-2"></i><span data-i18n="navigation.projects">Projects</span>
+                </a>
+                <a href="news.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-newspaper me-2"></i><span data-i18n="navigation.news">News</span>
+                </a>
+                <a href="contacts.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-envelope-paper me-2"></i><span data-i18n="navigation.contacts">Contacts</span>
+                </a>
+                <a href="quotes.html" class="list-group-item list-group-item-action bg-transparent second-text active">
+                    <i class="bi bi-file-earmark-text me-2"></i><span data-i18n="navigation.quotes">Quote Requests</span>
+                </a>
+                <a href="media.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-images me-2"></i><span data-i18n="navigation.media">Media Library</span>
+                </a>
+                <a href="settings.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-sliders me-2"></i><span data-i18n="navigation.settings">Site Settings</span>
+                </a>
+                <a href="users.html" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+                    <i class="bi bi-people me-2"></i><span data-i18n="navigation.users">User Management</span>
+                </a>
+                <a href="#" id="logout-btn" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold">
+                    <i class="bi bi-box-arrow-right me-2"></i><span data-i18n="navigation.logout">Logout</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+                <div class="d-flex align-items-center">
+                    <i class="bi bi-list fs-4 me-3" id="menu-toggle"></i>
+                    <h2 class="fs-2 m-0" data-i18n="quotes.title">Quote Requests</h2>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <!-- Language Switcher -->
+                        <li class="nav-item dropdown me-3">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="languageDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-translate me-2"></i><span id="current-language">EN</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                <li><a class="dropdown-item" href="#" onclick="switchLanguage('en')">
+                                    <i class="bi bi-flag me-2"></i>English
+                                </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="switchLanguage('fa')">
+                                    <i class="bi bi-flag me-2"></i>فارسی
+                                </a></li>
+                            </ul>
+                        </li>
+                        <!-- User Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle me-2"></i><span id="user-name">Admin</span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="profile.html" data-i18n="user.profile">Profile</a></li>
+                                <li><a class="dropdown-item" href="#" data-i18n="user.settings">Settings</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#" id="logout-link" data-i18n="navigation.logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid px-4">
+                <!-- Statistics Cards -->
+                <div class="row mb-4">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1" data-i18n="quotes.stats.total">
+                                            Total Quotes</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-quotes">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-file-earmark-text fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1" data-i18n="quotes.stats.pending">
+                                            Pending</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="pending-quotes">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-clock fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1" data-i18n="quotes.stats.inProgress">
+                                            In Progress</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="in-progress-quotes">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-gear fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                    <div class="col mr-2">
+                                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1" data-i18n="quotes.stats.approved">
+                                            Approved</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800" id="approved-quotes">0</div>
+                                    </div>
+                                    <div class="col-auto">
+                                        <i class="bi bi-check-circle fa-2x text-gray-300"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quote Requests Card -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary" data-i18n="quotes.list">Quote Requests</h6>
+                                <div class="d-flex gap-2">
+                                    <div class="input-group" style="width: 300px;">
+                                        <input type="text" class="form-control" id="search-quotes" placeholder="Search quotes..." data-i18n-placeholder="quotes.search">
+                                        <button class="btn btn-outline-secondary" type="button" id="search-btn">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="filter-status" data-bs-toggle="dropdown">
+                                            <i class="bi bi-funnel me-2"></i><span data-i18n="quotes.filters.byStatus">Filter by Status</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="#" data-status="" data-i18n="quotes.filters.allStatuses">All Statuses</a></li>
+                                            <li><a class="dropdown-item" href="#" data-status="pending" data-i18n="quotes.filters.pending">Pending</a></li>
+                                            <li><a class="dropdown-item" href="#" data-status="in_progress" data-i18n="quotes.filters.inProgress">In Progress</a></li>
+                                            <li><a class="dropdown-item" href="#" data-status="quoted" data-i18n="quotes.filters.quoted">Quoted</a></li>
+                                            <li><a class="dropdown-item" href="#" data-status="approved" data-i18n="quotes.filters.approved">Approved</a></li>
+                                            <li><a class="dropdown-item" href="#" data-status="rejected" data-i18n="quotes.filters.rejected">Rejected</a></li>
+                                        </ul>
+                                    </div>
+                                    <button class="btn btn-success" id="export-quotes-btn">
+                                        <i class="bi bi-download me-2"></i><span data-i18n="quotes.actions.export">Export</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- Loading State -->
+                                <div id="loading-state" class="text-center py-4" style="display: none;">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="mt-2 text-muted" data-i18n="quotes.messages.loading">Loading quote requests...</p>
+                                </div>
+
+                                <!-- Error State -->
+                                <div id="error-state" class="text-center py-4" style="display: none;">
+                                    <i class="bi bi-exclamation-triangle fs-1 text-danger mb-3"></i>
+                                    <h5 class="text-danger" data-i18n="quotes.messages.error">Error Loading Quotes</h5>
+                                    <p class="text-muted" id="error-message" data-i18n="quotes.messages.loadError">Failed to load quote requests</p>
+                                    <button class="btn btn-primary" id="retry-btn">
+                                        <i class="bi bi-arrow-clockwise me-2"></i><span data-i18n="quotes.messages.retry">Retry</span>
+                                    </button>
+                                </div>
+
+                                <!-- Quotes Table -->
+                                <div class="table-responsive" id="quotes-table-container">
+                                    <table class="table table-bordered" id="quotes-table">
+                                        <thead>
+                                            <tr>
+                                                <th data-i18n="quotes.table.quoteNumber">Quote #</th>
+                                                <th data-i18n="quotes.table.contact">Contact</th>
+                                                <th data-i18n="quotes.table.company">Company</th>
+                                                <th data-i18n="quotes.table.status">Status</th>
+                                                <th data-i18n="quotes.table.amount">Amount</th>
+                                                <th data-i18n="quotes.table.industry">Industry</th>
+                                                <th data-i18n="quotes.table.assignedTo">Assigned To</th>
+                                                <th data-i18n="quotes.table.created">Created</th>
+                                                <th data-i18n="quotes.table.actions">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="quotes-tbody">
+                                            <!-- Quote data will be loaded here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <!-- Pagination -->
+                                <nav aria-label="Quotes pagination" id="pagination-container" style="display: none;">
+                                    <ul class="pagination justify-content-center" id="pagination">
+                                        <!-- Pagination will be generated here -->
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Axios for API calls -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Configuration -->
+    <script src="../config.js"></script>
+    <!-- Admin i18n System -->
+    <script src="../assets/js/i18n-admin.js"></script>
+    <!-- Force immediate translation application -->
+    <script>
+        // Force translations immediately after i18n loads
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.translations) {
+                window.adminI18n.applyTranslations();
+            }
+        }, 10);
+        
+        // Multiple fallback attempts to ensure translations are applied
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.translations) {
+                window.adminI18n.applyTranslations();
+            }
+        }, 100);
+        
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.translations) {
+                window.adminI18n.applyTranslations();
+            }
+        }, 500);
+        
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.translations) {
+                window.adminI18n.applyTranslations();
+            }
+        }, 1000);
+    </script>
+    <!-- API Service -->
+    <script src="../assets/js/api-service.js"></script>
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+    <!-- Quotes JS -->
+    <script src="../assets/js/quotes.js"></script>
+    <!-- Force translation refresh after all scripts load -->
+    <script>
+        setTimeout(() => {
+            if (window.adminI18n && window.adminI18n.refresh) {
+                window.adminI18n.refresh();
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

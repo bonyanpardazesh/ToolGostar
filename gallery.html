@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوابق اجرایی - ToolGostar Executive Records</title>
+    <meta name="description" content="Explore our portfolio of successful industrial water treatment projects and installations worldwide.">
+    <meta name="keywords" content="water treatment projects, industrial installations, ToolGostar portfolio, executive records">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="public/images/logo/logo1.svg">
+    
+    <!-- Fonts - Using local Vazir font -->
+    <!-- Preload Vazir fonts for better performance -->
+    <link rel="preload" href="font/Vazir.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="font/Vazir-Bold.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="font/Vazir-Medium.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="font/Vazir-Light.woff2" as="font" type="font/woff2">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    <link rel="stylesheet" href="shared/css/header.css">
+    <link rel="stylesheet" href="shared/css/footer.css">
+    
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" title="English">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag-icon">
+            <span>EN</span>
+        </button>
+        <button class="lang-btn" data-lang="fa" title="فارسی">
+            <img src="https://flagcdn.com/w20/ir.png" alt="فارسی" class="flag-icon">
+            <span>فا</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation -->
+            <ul class="nav-left">
+                <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+                <li class="nav-dropdown">
+                    <a href="products.html" class="nav-link" data-i18n="navigation.products">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="navigateToProductCategory('water-treatment'); return false;" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('mixers'); return false;" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('pumps'); return false;" data-en="Pumps" data-fa="پمپ‌ها">Pumps</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('filters'); return false;" data-en="Filters" data-fa="فیلترها">Filters</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('control'); return false;" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Executive Records</a></li>
+            </ul>
+            
+            <!-- Center logo -->
+            <a href="home.html" class="nav-logo">
+                <img src="public/images/logo/logo.png" alt="ToolGostar Industrial Group" />
+            </a>
+            
+            <!-- Right side navigation -->
+            <ul class="nav-right">
+                <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+                <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <ul class="nav-mobile" id="mobileMenu">
+            <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+            <li class="nav-dropdown-mobile">
+                <a href="products.html" class="nav-link" onclick="toggleMobileDropdown(this); return false;" data-i18n="navigation.products">Products</a>
+                <ul class="dropdown-menu-mobile">
+                    <li><a href="#" onclick="navigateToProductCategory('water-treatment'); return false;" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('mixers'); return false;" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('pumps'); return false;" data-en="Pumps" data-fa="پمپ‌ها">Pumps</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('filters'); return false;" data-en="Filters" data-fa="فیلترها">Filters</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('control'); return false;" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Executive Records</a></li>
+            <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+            <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+            <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Executive Records Introduction -->
+        <section class="gallery-intro">
+            <div class="container">
+                <h1 data-i18n="gallery.title">Executive Records</h1>
+                <p data-i18n="gallery.subtitle">Explore our portfolio of successful industrial water treatment installations and projects completed worldwide.</p>
+                
+                <!-- Search Bar -->
+                <div class="gallery-search" id="gallerySearch">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search projects..." class="search-input" data-i18n="gallery.search.placeholder">
+                        <button class="search-btn" onclick="searchProjects()">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button class="clear-search-btn" id="clearSearchBtn" onclick="clearSearch()" style="display: none;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-category="all" data-i18n="gallery.filters.all">All Projects</button>
+                    <button class="filter-btn" data-category="water-treatment" data-i18n="gallery.filters.water_treatment">Water Treatment</button>
+                    <button class="filter-btn" data-category="mixers" data-i18n="gallery.filters.mixers">Mixers & Aerators</button>
+                    <button class="filter-btn" data-category="pumps" data-i18n="gallery.filters.pumps">Pumps & Systems</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executive Records Grid -->
+        <section class="gallery-section">
+            <div class="container">
+                <!-- Loading State -->
+                <div id="galleryLoading" class="gallery-loading" style="display: none;">
+                    <div class="loading-spinner">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p data-i18n="gallery.loading">Loading projects...</p>
+                    </div>
+                </div>
+                
+                <!-- Error State -->
+                <div id="galleryError" class="gallery-error" style="display: none;">
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3 data-i18n="gallery.error.title">Unable to load projects</h3>
+                        <p data-i18n="gallery.error.message">Please check your connection and try again.</p>
+                        <button class="btn btn-primary" onclick="loadProjects()" data-i18n="gallery.error.retry">Try Again</button>
+                    </div>
+                </div>
+                
+                <!-- Gallery Grid Container -->
+                <div id="galleryGrid" class="gallery-grid">
+                    <!-- Projects will be dynamically loaded here -->
+                </div>
+                
+                <!-- No Projects Message -->
+                <div id="noProjectsMessage" class="no-projects-message" style="display: none;">
+                    <div class="no-projects-content">
+                        <i class="fas fa-images"></i>
+                        <h3 data-i18n="gallery.empty.title">No projects found</h3>
+                        <p data-i18n="gallery.empty.message">No projects are available at the moment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-nav lightbox-prev" onclick="prevImage()">‹</button>
+            <button class="lightbox-nav lightbox-next" onclick="nextImage()">›</button>
+            <div class="gallery-image lightbox-image" id="lightboxImage">
+                <i class="fas fa-image"></i>
+            </div>
+            <div class="lightbox-info" id="lightboxInfo">
+                <h3>Project Title</h3>
+                <p>Project description</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="footer.company_info">Company Information</h3>
+                    <p data-i18n="footer.company_description">Leading manufacturer of industrial water treatment solutions, mixers, aerators, and submersible pumps.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 data-i18n="gallery.project_types">Project Types</h3>
+                    <ul>
+                        <li><a href="#water" data-i18n="gallery.project_types.water">Water Treatment Plants</a></li>
+                        <li><a href="#mixers" data-i18n="gallery.project_types.mixers">Mixing Systems</a></li>
+                        <li><a href="#pumps" data-i18n="gallery.project_types.pumps">Pumping Stations</a></li>
+                        <li><a href="contact.html" data-i18n="gallery.project_types.custom">Custom Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Unit 10, Soheil Complex, Alameh Tabatabaie St, Saadat Abad, Tehran, Iran</p>
+                    <p><i class="fas fa-phone"></i> 021-22357761-3</p>
+                    <p><i class="fas fa-mobile-alt"></i> 09108108132</p>
+                    <p><i class="fas fa-envelope"></i> toolgostar@yahoo.com</p>
+                </div>
+                
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+                <a href="https://linkedin.com/company/toolgostar" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://wa.me/989108108132" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://t.me/toolgostar" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
+            </div>
+        </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ToolGostar Industrial Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="shared/js/config.js"></script>
+    <script src="shared/js/server-config.js"></script>
+    <script src="shared/js/common.js"></script>
+    <script src="shared/js/api-integration.js"></script>
+    <script>
+        // Function to show gallery details (placeholder)
+        function showGalleryDetails(itemId) {
+            console.log('Showing gallery details for:', itemId);
+            // This would typically open a modal or navigate to a detail page
+            alert('Executive records details functionality will be implemented in the next phase.');
+        }
+    </script>
+    <script>
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            console.log('🍔 Mobile menu toggle called');
+            
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburgerBtn') || document.querySelector('.hamburger');
+            
+            console.log('🍔 Mobile menu element:', mobileMenu);
+            console.log('🍔 Hamburger element:', hamburger);
+            
+            if (!mobileMenu) {
+                console.error('❌ Mobile menu not found');
+                return;
+            }
+            
+            if (!hamburger) {
+                console.error('❌ Hamburger button not found');
+                return;
+            }
+            
+            const isActive = mobileMenu.classList.contains('active');
+            console.log('🍔 Current mobile menu state:', isActive);
+            
+            if (isActive) {
+                // Close menu
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                console.log('🍔 Mobile menu closed');
+            } else {
+                // Open menu
+                mobileMenu.classList.add('active');
+                hamburger.classList.add('active');
+                console.log('🍔 Mobile menu opened');
+            }
+            
+            // Force reflow to ensure CSS changes are applied
+            mobileMenu.offsetHeight;
+            
+            // Check final state
+            console.log('🍔 Final mobile menu state:', mobileMenu.classList.contains('active'));
+            console.log('🍔 Mobile menu computed style display:', window.getComputedStyle(mobileMenu).display);
+            console.log('🍔 Mobile menu computed style left:', window.getComputedStyle(mobileMenu).left);
+        }
+
+        // Gallery data and API integration
+        let galleryData = [];
+        let allProjects = []; // Store all projects for search
+        let currentSearchTerm = '';
+        let searchTimeout = null; // For debounced search
+        let projectCache = new Map(); // Cache for project details
+        let isLoading = false; // Prevent multiple simultaneous loads
+
+        let currentImageIndex = 0;
+        let filteredGallery = [...galleryData];
+
+        // Category translations
+        const categoryTranslations = {
+            'water-treatment': { en: 'Water Treatment', fa: 'تصفیه آب' },
+            'mixers': { en: 'Mixers & Aerators', fa: 'مخلوط‌کن‌ها و هواده‌ها' },
+            'pumps': { en: 'Pumps & Systems', fa: 'پمپ‌ها و سیستم‌ها' }
+        };
+
+        // Get current language from i18n system
+        function getCurrentLanguage() {
+            if (window.i18n && window.i18n.currentLanguage) {
+                return window.i18n.currentLanguage;
+            }
+            return localStorage.getItem('language') || 'en';
+        }
+
+        // Convert numbers to Farsi format
+        function convertToFarsiNumbers(text) {
+            if (typeof text !== 'string') {
+                text = String(text);
+            }
+            
+            const farsiNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+            const englishNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            
+            for (let i = 0; i < 10; i++) {
+                text = text.replace(new RegExp(englishNumbers[i], 'g'), farsiNumbers[i]);
+            }
+            
+            return text;
+        }
+
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            console.log('🎨 renderExecutiveRecords called with', filteredGallery.length, 'projects');
+            grid.innerHTML = '';
+            const currentLang = getCurrentLanguage();
+
+            if (filteredGallery.length === 0) {
+                console.log('📭 No projects to display, showing empty state');
+                grid.innerHTML = `
+                    <div class="gallery-empty">
+                        <i class="fas fa-images" style="font-size: 3rem; color: #ccc; margin-bottom: 1rem;"></i>
+                        <h3>No projects found</h3>
+                        <p>Projects will appear here once they are added through the admin panel.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            console.log('🔄 Rendering', filteredGallery.length, 'executive records...');
+            filteredGallery.forEach((item, index) => {
+                console.log('📋 Rendering project', index + 1, ':', item.title?.en || item.title);
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                // Use the category directly from the item
+                const filterCategory = item.category || 'water-treatment';
+                galleryItem.dataset.category = filterCategory;
+                galleryItem.onclick = () => openLightbox(index);
+                
+                // Get translated content
+                const title = item.title[currentLang] || item.title.en;
+                const description = item.description[currentLang] || item.description.en;
+                const categoryText = categoryTranslations[filterCategory][currentLang] || categoryTranslations[filterCategory].en;
+                
+                // Convert numbers to Farsi if needed
+                const finalTitle = currentLang === 'fa' ? convertToFarsiNumbers(title) : title;
+                const finalDescription = currentLang === 'fa' ? convertToFarsiNumbers(description) : description;
+                
+                // Use featured image or first gallery image
+                const displayImage = item.featuredImage || (item.galleryImages && item.galleryImages[0]) || 'public/images/gallery/placeholder.svg';
+                
+                galleryItem.innerHTML = `
+                    <div class="gallery-image">
+                        <img src="${displayImage}" alt="${finalTitle}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="gallery-fallback" style="display: none;">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <div class="gallery-overlay">
+                            <div class="gallery-overlay-content">
+                                <h3>${finalTitle}</h3>
+                                <p>${finalDescription}</p>
+                                <i class="fas fa-search-plus" style="font-size: 2rem; margin-top: 1rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-info">
+                        <h3>${finalTitle}</h3>
+                        <p>${finalDescription}</p>
+                        <span class="gallery-category">${categoryText}</span>
+                    </div>
+                `;
+                
+                grid.appendChild(galleryItem);
+            });
+            console.log('✅ Executive records rendering completed with', grid.children.length, 'items');
+        }
+
+        function setupGalleryFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active filter
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    const category = btn.dataset.category;
+                    
+                    // Filter gallery
+                    if (category === 'all') {
+                        filteredGallery = [...galleryData];
+                    } else {
+                        filteredGallery = galleryData.filter(item => item.category === category);
+                    }
+                    
+                    renderGallery();
+                });
+            });
+        }
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const image = document.getElementById('lightboxImage');
+            const info = document.getElementById('lightboxInfo');
+            const item = filteredGallery[index];
+            const currentLang = getCurrentLanguage();
+            
+            // Get translated content
+            const title = item.title[currentLang] || item.title.en;
+            const description = item.description[currentLang] || item.description.en;
+            
+            // Use featured image or first gallery image with URL conversion (supports both localhost and production)
+            let displayImage = item.featuredImage || (item.galleryImages && item.galleryImages[0]) || 'public/images/gallery/placeholder.svg';
+            displayImage = CommonApp.getImageUrl(displayImage);
+            
+            image.innerHTML = `
+                <img src="${displayImage}" alt="${title}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="gallery-fallback" style="display: none;">
+                    <i class="fas fa-image"></i>
+                </div>
+            `;
+            
+            // Extract location from title (everything after the last dash)
+            const titleParts = title.split(' - ');
+            const projectName = titleParts[0];
+            const location = titleParts[1] || item.location || '';
+            
+            info.innerHTML = `
+                <h3>${projectName}</h3>
+                ${location ? `<div class="project-location">${location}</div>` : ''}
+                <p>${description}</p>
+            `;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % filteredGallery.length;
+            openLightbox(currentImageIndex);
+        }
+
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + filteredGallery.length) % filteredGallery.length;
+            openLightbox(currentImageIndex);
+        }
+
+        // Close lightbox on backdrop click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
+            }
+        });
+
+        // API Integration Functions
+        let api = null;
+
+        // Global function for loading projects
+        window.loadProjects = async function() {
+            // Prevent multiple simultaneous loads
+            if (isLoading) {
+                console.log('⏳ Projects already loading, skipping...');
+                return;
+            }
+            
+            const loadingEl = document.getElementById('galleryLoading');
+            const errorEl = document.getElementById('galleryError');
+            const gridEl = document.getElementById('galleryGrid');
+            const noProjectsEl = document.getElementById('noProjectsMessage');
+            
+            isLoading = true;
+            
+            // Show loading state
+            loadingEl.style.display = 'block';
+            errorEl.style.display = 'none';
+            gridEl.innerHTML = '';
+            noProjectsEl.style.display = 'none';
+            
+            try {
+                if (!api) {
+                    throw new Error('API not initialized');
+                }
+                
+                console.log('🔄 Loading projects...');
+                const response = await api.getProjects();
+                
+                // Hide loading state
+                loadingEl.style.display = 'none';
+                
+                if (response.offline) {
+                    // Show offline message
+                    showOfflineMessage();
+                    return;
+                }
+                
+                if (!response.projects || response.projects.length === 0) {
+                    // Show no projects message
+                    noProjectsEl.style.display = 'block';
+                    return;
+                }
+                
+                // Store projects for search and filtering
+                galleryData = response.projects;
+                allProjects = response.projects;
+                filteredGallery = [...galleryData];
+                
+                // Render projects with lazy loading
+                renderProjectsWithLazyLoading(response.projects);
+                
+            } catch (error) {
+                console.error('❌ Error loading projects:', error);
+                
+                // Hide loading state
+                loadingEl.style.display = 'none';
+                
+                // Show error state
+                errorEl.style.display = 'block';
+            } finally {
+                isLoading = false;
+            }
+        };
+
+        // Function to show offline message
+        function showOfflineMessage() {
+            const gridEl = document.getElementById('galleryGrid');
+            gridEl.innerHTML = `
+                <div class="offline-message" style="grid-column: 1 / -1; text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 8px; color: #6c757d; border: 2px solid #e2e8f0;">
+                    <i class="fas fa-wifi" style="font-size: 3rem; margin-bottom: 1rem; color: #dc3545;"></i>
+                    <h3>Backend server is not available</h3>
+                    <p>Please check your connection and try again later.</p>
+                    <button class="btn btn-primary" onclick="loadProjects()" style="margin-top: 1rem;">
+                        <i class="fas fa-refresh"></i> Try Again
+                    </button>
+                </div>
+            `;
+        }
+
+        // Search functionality
+        window.searchProjects = function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchTerm = searchInput.value.trim().toLowerCase();
+            const clearBtn = document.getElementById('clearSearchBtn');
+            
+            // Clear previous timeout
+            if (searchTimeout) {
+                clearTimeout(searchTimeout);
+            }
+            
+            // Debounce search by 300ms
+            searchTimeout = setTimeout(() => {
+                performSearch(searchTerm, clearBtn);
+            }, 300);
+        };
+
+        // Actual search function
+        function performSearch(searchTerm, clearBtn) {
+            currentSearchTerm = searchTerm;
+            
+            if (searchTerm === '') {
+                clearSearch();
+                return;
+            }
+            
+            // Show clear button
+            clearBtn.style.display = 'inline-block';
+            
+            // Use more efficient filtering with correct backend field names
+            const filteredProjects = allProjects.filter(project => {
+                const searchFields = [
+                    project.title?.en || project.title || '',
+                    project.description?.en || project.description || '',
+                    project.location || '',
+                    project.clientName || '',
+                    ...(Array.isArray(project.equipmentUsed) ? project.equipmentUsed : [])
+                ].join(' ').toLowerCase();
+                
+                return searchFields.includes(searchTerm);
+            });
+            
+            // Render filtered projects with lazy loading
+            renderProjectsWithLazyLoading(filteredProjects);
+            
+            // Update filter buttons to show search is active
+            updateFilterButtonsForSearch();
+        }
+
+        // Global function for clearing search
+        window.clearSearch = function() {
+            const searchInput = document.getElementById('searchInput');
+            const clearBtn = document.getElementById('clearSearchBtn');
+            
+            searchInput.value = '';
+            currentSearchTerm = '';
+            clearBtn.style.display = 'none';
+            
+            // Show all projects
+            renderProjectsWithLazyLoading(allProjects);
+            
+            // Reset filter buttons
+            resetFilterButtons();
+        };
+
+        // Function to update filter buttons for search
+        function updateFilterButtonsForSearch() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = '';
+                btn.style.color = '';
+            });
+            
+            // Add search active state
+            const searchContainer = document.getElementById('gallerySearch');
+            searchContainer.classList.add('search-active');
+        }
+
+        // Function to reset filter buttons
+        function resetFilterButtons() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = '';
+                btn.style.color = '';
+            });
+            
+            // Activate "All Projects" button
+            const allButton = document.querySelector('[data-category="all"]');
+            if (allButton) {
+                allButton.classList.add('active');
+                allButton.style.background = '#2563eb';
+                allButton.style.color = 'white';
+            }
+            
+            // Remove search active state
+            const searchContainer = document.getElementById('gallerySearch');
+            searchContainer.classList.remove('search-active');
+        }
+
+        // Lazy loading function for better performance
+        function renderProjectsWithLazyLoading(projects) {
+            const gridEl = document.getElementById('galleryGrid');
+            const currentLang = getCurrentLanguage();
+            
+            // Store projects for search
+            allProjects = projects;
+            
+            if (!projects || projects.length === 0) {
+                if (currentSearchTerm) {
+                    // Show no search results message
+                    const currentLang = getCurrentLanguage();
+                    const noResultsTitle = currentLang === 'fa' 
+                        ? `هیچ پروژه‌ای برای "${currentSearchTerm}" یافت نشد`
+                        : `No projects found for "${currentSearchTerm}"`;
+                    const tryDifferentText = currentLang === 'fa'
+                        ? 'عبارت جستجوی دیگری امتحان کنید یا همه پروژه‌ها را مرور کنید.'
+                        : 'Try a different search term or browse all projects.';
+                    const showAllText = currentLang === 'fa'
+                        ? 'نمایش همه پروژه‌ها'
+                        : 'Show All Projects';
+                        
+                    gridEl.innerHTML = `
+                        <div class="no-search-results" style="grid-column: 1 / -1; text-align: center; padding: 2rem; background: #f8f9fa; border-radius: 8px; color: #6c757d;">
+                            <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem; color: #64748b;"></i>
+                            <h3>${noResultsTitle}</h3>
+                            <p>${tryDifferentText}</p>
+                            <button class="btn btn-primary" onclick="clearSearch()" style="margin-top: 1rem;">
+                                <i class="fas fa-list"></i> ${showAllText}
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('noProjectsMessage').style.display = 'block';
+                }
+                return;
+            }
+            
+            // Update filtered gallery for lightbox
+            filteredGallery = projects;
+            
+            // Render projects with lazy loading
+            gridEl.innerHTML = projects.map((project, index) => {
+                // Handle backend field names and structure
+                const projectTitle = project.title?.[currentLang] || project.title?.en || project.title || 'Project';
+                const projectDesc = project.description?.[currentLang] || project.description?.en || project.description || '';
+                // Handle image URLs - convert relative to absolute if needed (supports both localhost and production)
+                let projectImage = project.featuredImage || project.galleryImages?.[0] || 'public/default/gallery/placeholder.jpg';
+                projectImage = CommonApp.getImageUrl(projectImage);
+                const projectCategory = project.category?.slug || project.category?.name || 'water-treatment';
+                
+                // Get translated content
+                const categoryText = categoryTranslations[projectCategory]?.[currentLang] || categoryTranslations[projectCategory]?.en || projectCategory;
+                
+                // Convert numbers to Farsi if needed
+                const finalTitle = currentLang === 'fa' ? convertToFarsiNumbers(projectTitle) : projectTitle;
+                const finalDescription = currentLang === 'fa' ? convertToFarsiNumbers(projectDesc) : projectDesc;
+                
+                return `
+                    <div class="gallery-item" data-category="${projectCategory}" data-index="${index}">
+                        <div class="gallery-image">
+                            <img data-src="${projectImage}" alt="${finalTitle}" 
+                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                                 loading="lazy">
+                            <div class="gallery-fallback" style="display: none;">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="gallery-overlay">
+                                <div class="gallery-overlay-content">
+                                    <h3>${finalTitle}</h3>
+                                    <p>${finalDescription}</p>
+                                    <i class="fas fa-search-plus" style="font-size: 2rem; margin-top: 1rem;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery-info">
+                            <h3>${finalTitle}</h3>
+                            <p>${finalDescription}</p>
+                            <span class="gallery-category">${categoryText}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Initialize lazy loading
+            initializeLazyLoading();
+            
+            // Update project cards for current language
+            updateProjectCards(currentLang);
+        }
+
+        // Enhanced renderGallery function (fallback)
+        function renderGallery() {
+            renderProjectsWithLazyLoading(filteredGallery);
+        }
+
+        // Initialize lazy loading for images
+        function initializeLazyLoading() {
+            const images = document.querySelectorAll('img[data-src]');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            img.removeAttribute('loading');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                images.forEach(img => imageObserver.observe(img));
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                images.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                });
+            }
+        }
+
+        // Function to update project cards for current language
+        function updateProjectCards(currentLang) {
+            const projectCards = document.querySelectorAll('.gallery-item');
+            projectCards.forEach(card => {
+                const titleEl = card.querySelector('.gallery-info h3');
+                const descEl = card.querySelector('.gallery-info p');
+                const categoryEl = card.querySelector('.gallery-category');
+                
+                if (titleEl) {
+                    const title = titleEl.getAttribute('data-en') || titleEl.textContent;
+                    titleEl.textContent = currentLang === 'fa' ? convertToFarsiNumbers(title) : title;
+                }
+                
+                if (descEl) {
+                    const desc = descEl.getAttribute('data-en') || descEl.textContent;
+                    descEl.textContent = currentLang === 'fa' ? convertToFarsiNumbers(desc) : desc;
+                }
+            });
+        }
+
+        // Make renderGallery globally accessible for i18n system
+        window.renderGallery = renderGallery;
+
+        // Initialize API immediately
+        if (window.ToolGostarAPI) {
+            api = new window.ToolGostarAPI();
+            console.log('✅ API initialized for gallery');
+        } else {
+            console.error('❌ ToolGostarAPI not available');
+        }
+
+        // Load projects when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            if (api) {
+                loadProjects();
+            }
+            
+            // Setup search input event listeners
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                // Search on Enter key
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        searchProjects();
+                    }
+                });
+                
+                // Clear search when input is empty
+                searchInput.addEventListener('input', (e) => {
+                    if (e.target.value.trim() === '') {
+                        clearSearch();
+                    }
+                });
+            }
+        });
+
+        // Embedded translations for gallery
+        const embeddedTranslations = {
+            en: {
+                gallery: {
+                    loading: "Loading projects...",
+                    error: {
+                        title: "Unable to load projects",
+                        message: "Please check your connection and try again.",
+                        retry: "Try Again"
+                    },
+                    empty: {
+                        title: "No projects found",
+                        message: "No projects are available at the moment."
+                    },
+                    search: {
+                        placeholder: "Search projects...",
+                        no_results: "No projects found for",
+                        try_different: "Try a different search term or browse all projects.",
+                        show_all: "Show All Projects"
+                    }
+                }
+            },
+            fa: {
+                gallery: {
+                    loading: "در حال بارگذاری پروژه‌ها...",
+                    error: {
+                        title: "قادر به بارگذاری پروژه‌ها نیست",
+                        message: "لطفاً اتصال خود را بررسی کرده و دوباره تلاش کنید.",
+                        retry: "تلاش مجدد"
+                    },
+                    empty: {
+                        title: "هیچ پروژه‌ای یافت نشد",
+                        message: "در حال حاضر هیچ پروژه‌ای در دسترس نیست."
+                    },
+                    search: {
+                        placeholder: "جستجوی پروژه‌ها...",
+                        no_results: "هیچ پروژه‌ای برای",
+                        try_different: "عبارت جستجوی دیگری امتحان کنید یا همه پروژه‌ها را مرور کنید.",
+                        show_all: "نمایش همه پروژه‌ها"
+                    }
+                }
+            }
+        };
+
+        // Apply embedded translations
+        if (window.i18n) {
+            Object.assign(window.i18n.translations, embeddedTranslations);
+        }
+    </script>
+    
+    <!-- i18n Script -->
+    <script src="js/i18n.js"></script>
+    
+    <!-- Mobile Menu Script -->
+    <script>
+        // Initialize mobile menu on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (mobileMenu && hamburger) {
+                // Add click event to hamburger button
+                hamburger.addEventListener('click', function() {
+                    console.log('🍔 Hamburger clicked');
+                    mobileMenu.classList.toggle('active');
+                    hamburger.classList.toggle('active');
+                    
+                    if (mobileMenu.classList.contains('active')) {
+                        console.log('🍔 Mobile menu opened');
+                    } else {
+                        console.log('🍔 Mobile menu closed');
+                    }
+                });
+                
+                // Close mobile menu when clicking on links
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                        console.log('🍔 Mobile menu closed by link click');
+                    });
+                });
+            } else {
+                console.error('❌ Mobile menu elements not found during initialization');
+            }
+        });
+    </script>
+</body>
+</html>
+           
+    </script>
+    
+    <!-- i18n Script -->
+    <script src="js/i18n.js"></script>
+    
+    <!-- Mobile Menu Script -->
+    <script>
+        // Initialize mobile menu on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (mobileMenu && hamburger) {
+                console.log('🍔 Mobile menu elements found and initialized');
+                
+                // Add click event listener as backup to onclick attribute
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🍔 Hamburger clicked via event listener');
+                    toggleMobileMenu();
+                });
+                
+                // Also add touch event for mobile devices
+                hamburger.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    console.log('🍔 Hamburger touched via touch event');
+                    toggleMobileMenu();
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                        if (mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            hamburger.classList.remove('active');
+                            console.log('🍔 Mobile menu closed by outside click');
+                        }
+                    }
+                });
+                
+                // Close mobile menu when clicking on a link
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                        console.log('🍔 Mobile menu closed by link click');
+                    });
+                });
+            } else {
+                console.error('❌ Mobile menu elements not found during initialization');
+            }
+        });
+    </script>
+</body>
+</html>

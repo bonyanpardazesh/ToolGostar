@@ -1,0 +1,538 @@
+/* Shared CSS for all pages */
+
+/* Vazir Font Family for Persian/Farsi Text - Local Files */
+@font-face {
+    font-family: 'Vazir';
+    src: url('../../font/Vazir.woff2') format('woff2'),
+         url('../../font/Vazir.woff') format('woff'),
+         url('../../font/Vazir.ttf') format('truetype'),
+         url('../../font/Vazir.eot') format('embedded-opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../../font/Vazir-Bold.woff2') format('woff2'),
+         url('../../font/Vazir-Bold.woff') format('woff'),
+         url('../../font/Vazir-Bold.ttf') format('truetype'),
+         url('../../font/Vazir-Bold.eot') format('embedded-opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../../font/Vazir-Medium.woff2') format('woff2'),
+         url('../../font/Vazir-Medium.woff') format('woff'),
+         url('../../font/Vazir-Medium.ttf') format('truetype'),
+         url('../../font/Vazir-Medium.eot') format('embedded-opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../../font/Vazir-Light.woff2') format('woff2'),
+         url('../../font/Vazir-Light.woff') format('woff'),
+         url('../../font/Vazir-Light.ttf') format('truetype'),
+         url('../../font/Vazir-Light.eot') format('embedded-opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../../font/Vazir-Thin.woff2') format('woff2'),
+         url('../../font/Vazir-Thin.woff') format('woff'),
+         url('../../font/Vazir-Thin.ttf') format('truetype'),
+         url('../../font/Vazir-Thin.eot') format('embedded-opentype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Default fonts for English - no Vazir */
+html, body {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden;
+    font-weight: 400;
+}
+
+/* Default font weights for English */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-weight: 700;
+}
+
+p, span, div, a, button, input, textarea, select {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-weight: 400;
+}
+
+/* Ensure Font Awesome icons are not affected by Vazir font */
+.fas, .far, .fab, .fal, .fa, i[class*="fa-"],
+i.fas, i.far, i.fab, i.fal, i.fa,
+[class*="fa-"] {
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 6 Pro' !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+}
+
+strong, b {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-weight: 700;
+}
+
+em, i:not([class*="fa-"]) {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-weight: 300;
+}
+
+/* Apply Vazir font ONLY for Farsi/Persian content */
+body[dir="rtl"],
+body.fa,
+html[lang="fa"] body,
+body:lang(fa) {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+    font-weight: 400;
+    direction: rtl;
+    text-align: right;
+}
+
+/* Apply Vazir font to all text elements ONLY in Farsi mode */
+body[dir="rtl"] *:not(.fas):not(.far):not(.fab):not(.fal):not(.fa):not(i[class*="fa-"]),
+body.fa *:not(.fas):not(.far):not(.fab):not(.fal):not(.fa):not(i[class*="fa-"]),
+html[lang="fa"] *:not(.fas):not(.far):not(.fab):not(.fal):not(.fa):not(i[class*="fa-"]),
+body:lang(fa) *:not(.fas):not(.far):not(.fab):not(.fal):not(.fa):not(i[class*="fa-"]) {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+}
+
+/* Apply Vazir font weights for Farsi content */
+body[dir="rtl"] h1, body[dir="rtl"] h2, body[dir="rtl"] h3, body[dir="rtl"] h4, body[dir="rtl"] h5, body[dir="rtl"] h6,
+body.fa h1, body.fa h2, body.fa h3, body.fa h4, body.fa h5, body.fa h6,
+html[lang="fa"] h1, html[lang="fa"] h2, html[lang="fa"] h3, html[lang="fa"] h4, html[lang="fa"] h5, html[lang="fa"] h6,
+body:lang(fa) h1, body:lang(fa) h2, body:lang(fa) h3, body:lang(fa) h4, body:lang(fa) h5, body:lang(fa) h6 {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+    font-weight: 700;
+}
+
+body[dir="rtl"] p, body[dir="rtl"] span, body[dir="rtl"] div, body[dir="rtl"] a, body[dir="rtl"] button, body[dir="rtl"] input, body[dir="rtl"] textarea, body[dir="rtl"] select,
+body.fa p, body.fa span, body.fa div, body.fa a, body.fa button, body.fa input, body.fa textarea, body.fa select,
+html[lang="fa"] p, html[lang="fa"] span, html[lang="fa"] div, html[lang="fa"] a, html[lang="fa"] button, html[lang="fa"] input, html[lang="fa"] textarea, html[lang="fa"] select,
+body:lang(fa) p, body:lang(fa) span, body:lang(fa) div, body:lang(fa) a, body:lang(fa) button, body:lang(fa) input, body:lang(fa) textarea, body:lang(fa) select {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+    font-weight: 400;
+}
+
+body[dir="rtl"] strong, body[dir="rtl"] b,
+body.fa strong, body.fa b,
+html[lang="fa"] strong, html[lang="fa"] b,
+body:lang(fa) strong, body:lang(fa) b {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+    font-weight: 700;
+}
+
+body[dir="rtl"] em, body[dir="rtl"] i:not([class*="fa-"]),
+body.fa em, body.fa i:not([class*="fa-"]),
+html[lang="fa"] em, html[lang="fa"] i:not([class*="fa-"]),
+body:lang(fa) em, body:lang(fa) i:not([class*="fa-"]) {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif !important;
+    font-weight: 300;
+}
+
+/* Ensure English mode has proper LTR alignment */
+body[dir="ltr"],
+body.en,
+html[lang="en"] body,
+body:lang(en) {
+    direction: ltr;
+    text-align: left;
+}
+
+/* Fix layout issues in RTL mode */
+body[dir="rtl"] .container,
+body.fa .container {
+    direction: rtl;
+    text-align: right;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+body[dir="rtl"] .main-content,
+body.fa .main-content {
+    direction: rtl;
+    text-align: right;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Ensure proper width and positioning in RTL */
+body[dir="rtl"] .products-intro,
+body.fa .products-intro {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center;
+}
+
+body[dir="rtl"] .products-section,
+body.fa .products-section {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Fix navbar in RTL */
+body[dir="rtl"] .navbar,
+body.fa .navbar {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+body[dir="rtl"] .nav-container,
+body.fa .nav-container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+/* Fix footer in RTL */
+body[dir="rtl"] .footer,
+body.fa .footer {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center;
+}
+
+body[dir="rtl"] .footer-content,
+body.fa .footer-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center;
+}
+
+/* Ensure footer is centered in both languages */
+.footer,
+body[dir="rtl"] .footer,
+body.fa .footer,
+body[dir="ltr"] .footer,
+body.en .footer {
+    text-align: center;
+}
+
+.footer-content,
+body[dir="rtl"] .footer-content,
+body.fa .footer-content,
+body[dir="ltr"] .footer-content,
+body.en .footer-content {
+    text-align: center;
+}
+
+/* Ensure Vazir font is applied to all text elements in Farsi mode */
+body.fa *,
+[lang="fa"] *,
+body[dir="rtl"] * {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+}
+
+/* Apply Vazir font to all text elements globally */
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, li, ul, ol,
+button, input, textarea, select,
+label, caption, th, td,
+nav, .navbar, .nav-link, .nav-item,
+.footer, .footer-section, .footer-content,
+.hero, .hero-content, .hero-title, .hero-description,
+.section, .container, .card, .card-body {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+}
+
+/* Social Links - Vertical Layout */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 18px;
+}
+
+.social-link:hover {
+    background-color: #3498db;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.social-link i {
+    font-size: 18px;
+}
+
+/* Center social links section in footer */
+.footer-section .social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* Ensure footer section titles are centered */
+.footer-section h3,
+.footer-section h4 {
+    text-align: center;
+}
+
+/* Exclude Font Awesome icons from Vazir font */
+body.fa .fas,
+body.fa .far,
+body.fa .fab,
+body.fa .fal,
+body.fa .fa,
+[lang="fa"] .fas,
+[lang="fa"] .far,
+[lang="fa"] .fab,
+[lang="fa"] .fal,
+[lang="fa"] .fa,
+body[dir="rtl"] .fas,
+body[dir="rtl"] .far,
+body[dir="rtl"] .fab,
+body[dir="rtl"] .fal,
+body[dir="rtl"] .fa {
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 6 Pro' !important;
+}
+
+/* Specific elements that should use Vazir for both English and Farsi */
+h1, h2, h3, h4, h5, h6,
+p, span, div, li, a, button, input, textarea, select, label {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+}
+
+/* Additional Font Awesome protection - highest specificity */
+i.fas, i.far, i.fab, i.fal, i.fa,
+i[class*="fa-"],
+.fas, .far, .fab, .fal, .fa,
+[class*="fa-"] {
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 6 Pro' !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+}
+
+/* Force Font Awesome to load with highest priority */
+.fa, .fas, .far, .fab, .fal, i[class*="fa-"] {
+    font-family: 'Font Awesome 6 Free', 'Font Awesome 6 Brands', 'Font Awesome 6 Pro' !important;
+    font-weight: 900 !important;
+    font-style: normal !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Specific elements that should use Vazir for Farsi */
+.fa h1, .fa h2, .fa h3, .fa h4, .fa h5, .fa h6,
+[lang="fa"] h1, [lang="fa"] h2, [lang="fa"] h3, [lang="fa"] h4, [lang="fa"] h5, [lang="fa"] h6,
+body[dir="rtl"] h1, body[dir="rtl"] h2, body[dir="rtl"] h3, body[dir="rtl"] h4, body[dir="rtl"] h5, body[dir="rtl"] h6 {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+}
+
+.fa p, .fa span, .fa div, .fa li,
+[lang="fa"] p, [lang="fa"] span, [lang="fa"] div, [lang="fa"] li,
+body[dir="rtl"] p, body[dir="rtl"] span, body[dir="rtl"] div, body[dir="rtl"] li {
+    font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 0;
+    padding: 3rem 0;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 1rem 0;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+}
+
+.btn-secondary:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #2563eb;
+    border: 2px solid #2563eb;
+}
+
+.btn-outline:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* Loading Animation */
+.page-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.page-loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #e5e7eb;
+    border-top: 4px solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Form Message Styles */
+.form-message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    animation: slideIn 0.3s ease-out;
+}
+
+.form-message--success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.form-message--error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

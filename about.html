@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ToolGostar Industrial Group</title>
+    <meta name="description" content="Learn about ToolGostar Industrial Group - 15+ years of excellence in industrial water treatment solutions and equipment manufacturing.">
+    <meta name="keywords" content="about ToolGostar, industrial water treatment company, equipment manufacturer, Iran, engineering excellence">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="public/images/logo/logo1.svg">
+    
+    <!-- Fonts - Using local Vazir font -->
+    <!-- Preload Vazir fonts for better performance -->
+    <link rel="preload" href="font/Vazir.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="font/Vazir-Bold.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="font/Vazir-Medium.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="font/Vazir-Light.woff2" as="font" type="font/woff2">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    <link rel="stylesheet" href="shared/css/header.css">
+    <link rel="stylesheet" href="shared/css/footer.css">
+    
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" title="English">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag-icon">
+            <span>EN</span>
+        </button>
+        <button class="lang-btn" data-lang="fa" title="فارسی">
+            <img src="https://flagcdn.com/w20/ir.png" alt="فارسی" class="flag-icon">
+            <span>فا</span>
+        </button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation -->
+            <ul class="nav-left">
+                <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+                <li class="nav-dropdown">
+                    <a href="products.html" class="nav-link" data-i18n="navigation.products">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="navigateToProductCategory('water-treatment'); return false;" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('mixers'); return false;" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('pumps'); return false;" data-en="Pumps" data-fa="پمپ‌ها">Pumps</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('filters'); return false;" data-en="Filters" data-fa="فیلترها">Filters</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('control'); return false;" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Executive Records</a></li>
+            </ul>
+            
+            <!-- Center logo -->
+            <a href="home.html" class="nav-logo">
+                <img src="public/images/logo/logo.png" alt="ToolGostar Industrial Group" />
+            </a>
+            
+            <!-- Right side navigation -->
+            <ul class="nav-right">
+                <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+                <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <ul class="nav-mobile" id="mobileMenu">
+            <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+            <li class="nav-dropdown-mobile">
+                <a href="products.html" class="nav-link" onclick="toggleMobileDropdown(this); return false;" data-i18n="navigation.products">Products</a>
+                <ul class="dropdown-menu-mobile">
+                    <li><a href="#" onclick="navigateToProductCategory('water-treatment'); return false;" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('mixers'); return false;" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('pumps'); return false;" data-en="Pumps" data-fa="پمپ‌ها">Pumps</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('filters'); return false;" data-en="Filters" data-fa="فیلترها">Filters</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('control'); return false;" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Executive Records</a></li>
+            <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+            <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+            <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-about">
+            <div class="container">
+                <h1>About ToolGostar</h1>
+                <p>Leading the way in industrial water treatment solutions with over 15 years of engineering excellence and innovation.</p>
+            </div>
+        </section>
+
+        <!-- About Content -->
+        <section class="about-content">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2>Our Story</h2>
+                        <p>Founded in 2009, ToolGostar Industrial Group has grown from a small engineering firm to a leading manufacturer of industrial water treatment equipment. Our journey began with a simple mission: to provide reliable, efficient, and innovative solutions for water treatment challenges.</p>
+                        <p>Today, we serve clients across 15+ countries, delivering cutting-edge technology and unmatched expertise in every project. Our commitment to quality and innovation has made us a trusted partner for industries worldwide.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="public/images/aboutUs/building-construction-work-site.jpg" alt="Industrial Construction Site" />
+                    </div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="public/images/aboutUs/steel-pipelines-cables-plant.jpg" alt="Industrial Team and Infrastructure" />
+                    </div>
+                    <div class="about-text">
+                        <h2>Our Mission</h2>
+                        <p>To provide innovative, reliable, and sustainable water treatment solutions that help our clients achieve their operational goals while protecting the environment. We are committed to engineering excellence, customer satisfaction, and continuous improvement.</p>
+                        <p>Our vision is to be the global leader in industrial water treatment technology, setting new standards for efficiency, reliability, and environmental responsibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Our Achievements</h2>
+                    <p>Numbers that speak to our experience and commitment to excellence</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Expert Engineers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Our Leadership Team</h2>
+                    <p>Meet the experts who drive our company's success and innovation</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 data-i18n="team.ceo.name">Mohammad Ahmadi</h3>
+                        <div class="position" data-i18n="team.ceo.position">Chief Executive Officer</div>
+                        <p data-i18n="team.ceo.description">Leading ToolGostar with over 20 years of experience in industrial engineering and water treatment technology.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <h3 data-i18n="team.cto.name">Sara Hosseini</h3>
+                        <div class="position" data-i18n="team.cto.position">Chief Technology Officer</div>
+                        <p data-i18n="team.cto.description">Expert in advanced water treatment technologies with PhD in Environmental Engineering from Tehran University.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 data-i18n="team.ops.name">Ali Rezaei</h3>
+                        <div class="position" data-i18n="team.ops.position">Operations Director</div>
+                        <p data-i18n="team.ops.description">Manages global operations and project delivery with expertise in international business development.</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-avatar">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 data-i18n="team.eng.name">Fateme Karimi</h3>
+                        <div class="position" data-i18n="team.eng.position">Engineering Manager</div>
+                        <p data-i18n="team.eng.description">Leads our engineering team in developing innovative solutions for complex water treatment challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="values-section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Our Core Values</h2>
+                    <p>The principles that guide everything we do</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Excellence</h3>
+                        <p>We strive for the highest standards in everything we do, from product design to customer service.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We continuously invest in research and development to bring cutting-edge solutions to our clients.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Integrity</h3>
+                        <p>We conduct business with honesty, transparency, and respect for all stakeholders.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Sustainability</h3>
+                        <p>We are committed to environmental responsibility and sustainable business practices.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="certifications-section">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Certifications & Standards</h2>
+                    <p>Our commitment to quality is validated by international certifications</p>
+                </div>
+                
+                <div class="certifications-grid">
+                    <div class="certification-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div class="cert-name">ISO 9001:2015</div>
+                        <div class="cert-description">Quality Management System</div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="cert-name">ISO 14001:2015</div>
+                        <div class="cert-description">Environmental Management</div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="cert-name">OHSAS 18001</div>
+                        <div class="cert-description">Occupational Health & Safety</div>
+                    </div>
+                    
+                    <div class="certification-item">
+                        <div class="cert-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="cert-name">CE Marking</div>
+                        <div class="cert-description">European Conformity</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ToolGostar Industrial Group</h3>
+                    <p>Leading manufacturer of industrial water treatment solutions, mixers, aerators, and submersible pumps.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>quick access</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#values">Our Values</a></li>
+                        <li><a href="contact.html">Careers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><span class="contact-label">Phone</span><br>021-22357761-3</p>
+                        <p><span class="contact-label">Mobile</span><br>09108108132</p>
+                        <p><span class="contact-label">Fax</span><br>021-22357762</p>
+                        <p><span class="contact-label">Email</span><br>toolgostar@yahoo.com</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/company/toolgostar" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/989108108132" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://t.me/toolgostar" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ToolGostar Industrial Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="shared/js/config.js"></script>
+    <script src="shared/js/server-config.js"></script>
+    <script src="shared/js/common.js"></script>
+    <script src="shared/js/api-integration.js"></script>
+    <script src="js/i18n.js"></script>
+    <script>
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            console.log('🍔 Mobile menu toggle called');
+            
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburgerBtn') || document.querySelector('.hamburger');
+            
+            console.log('🍔 Mobile menu element:', mobileMenu);
+            console.log('🍔 Hamburger element:', hamburger);
+            
+            if (!mobileMenu) {
+                console.error('❌ Mobile menu not found');
+                return;
+            }
+            
+            if (!hamburger) {
+                console.error('❌ Hamburger button not found');
+                return;
+            }
+            
+            const isActive = mobileMenu.classList.contains('active');
+            console.log('🍔 Current mobile menu state:', isActive);
+            
+            if (isActive) {
+                // Close menu
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                console.log('🍔 Mobile menu closed');
+            } else {
+                // Open menu
+                mobileMenu.classList.add('active');
+                hamburger.classList.add('active');
+                console.log('🍔 Mobile menu opened');
+            }
+            
+            // Force reflow to ensure CSS changes are applied
+            mobileMenu.offsetHeight;
+            
+            // Check final state
+            console.log('🍔 Final mobile menu state:', mobileMenu.classList.contains('active'));
+            console.log('🍔 Mobile menu computed style display:', window.getComputedStyle(mobileMenu).display);
+            console.log('🍔 Mobile menu computed style left:', window.getComputedStyle(mobileMenu).left);
+        }
+        
+        // Debug i18n system
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('About page loaded, checking i18n...');
+            console.log('i18n object:', window.i18n);
+            console.log('i18n initialized:', window.i18n?.initialized);
+            
+            // Force initialization if not already done
+            if (window.i18n && !window.i18n.initialized) {
+                console.log('Forcing i18n initialization...');
+                window.i18n.init().then(() => {
+                    console.log('i18n initialization completed');
+                    console.log('Current language:', window.i18n.currentLanguage);
+                    console.log('Translations loaded:', window.i18n.translations);
+                });
+            }
+            
+            // Force translation after a delay
+            setTimeout(() => {
+                console.log('Forcing translation...');
+                if (window.i18n) {
+                    // Manually translate team names
+                    const ceoName = document.querySelector('[data-i18n="team.ceo.name"]');
+                    const ctoName = document.querySelector('[data-i18n="team.cto.name"]');
+                    const opsName = document.querySelector('[data-i18n="team.ops.name"]');
+                    const engName = document.querySelector('[data-i18n="team.eng.name"]');
+                    
+                    if (ceoName) {
+                        ceoName.textContent = window.i18n.t('team.ceo.name');
+                        console.log('CEO name translated to:', ceoName.textContent);
+                    }
+                    if (ctoName) {
+                        ctoName.textContent = window.i18n.t('team.cto.name');
+                        console.log('CTO name translated to:', ctoName.textContent);
+                    }
+                    if (opsName) {
+                        opsName.textContent = window.i18n.t('team.ops.name');
+                        console.log('Ops name translated to:', opsName.textContent);
+                    }
+                    if (engName) {
+                        engName.textContent = window.i18n.t('team.eng.name');
+                        console.log('Eng name translated to:', engName.textContent);
+                    }
+                }
+            }, 3000);
+        });
+        
+        // Initialize mobile menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (mobileMenu && hamburger) {
+                console.log('🍔 Mobile menu elements found and initialized');
+                
+                // Add click event listener as backup to onclick attribute
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🍔 Hamburger clicked via event listener');
+                    toggleMobileMenu();
+                });
+                
+                // Also add touch event for mobile devices
+                hamburger.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    console.log('🍔 Hamburger touched via touch event');
+                    toggleMobileMenu();
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                        if (mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            hamburger.classList.remove('active');
+                            console.log('🍔 Mobile menu closed by outside click');
+                        }
+                    }
+                });
+                
+                // Close mobile menu when clicking on a link
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                        console.log('🍔 Mobile menu closed by link click');
+                    });
+                });
+            } else {
+                console.error('❌ Mobile menu elements not found during initialization');
+            }
+        });
+    </script>
+</body>
+</html>

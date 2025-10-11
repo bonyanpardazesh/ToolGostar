@@ -1,0 +1,384 @@
+/**
+ * RTL (Right-to-Left) Support for Admin Panel
+ * Provides proper styling for Farsi and other RTL languages
+ */
+
+/* RTL Body and HTML */
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl .container,
+.rtl .container-fluid {
+    direction: rtl;
+}
+
+/* Sidebar RTL Adjustments */
+.rtl #sidebar-wrapper {
+    right: 0;
+    left: auto;
+    margin-right: -15rem;
+    margin-left: 0;
+    transition: margin 0.25s ease-out;
+}
+
+.rtl #page-content-wrapper {
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    transition: all 0.25s ease-out;
+}
+
+.rtl #wrapper.toggled #page-content-wrapper {
+    margin-right: 250px;
+    width: calc(100% - 250px);
+}
+
+.rtl #wrapper.toggled #sidebar-wrapper {
+    margin-right: 0;
+}
+
+/* Navigation RTL */
+.rtl .navbar-nav {
+    direction: rtl;
+}
+
+.rtl .navbar-nav .nav-item {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+.rtl .dropdown-menu {
+    right: 0;
+    left: auto;
+    text-align: right;
+}
+
+/* Card RTL Adjustments */
+.rtl .card-header {
+    text-align: right;
+}
+
+.rtl .card-footer {
+    text-align: right;
+}
+
+.rtl .card-footer .ms-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* Form RTL */
+.rtl .form-label {
+    text-align: right;
+}
+
+.rtl .form-control {
+    text-align: right;
+}
+
+.rtl .form-check {
+    text-align: right;
+}
+
+.rtl .form-check-input {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Button RTL */
+.rtl .btn-group > .btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.rtl .btn-group > .btn:not(:first-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+}
+
+/* Table RTL */
+.rtl .table {
+    text-align: right;
+}
+
+.rtl .table th,
+.rtl .table td {
+    text-align: right;
+}
+
+/* Pagination RTL */
+.rtl .pagination {
+    justify-content: center;
+}
+
+.rtl .page-item:first-child .page-link {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.rtl .page-item:last-child .page-link {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Modal RTL */
+.rtl .modal-header {
+    text-align: right;
+}
+
+.rtl .modal-footer {
+    text-align: left;
+}
+
+.rtl .modal-footer .btn {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Badge RTL */
+.rtl .badge {
+    direction: rtl;
+}
+
+/* Dropdown RTL */
+.rtl .dropdown-toggle::after {
+    margin-left: 0;
+    margin-right: 0.255em;
+}
+
+/* Icon RTL Adjustments */
+.rtl .me-2 {
+    margin-left: 0.5rem !important;
+    margin-right: 0 !important;
+}
+
+.rtl .me-3 {
+    margin-left: 1rem !important;
+    margin-right: 0 !important;
+}
+
+.rtl .ms-2 {
+    margin-right: 0.5rem !important;
+    margin-left: 0 !important;
+}
+
+.rtl .ms-3 {
+    margin-right: 1rem !important;
+    margin-left: 0 !important;
+}
+
+.rtl .ms-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* Text alignment RTL */
+.rtl .text-start {
+    text-align: right !important;
+}
+
+.rtl .text-end {
+    text-align: left !important;
+}
+
+/* Flex RTL */
+.rtl .d-flex {
+    direction: rtl;
+}
+
+.rtl .justify-content-between {
+    flex-direction: row-reverse;
+}
+
+/* List RTL */
+.rtl .list-group-item {
+    text-align: right;
+}
+
+.rtl .list-group-item i {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Input group RTL */
+.rtl .input-group .form-control {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.rtl .input-group .btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+}
+
+/* Spinner RTL */
+.rtl .spinner-border {
+    direction: ltr;
+}
+
+/* Alert RTL */
+.rtl .alert {
+    text-align: right;
+}
+
+/* Breadcrumb RTL */
+.rtl .breadcrumb {
+    direction: rtl;
+}
+
+.rtl .breadcrumb-item + .breadcrumb-item::before {
+    content: "\\";
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Progress RTL */
+.rtl .progress {
+    direction: ltr;
+}
+
+/* Tooltip RTL */
+.rtl .tooltip {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Popover RTL */
+.rtl .popover {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Custom RTL utilities */
+.rtl .rtl-text {
+    direction: rtl;
+    text-align: right;
+}
+
+.rtl .rtl-reverse {
+    direction: ltr;
+    text-align: left;
+}
+
+/* Dashboard specific RTL */
+.rtl .dashboard-card .card-footer {
+    text-align: right;
+}
+
+.rtl .dashboard-card .ms-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* System status RTL */
+.rtl .system-status .row .col-md-6:last-child {
+    text-align: left !important;
+}
+
+/* Language switcher RTL */
+.rtl .language-switcher {
+    direction: ltr;
+}
+
+/* Fix for Bootstrap icons in RTL */
+.rtl .bi-chevron-right::before {
+    content: "\\f285"; /* chevron-left */
+}
+
+.rtl .bi-chevron-left::before {
+    content: "\\f284"; /* chevron-right */
+}
+
+/* Fix for arrow icons in RTL */
+.rtl .bi-arrow-right::before {
+    content: "\\f138"; /* arrow-left */
+}
+
+.rtl .bi-arrow-left::before {
+    content: "\\f13a"; /* arrow-right */
+}
+
+/* Button icon positioning in RTL */
+.rtl .btn i {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+.rtl .btn i:first-child {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+.rtl .btn i:last-child {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Input group button positioning in RTL */
+.rtl .input-group .btn {
+    order: -1;
+}
+
+.rtl .input-group .form-control {
+    order: 1;
+}
+
+/* Search input RTL */
+.rtl .input-group .btn i {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Filter dropdown RTL */
+.rtl .dropdown-toggle i {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Upload button RTL */
+.rtl .btn i.bi-upload {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Retry button RTL */
+.rtl .btn i.bi-arrow-clockwise {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Responsive RTL adjustments */
+@media (max-width: 768px) {
+    .rtl #page-content-wrapper {
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    .rtl #sidebar-wrapper {
+        margin-right: -15rem;
+        transform: translateX(100%);
+    }
+    
+    .rtl #wrapper.toggled #sidebar-wrapper {
+        margin-right: 0;
+        transform: translateX(0);
+    }
+    
+    .rtl #wrapper.toggled #page-content-wrapper {
+        width: 100%;
+    }
+}

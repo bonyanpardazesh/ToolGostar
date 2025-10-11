@@ -1,0 +1,106 @@
+# ============================================================================
+# ToolGostar Backend .htaccess Configuration
+# For cPanel Node.js Application
+# ============================================================================
+
+# NOTE: This .htaccess is typically NOT needed for cPanel Node.js apps
+# because cPanel's Node.js application manager handles routing automatically.
+# However, if you need manual Apache proxy configuration, use this file.
+
+# ============================================================================
+# FORCE HTTPS (Uncomment in production)
+# ============================================================================
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ============================================================================
+# PROXY TO NODE.JS APP (if cPanel Node.js app is not used)
+# ============================================================================
+# Enable Rewrite Engine
+# RewriteEngine On
+# RewriteBase /
+
+# If the request is for /api/*, proxy to Node.js backend
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^api/(.*)$ http://localhost:3001/api/$1 [P,L]
+
+# If the request is for /uploads/*, proxy to Node.js backend
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^uploads/(.*)$ http://localhost:3001/uploads/$1 [P,L]
+
+# ============================================================================
+# SECURITY HEADERS
+# ============================================================================
+<IfModule mod_headers.c>
+    # CORS Headers
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-API-Key, X-Session-ID"
+    Header always set Access-Control-Allow-Credentials "true"
+    
+    # Security Headers
+    Header always set X-Frame-Options "DENY"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+# ============================================================================
+# PROTECT SENSITIVE FILES
+# ============================================================================
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect .env files
+<FilesMatch "\.env">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect configuration files
+<FilesMatch "(package\.json|package-lock\.json|\.gitignore|\.git)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect database files
+<FilesMatch "\.sqlite$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect backup files
+<FilesMatch "\.(bak|backup|old|orig|save|swp)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect log files
+<FilesMatch "\.log$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# ============================================================================
+# ALLOW ACCESS TO UPLOADS DIRECTORY
+# ============================================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Allow direct access to uploads directory
+    RewriteCond %{REQUEST_URI} ^/uploads/
+    RewriteRule ^ - [L]
+</IfModule>
+
+# ============================================================================
+# COMPRESSION (Gzip)
+# ============================================================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE text/plain
+</IfModule>
+

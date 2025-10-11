@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToolGostar Industrial Group - Advanced Water Treatment Solutions</title>
+    <meta name="description" content="Leading provider of industrial water treatment systems, high-efficiency mixers, and reliable submersible pumps for industrial applications worldwide.">
+    
+    <!-- Fonts - Vazir only for Farsi, Arial for English -->
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="shared/css/common.css">
+    <link rel="stylesheet" href="shared/css/header.css">
+    <link rel="stylesheet" href="shared/css/footer.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" title="English">
+            <img src="https://flagcdn.com/w20/gb.png" alt="English" class="flag-icon">
+            <span>EN</span>
+        </button>
+        <button class="lang-btn" data-lang="fa" title="فارسی">
+            <img src="https://flagcdn.com/w20/ir.png" alt="فارسی" class="flag-icon">
+            <span>فا</span>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Left side navigation -->
+            <ul class="nav-left">
+                <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+                <li class="nav-dropdown">
+                    <a href="products.html" class="nav-link" data-i18n="navigation.products">Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="navigateToProductCategory('water-treatment'); return false;" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('mixers'); return false;" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('pumps'); return false;" data-en="Pumps" data-fa="پمپ‌ها">Pumps</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('filters'); return false;" data-en="Filters" data-fa="فیلترها">Filters</a></li>
+                        <li><a href="#" onclick="navigateToProductCategory('control'); return false;" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Executive Records</a></li>
+            </ul>
+            
+            <!-- Center logo -->
+            <a href="home.html" class="nav-logo">
+                <img src="public/images/logo/logo.png" alt="ToolGostar Industrial Group" />
+            </a>
+            
+            <!-- Right side navigation -->
+            <ul class="nav-right">
+                <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+                <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <div class="hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <ul class="nav-mobile" id="mobileMenu">
+            <li><a href="loading.html" class="nav-link" data-i18n="navigation.home">Home</a></li>
+            <li class="nav-dropdown-mobile">
+                <a href="products.html" class="nav-link" onclick="toggleMobileDropdown(this); return false;" data-i18n="navigation.products">Products</a>
+                <ul class="dropdown-menu-mobile">
+                    <li><a href="#" onclick="navigateToProductCategory('water-treatment'); return false;" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('mixers'); return false;" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('pumps'); return false;" data-en="Pumps" data-fa="پمپ‌ها">Pumps</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('filters'); return false;" data-en="Filters" data-fa="فیلترها">Filters</a></li>
+                    <li><a href="#" onclick="navigateToProductCategory('control'); return false;" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                </ul>
+            </li>
+            <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Executive Records</a></li>
+            <li><a href="about.html" class="nav-link" data-i18n="navigation.about">About</a></li>
+            <li><a href="contact.html" class="nav-link" data-i18n="navigation.contact">Contact</a></li>
+            <li><a href="news.html" class="nav-link" data-i18n="navigation.news">News</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="hero-image hero-image-1 active"></div>
+            <div class="hero-image hero-image-2"></div>
+            <div class="hero-image hero-image-3"></div>
+            <div class="hero-image hero-image-4"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-award"></i>
+                    <span>Industry Leader Since 1995</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-title-main">Advanced Water Treatment</span>
+                    <span class="hero-title-sub">Solutions for Industry</span>
+                </h1>
+                <p class="hero-description">
+                    Transform your industrial processes with our cutting-edge water treatment systems, 
+                    high-efficiency mixers, and reliable pumping solutions trusted by companies worldwide.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="products.html" class="btn btn-primary btn-hero">
+                        <i class="fas fa-rocket"></i>
+                        <span>Our Products</span>
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary btn-hero">
+                        <i class="fas fa-phone"></i>
+                        <span>Get in Contact</span>
+                    </a>
+                </div>
+                
+            </div>
+            
+            <!-- News Ticker at bottom of hero -->
+            <div class="hero-news-ticker">
+                <div class="news-ticker-container">
+                    <div class="news-ticker-label">
+                        <i class="fas fa-newspaper"></i>
+                        <span data-i18n="news.ticker.label">Latest News</span>
+                    </div>
+                    <div class="news-ticker-wrapper">
+                        <div class="news-ticker-content" id="newsTickerContent">
+                            <!-- News headlines will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose ToolGostar?</h2>
+                <p>Innovation, reliability, and excellence in every solution we provide</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Advanced Technology</h3>
+                    <p>State-of-the-art equipment and cutting-edge solutions for modern industrial needs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Reliable Performance</h3>
+                    <p>Durable and dependable systems designed to withstand demanding industrial environments.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Support</h3>
+                    <p>Dedicated technical support and maintenance services from our experienced team.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Preview Section -->
+    <section class="products-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Product Range</h2>
+                <p>Comprehensive solutions for all your water treatment needs</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Water Treatment Systems</h3>
+                    <p>Advanced filtration and purification systems for industrial applications.</p>
+                    <a href="products.html" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3>High-Efficiency Mixers</h3>
+                    <p>Precision mixing equipment for optimal process efficiency and quality.</p>
+                    <a href="products.html" class="btn btn-outline">Learn More</a>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Submersible Pumps</h3>
+                    <p>Reliable pumping solutions for various industrial and commercial applications.</p>
+                    <a href="products.html" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Water Treatment Process?</h2>
+                <p>Contact our experts today for a customized solution that meets your specific requirements.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">Contact Us Now</a>
+                    <a href="products.html" class="btn btn-secondary btn-large">View Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Masked Image Section -->
+    <section class="masked-image-section">
+        <div class="container">
+            <div class="masked-layout">
+                <div class="masked-image-container">
+                    <img class="masked-image" src="public/images/Home/Hero.png" alt="Water Treatment Innovation" width="600" height="400">
+                </div>
+                <div class="masked-content">
+                    <h2 data-i18n="masked_section.title">Innovation in Every Drop</h2>
+                    <p data-i18n="masked_section.subtitle">Experience the future of water treatment technology</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ToolGostar Industrial Group</h3>
+                    <p>Leading provider of industrial water treatment solutions with a commitment to innovation and excellence.</p>
+      
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">Water Treatment Systems</a></li>
+                        <li><a href="products.html">Mixers</a></li>
+                        <li><a href="products.html">Submersible Pumps</a></li>
+                        <li><a href="products.html">Accessories</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Unit 10, Soheil Complex, Alameh Tabatabaie St, Saadat Abad, Tehran, Iran</p>
+                        <p><i class="fas fa-phone"></i> 021-22357761-3</p>
+                        <p><i class="fas fa-mobile-alt"></i> 09108108132</p>
+                        <p><i class="fas fa-envelope"></i> toolgostar@yahoo.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ToolGostar Industrial Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Check if user came from loading page, if not redirect to loading
+        if (!sessionStorage.getItem('fromLoading')) {
+            window.location.href = 'loading.html';
+        } else {
+            // Clear the flag so next time they visit home it will show loading again
+            sessionStorage.removeItem('fromLoading');
+        }
+        
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            console.log('🍔 Mobile menu toggle called');
+            
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburgerBtn') || document.querySelector('.hamburger');
+            
+            console.log('🍔 Mobile menu element:', mobileMenu);
+            console.log('🍔 Hamburger element:', hamburger);
+            
+            if (!mobileMenu) {
+                console.error('❌ Mobile menu not found');
+                return;
+            }
+            
+            if (!hamburger) {
+                console.error('❌ Hamburger button not found');
+                return;
+            }
+            
+            const isActive = mobileMenu.classList.contains('active');
+            console.log('🍔 Current mobile menu state:', isActive);
+            
+            if (isActive) {
+                // Close menu
+                mobileMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+                console.log('🍔 Mobile menu closed');
+            } else {
+                // Open menu
+                mobileMenu.classList.add('active');
+                hamburger.classList.add('active');
+                console.log('🍔 Mobile menu opened');
+            }
+            
+            // Force reflow to ensure CSS changes are applied
+            mobileMenu.offsetHeight;
+            
+            // Check final state
+            console.log('🍔 Final mobile menu state:', mobileMenu.classList.contains('active'));
+            console.log('🍔 Mobile menu computed style display:', window.getComputedStyle(mobileMenu).display);
+            console.log('🍔 Mobile menu computed style left:', window.getComputedStyle(mobileMenu).left);
+        }
+        
+        // Initialize mobile menu on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.querySelector('.hamburger');
+            
+            if (mobileMenu && hamburger) {
+                console.log('🍔 Mobile menu elements found and initialized');
+                
+                // Add click event listener as backup to onclick attribute
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    console.log('🍔 Hamburger clicked via event listener');
+                    toggleMobileMenu();
+                });
+                
+                // Also add touch event for mobile devices
+                hamburger.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    console.log('🍔 Hamburger touched via touch event');
+                    toggleMobileMenu();
+                });
+                
+                // Close mobile menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!mobileMenu.contains(event.target) && !hamburger.contains(event.target)) {
+                        if (mobileMenu.classList.contains('active')) {
+                            mobileMenu.classList.remove('active');
+                            hamburger.classList.remove('active');
+                            console.log('🍔 Mobile menu closed by outside click');
+                        }
+                    }
+                });
+                
+                // Close mobile menu when clicking on a link
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        hamburger.classList.remove('active');
+                        console.log('🍔 Mobile menu closed by link click');
+                    });
+                });
+            } else {
+                console.error('❌ Mobile menu elements not found during initialization');
+            }
+        });
+
+        // Create animated background
+        function createAnimatedBackground() {
+            const heroSection = document.querySelector('.hero-section');
+            if (!heroSection) return;
+            
+            // Set hero section properties
+            heroSection.style.position = 'relative';
+            heroSection.style.overflow = 'hidden';
+            
+            // Create floating bubbles
+            createFloatingBubbles(heroSection);
+            
+            // Start hero image rotation
+            startHeroImageRotation();
+            
+            // Add CSS animation
+            const style = document.createElement('style');
+            style.textContent = `
+                
+                @keyframes bubbleFloat {
+                    0% {
+                        transform: translateY(100vh) translateX(0) scale(0);
+                        opacity: 0;
+                    }
+                    10% {
+                        opacity: 0.7;
+                    }
+                    90% {
+                        opacity: 0.3;
+                    }
+                    100% {
+                        transform: translateY(-100px) translateX(var(--bubble-drift)) scale(1);
+                        opacity: 0;
+                    }
+                }
+                
+                
+                .floating-bubble {
+                    position: absolute;
+                    border-radius: 50%;
+                    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(255,255,255,0.05));
+                    pointer-events: none;
+                    z-index: 2;
+                    animation: bubbleFloat linear infinite;
+                }
+                
+                .floating-bubble::before {
+                    content: '';
+                    position: absolute;
+                    top: 20%;
+                    left: 20%;
+                    width: 30%;
+                    height: 30%;
+                    background: rgba(255,255,255,0.6);
+                    border-radius: 50%;
+                }
+                
+                /* Hero Image Rotation Styles moved to css/home.css */
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Create floating bubbles function
+        function createFloatingBubbles(container) {
+            // Create bubbles at random intervals (much more frequent)
+            setInterval(() => {
+                createBubble(container);
+            }, 150 + Math.random() * 300); // Random interval between 0.15-0.45 seconds
+            
+            // Add a second interval for even more bubbles
+            setInterval(() => {
+                createBubble(container);
+            }, 200 + Math.random() * 400); // Random interval between 0.2-0.6 seconds
+            
+            // Add a third interval for bubble clusters
+            setInterval(() => {
+                // Create 2-4 bubbles at once for clusters
+                const clusterSize = 2 + Math.floor(Math.random() * 3);
+                for (let i = 0; i < clusterSize; i++) {
+                    setTimeout(() => createBubble(container), i * 100); // Stagger cluster bubbles
+                }
+            }, 800 + Math.random() * 1200); // Random interval between 0.8-2 seconds
+        }
+        
+        function createBubble(container) {
+            const bubble = document.createElement('div');
+            bubble.className = 'floating-bubble';
+            
+            // Random size between 5px and 25px
+            const size = 5 + Math.random() * 20;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            
+            // Random horizontal position
+            const leftPosition = Math.random() * 100;
+            bubble.style.left = `${leftPosition}%`;
+            
+            // Random drift amount (smaller drift for subtlety)
+            const driftAmount = (Math.random() - 0.5) * 40; // -20px to +20px drift
+            bubble.style.setProperty('--bubble-drift', `${driftAmount}px`);
+            
+            // Random animation duration between 4-10 seconds (more variety)
+            const duration = 4 + Math.random() * 6;
+            bubble.style.animationDuration = `${duration}s`;
+            
+            // Add bubble to container
+            container.appendChild(bubble);
+            
+            // Remove bubble after animation completes
+            setTimeout(() => {
+                if (bubble.parentNode) {
+                    bubble.parentNode.removeChild(bubble);
+                }
+            }, duration * 1000);
+        }
+        
+        // Hero image rotation function
+        function startHeroImageRotation() {
+            const images = document.querySelectorAll('.hero-image');
+            
+            if (images.length === 0) {
+                return;
+            }
+            
+            // Hide all hero images initially (show blue background for 1 second)
+            images.forEach((img, index) => {
+                img.style.opacity = '0'; // Hide all images initially
+            });
+            
+            let currentIndex = 0;
+            
+            // Start rotation after 1 second delay
+            setTimeout(() => {
+                // Show first image
+                images[0].style.opacity = '1';
+                images[0].classList.add('active');
+                
+                // Custom timing for each part
+                const rotationSequence = () => {
+                    // Hide current image
+                    images[currentIndex].classList.remove('active');
+                    images[currentIndex].style.opacity = '0';
+                    
+                    // Move to next image
+                    currentIndex = (currentIndex + 1) % images.length;
+                    
+                    // Show next image
+                    images[currentIndex].classList.add('active');
+                    images[currentIndex].style.opacity = '1';
+                    
+                    // Set different timing based on which part we're showing
+                    let nextDelay;
+                    if (currentIndex === 0) {
+                        // Part 1: Blue gradient - 3 seconds
+                        nextDelay = 3000;
+                    } else {
+                        // Parts 2-4: Images - 5 seconds each
+                        nextDelay = 5000;
+                    }
+                    
+                    // Schedule next rotation
+                    setTimeout(rotationSequence, nextDelay);
+                };
+                
+                // Start the rotation sequence
+                setTimeout(rotationSequence, 3000); // First transition after 3 seconds (blue gradient)
+                
+            }, 1000); // 1 second delay before starting rotation
+        }
+
+        // Initialize animated background
+        window.addEventListener('load', function() {
+            createAnimatedBackground();
+            
+            // Hero image rotation is now working perfectly!
+        });
+
+        // News Ticker Functionality
+        class NewsTicker {
+            constructor() {
+                this.newsData = [];
+                this.api = null;
+                this.init();
+            }
+
+            async loadNewsData() {
+                try {
+                    // Initialize API
+                    this.api = new ToolGostarAPI();
+                    
+                    // Load news from API
+                    const response = await this.api.getNews();
+                    
+                    if (response.news && response.news.length > 0) {
+                        this.newsData = response.news.slice(0, 5); // Limit to 5 articles for ticker
+                        console.log('✅ Loaded news for ticker:', this.newsData.length, 'articles');
+                    } else {
+                        // Fallback to static data if API fails
+                        this.newsData = this.getFallbackNews();
+                        console.log('⚠️ Using fallback news for ticker');
+                    }
+                } catch (error) {
+                    console.error('❌ Error loading news for ticker:', error);
+                    // Fallback to static data
+                    this.newsData = this.getFallbackNews();
+                }
+            }
+
+            getFallbackNews() {
+                return [
+                    {
+                        id: 1,
+                        title: {
+                            en: "Global Water Crisis Demands Innovative Solutions",
+                            fa: "بحران جهانی آب راه‌حل‌های نوآورانه می‌طلبد"
+                        },
+                        excerpt: {
+                            en: "Rising global water scarcity drives unprecedented innovation in treatment technologies worldwide.",
+                            fa: "کمبود فزاینده آب در جهان نوآوری بی‌سابقه‌ای در فناوری‌های تصفیه در سراسر جهان به دنبال دارد."
+                        }
+                    },
+                    {
+                        id: 2,
+                        title: {
+                            en: "Breakthrough Membrane Technology Revolutionizes Treatment",
+                            fa: "فناوری غشایی پیشرفته تصفیه را متحول می‌کند"
+                        },
+                        excerpt: {
+                            en: "New graphene-based membranes show 10x improvement in water filtration efficiency worldwide.",
+                            fa: "غشاهای جدید مبتنی بر گرافن 10 برابر بهبود در کارایی فیلتراسیون آب در سراسر جهان نشان می‌دهند."
+                        }
+                    }
+                ];
+            }
+
+            async init() {
+                // Wait for news data to load
+                await this.loadNewsData();
+                this.renderTicker();
+                this.setupLanguageListener();
+            }
+
+            getCurrentLanguage() {
+                // Try multiple sources for language detection
+                if (window.i18n && window.i18n.currentLanguage) {
+                    console.log('🌐 News ticker: Using i18n currentLanguage:', window.i18n.currentLanguage);
+                    return window.i18n.currentLanguage;
+                }
+                
+                // Check localStorage
+                const storedLang = localStorage.getItem('language');
+                if (storedLang) {
+                    console.log('🌐 News ticker: Using localStorage language:', storedLang);
+                    return storedLang;
+                }
+                
+                // Check body class for RTL/Farsi
+                if (document.body.classList.contains('fa') || document.body.getAttribute('dir') === 'rtl') {
+                    console.log('🌐 News ticker: Using body class/attribute (fa)');
+                    return 'fa';
+                }
+                
+                // Default to English
+                console.log('🌐 News ticker: Using default language (en)');
+                return 'en';
+            }
+
+            renderTicker() {
+                const tickerContent = document.getElementById('newsTickerContent');
+                if (!tickerContent) {
+                    console.log('⚠️ News ticker content not found, retrying...');
+                    setTimeout(() => this.renderTicker(), 100);
+                    return;
+                }
+
+                const currentLang = this.getCurrentLanguage();
+                console.log('🎬 Rendering news ticker in language:', currentLang);
+
+                // Create ticker items
+                const tickerItems = this.newsData.map(article => {
+                    const title = article.title[currentLang] || article.title.en;
+                    const excerpt = (article.excerpt && (article.excerpt[currentLang] || article.excerpt.en)) || '';
+                    const combined = `${title} : ${excerpt}`;
+                    return `<span class="news-ticker-item" onclick="openNewsArticle(${article.id})">${combined}</span>`;
+                }).join('');
+
+                // Duplicate content for seamless loop
+                tickerContent.innerHTML = tickerItems + tickerItems;
+                console.log('✅ News ticker rendered with', this.newsData.length, 'items');
+            }
+
+            setupLanguageListener() {
+                // Listen on document (where the event is actually dispatched)
+                document.addEventListener('languageChanged', (event) => {
+                    console.log('🔄 News ticker: Language changed to', event.detail?.language);
+                    // Force re-render with new language
+                    setTimeout(() => {
+                        this.renderTicker();
+                    }, 100);
+                });
+                
+                // Also listen for i18n initialization
+                document.addEventListener('i18nInitialized', () => {
+                    console.log('🔄 News ticker: i18n initialized, re-rendering');
+                    setTimeout(() => {
+                        this.renderTicker();
+                    }, 100);
+                });
+                
+                // Also listen on window as backup
+                window.addEventListener('languageChanged', (event) => {
+                    console.log('🔄 News ticker: Language changed (window) to', event.detail?.language);
+                    setTimeout(() => {
+                        this.renderTicker();
+                    }, 100);
+                });
+            }
+        }
+
+        // Global function to open news article
+        function openNewsArticle(articleId) {
+            console.log('Opening news article:', articleId);
+            // Navigate to news page with specific article
+            window.location.href = `news.html#article-${articleId}`;
+        }
+
+        // Initialize news ticker immediately for faster startup
+        let newsTicker;
+        
+        // Try to initialize immediately
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                newsTicker = new NewsTicker();
+            });
+        } else {
+            // DOM is already ready, initialize immediately
+            newsTicker = new NewsTicker();
+        }
+        
+        // Global function to manually update news ticker language
+        window.updateNewsTickerLanguage = function() {
+            if (newsTicker) {
+                console.log('🔄 Manual news ticker language update triggered');
+                newsTicker.renderTicker();
+            }
+        };
+        
+        // Test function for mobile menu
+        window.testMobileMenu = function() {
+            console.log('🧪 Testing mobile menu...');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburgerBtn');
+            
+            console.log('🧪 Mobile menu exists:', !!mobileMenu);
+            console.log('🧪 Hamburger exists:', !!hamburger);
+            
+            if (mobileMenu) {
+                console.log('🧪 Mobile menu classes:', mobileMenu.className);
+                console.log('🧪 Mobile menu computed display:', window.getComputedStyle(mobileMenu).display);
+                console.log('🧪 Mobile menu computed left:', window.getComputedStyle(mobileMenu).left);
+            }
+            
+            if (hamburger) {
+                console.log('🧪 Hamburger classes:', hamburger.className);
+                console.log('🧪 Hamburger computed display:', window.getComputedStyle(hamburger).display);
+            }
+            
+            // Try to toggle
+            toggleMobileMenu();
+        };
+        
+        // Force show mobile menu for testing
+        window.showMobileMenu = function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburgerBtn');
+            
+            if (mobileMenu) {
+                mobileMenu.classList.add('active');
+                mobileMenu.style.display = 'flex';
+                mobileMenu.style.left = '0';
+                mobileMenu.style.background = 'red';
+                mobileMenu.style.zIndex = '9999';
+                console.log('🧪 Mobile menu forced to show');
+            }
+            
+            if (hamburger) {
+                hamburger.classList.add('active');
+                console.log('🧪 Hamburger set to active');
+            }
+        };
+        
+        // Listen for language button clicks directly
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('🔄 Language button clicked, updating news ticker...');
+                    setTimeout(() => {
+                        if (newsTicker) {
+                            newsTicker.renderTicker();
+                        }
+                    }, 200);
+                });
+            });
+        });
+        
+        // Hook into the i18n system directly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Override the i18n applyLanguage method to trigger news ticker updates
+            if (window.i18n && window.i18n.applyLanguage) {
+                const originalApplyLanguage = window.i18n.applyLanguage;
+                window.i18n.applyLanguage = function(language) {
+                    console.log('🔄 i18n.applyLanguage called, triggering news ticker update');
+                    const result = originalApplyLanguage.call(this, language);
+                    // Trigger news ticker update after language change
+                    setTimeout(() => {
+                        if (newsTicker) {
+                            console.log('🔄 News ticker update triggered from i18n.applyLanguage');
+                            newsTicker.renderTicker();
+                        }
+                    }, 300);
+                    return result;
+                };
+            }
+            
+            // Also override switchLanguage method
+            if (window.i18n && window.i18n.switchLanguage) {
+                const originalSwitchLanguage = window.i18n.switchLanguage;
+                window.i18n.switchLanguage = function(language) {
+                    console.log('🔄 i18n.switchLanguage called, triggering news ticker update');
+                    const result = originalSwitchLanguage.call(this, language);
+                    // Trigger news ticker update after language switch
+                    setTimeout(() => {
+                        if (newsTicker) {
+                            console.log('🔄 News ticker update triggered from i18n.switchLanguage');
+                            newsTicker.renderTicker();
+                        }
+                    }, 400);
+                    return result;
+                };
+            }
+        });
+    </script>
+    
+    <!-- i18n Script -->
+    <script src="js/i18n.js"></script>
+    <script src="shared/js/config.js"></script>
+    <script src="shared/js/server-config.js"></script>
+    <script src="shared/js/common.js"></script>
+    <script src="shared/js/api-integration.js"></script>
+    
+    <!-- Ensure i18n is applied to new elements -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for i18n to initialize, then apply translations to new elements
+            setTimeout(function() {
+                if (window.i18n && window.i18n.applyLanguage) {
+                    const currentLang = window.i18n.getCurrentLanguage();
+                    console.log('Re-applying i18n for language:', currentLang);
+                    window.i18n.applyLanguage(currentLang);
+                }
+            }, 1000);
+        });
+        
+        // Also try to apply when the page is fully loaded
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (window.i18n && window.i18n.applyLanguage) {
+                    const currentLang = window.i18n.getCurrentLanguage();
+                    console.log('Re-applying i18n on load for language:', currentLang);
+                    window.i18n.applyLanguage(currentLang);
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
