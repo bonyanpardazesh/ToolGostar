@@ -555,3 +555,136 @@ body.rtl .language-switcher {
     margin-left: 0;
     margin-right: 5px;
 }
+
+/* ========================= */
+/* Products Mega Menu (Desktop) */
+/* ========================= */
+.mega-menu {
+    position: absolute;
+    top: 80px; /* below navbar */
+    left: 0;
+    right: 0;
+    display: none;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    padding: 20px;
+    z-index: 1100;
+}
+
+.navbar.mega-open .mega-menu {
+    display: block;
+}
+
+.mega-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 24px;
+}
+
+.mega-col.categories {
+    border-right: 1px solid #f1f5f9;
+    padding-right: 16px;
+}
+
+[dir="rtl"] .mega-col.categories {
+    border-right: none;
+    border-left: 1px solid #f1f5f9;
+    padding-right: 0;
+    padding-left: 16px;
+}
+
+.mega-col.categories h4,
+.mega-col.details h4 {
+    margin: 0 0 10px 0;
+    font-size: 0.95rem;
+    color: #334155;
+}
+
+.mega-categories-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.mega-category-btn {
+    width: 100%;
+    text-align: left;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #111827;
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.05s ease;
+}
+
+.mega-category-btn:hover,
+.mega-category-btn.active {
+    background: #eef2ff;
+    border-color: #c7d2fe;
+}
+
+[dir="rtl"] .mega-category-btn {
+    text-align: right;
+}
+
+.mega-all-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.mega-details-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.mega-products {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.mega-product-card {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px;
+    text-decoration: none;
+    color: #111827;
+    background: #ffffff;
+}
+
+.mega-product-card img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    background: #f8fafc;
+    border-radius: 6px;
+    border: 1px solid #f1f5f9;
+}
+
+.mega-product-name {
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+/* Hide mega menu on mobile */
+@media (max-width: 768px) {
+    .mega-menu {
+        display: none !important;
+    }
+}

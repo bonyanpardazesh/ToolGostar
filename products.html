@@ -51,11 +51,9 @@
                 <li class="nav-dropdown">
                     <a href="products.html" class="nav-link" data-i18n="navigation.products">Products</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#" onclick="filterProductsByCategory('water-treatment'); return false;" data-i18n="products.categories.water_treatment" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
-                        <li><a href="#" onclick="filterProductsByCategory('mixers'); return false;" data-i18n="products.categories.mixers" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
-                        <li><a href="#" onclick="filterProductsByCategory('pumps'); return false;" data-i18n="products.categories.pumps" data-en="Pumps & Systems" data-fa="پمپ‌ها و سیستم‌ها">Pumps & Systems</a></li>
-                        <li><a href="#" onclick="filterProductsByCategory('filters'); return false;" data-i18n="products.categories.filters" data-en="Filters & Media" data-fa="فیلترها و رسانه‌ها">Filters & Media</a></li>
-                        <li><a href="#" onclick="filterProductsByCategory('control'); return false;" data-i18n="products.categories.control_systems" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                        <li><a href="products.html?category=water-wastewater" data-i18n="products.categories.water_wastewater" data-en="Water & Wastewater Equipment" data-fa="تجهیزات آب و فاضلاب">Water & Wastewater Equipment</a></li>
+                        <li><a href="products.html?category=pumps-mixers" data-i18n="products.categories.pumps_mixers" data-en="Pumps & Mixers" data-fa="پمپ‌ها و مخلوط‌کن‌ها">Pumps & Mixers</a></li>
+                        <li><a href="products.html?category=turbo-machine" data-i18n="products.categories.turbo_machine" data-en="Turbo Machine" data-fa="ماشین توربو">Turbo Machine</a></li>
                     </ul>
                 </li>
                 <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Gallery</a></li>
@@ -87,11 +85,9 @@
             <li class="nav-dropdown-mobile">
                 <a href="products.html" class="nav-link" data-i18n="navigation.products" onclick="toggleMobileDropdown(this); return false;">Products</a>
                 <ul class="dropdown-menu-mobile">
-                    <li><a href="#" onclick="filterProductsByCategory('water-treatment'); return false;" data-i18n="products.categories.water_treatment" data-en="Water Treatment Systems" data-fa="سیستم‌های تصفیه آب">Water Treatment Systems</a></li>
-                    <li><a href="#" onclick="filterProductsByCategory('mixers'); return false;" data-i18n="products.categories.mixers" data-en="Mixers & Aerators" data-fa="مخلوط‌کن‌ها و هواده‌ها">Mixers & Aerators</a></li>
-                    <li><a href="#" onclick="filterProductsByCategory('pumps'); return false;" data-i18n="products.categories.pumps" data-en="Pumps & Systems" data-fa="پمپ‌ها و سیستم‌ها">Pumps & Systems</a></li>
-                    <li><a href="#" onclick="filterProductsByCategory('filters'); return false;" data-i18n="products.categories.filters" data-en="Filters & Media" data-fa="فیلترها و رسانه‌ها">Filters & Media</a></li>
-                    <li><a href="#" onclick="filterProductsByCategory('control'); return false;" data-i18n="products.categories.control_systems" data-en="Control Systems" data-fa="سیستم‌های کنترل">Control Systems</a></li>
+                    <li><a href="products.html?category=water-wastewater" data-i18n="products.categories.water_wastewater" data-en="Water & Wastewater Equipment" data-fa="تجهیزات آب و فاضلاب">Water & Wastewater Equipment</a></li>
+                    <li><a href="products.html?category=pumps-mixers" data-i18n="products.categories.pumps_mixers" data-en="Pumps & Mixers" data-fa="پمپ‌ها و مخلوط‌کن‌ها">Pumps & Mixers</a></li>
+                    <li><a href="products.html?category=turbo-machine" data-i18n="products.categories.turbo_machine" data-en="Turbo Machine" data-fa="ماشین توربو">Turbo Machine</a></li>
                 </ul>
             </li>
             <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Gallery</a></li>
@@ -766,11 +762,18 @@
             
             // Check for category in URL and apply filter
             const urlParams = new URLSearchParams(window.location.search);
-            const category = urlParams.get('category');
-            if (category) {
+            const rawCategory = urlParams.get('category');
+            if (rawCategory) {
+                // Map new slugs to existing internal categories
+                const categoryMap = {
+                    'water-wastewater': 'water-treatment',
+                    'pumps-mixers': 'mixers-aerators',
+                    'turbo-machine': 'pumps-systems'
+                };
+                const mappedCategory = categoryMap[rawCategory] || rawCategory;
                 // Apply filter after products are loaded
                 setTimeout(() => {
-                filterProductsByCategory(category);
+                    filterProductsByCategory(mappedCategory);
                 }, 1000);
             }
             

@@ -290,6 +290,9 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('🔧 Delayed dropdown translation attempt');
         updateDropdownTranslations();
     }, 1000);
+
+    // Initialize Products mega menu
+    initProductsMegaMenu();
 });
 
 function getLanguage() {
@@ -341,12 +344,15 @@ window.addEventListener('languageChanged', (event) => {
     } else {
         updateDropdownTranslations(); // Fallback
     }
+    // re-render mega menu texts
+    refreshMegaMenuTexts();
 });
 
 // Also re-run translations after i18n has fully initialized
 document.addEventListener('i18nInitialized', () => {
     console.log('🔧 i18nInitialized event received');
     updateDropdownTranslations();
+    refreshMegaMenuTexts();
 });
 
 // Global dropdown functions
@@ -375,3 +381,188 @@ window.testDropdownTranslations = function() {
     console.log('🧪 Manual dropdown translation test');
     updateDropdownTranslations();
 };
+
+// =========================
+// Products Mega Menu Logic
+// =========================
+let megaMenuState = {
+    cacheByCategory: {},
+    open: false,
+    hoverTimers: { open: null, close: null }
+};
+
+function initProductsMegaMenu() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    const productsItem = navbar.querySelector('.nav-dropdown > a.nav-link[data-i18n="navigation.products"]');
+    if (!productsItem) return;
+
+    // Create mega menu container once
+    let mega = document.querySelector('.mega-menu');
+    if (!mega) {
+        mega = document.createElement('div');
+        mega.className = 'mega-menu';
+        mega.innerHTML = getMegaMenuTemplate();
+        navbar.appendChild(mega);
+    }
+
+    const show = () => {
+        clearTimeout(megaMenuState.hoverTimers.close);
+        megaMenuState.hoverTimers.open = setTimeout(() => {
+            navbar.classList.add('mega-open');
+            megaMenuState.open = true;
+        }, 200); // open delay
+    };
+
+    const hide = () => {
+        clearTimeout(megaMenuState.hoverTimers.open);
+        megaMenuState.hoverTimers.close = setTimeout(() => {
+            navbar.classList.remove('mega-open');
+            megaMenuState.open = false;
+        }, 400); // close delay
+    };
+
+    // Hover intent on desktop
+    productsItem.addEventListener('mouseenter', show);
+    productsItem.parentElement.addEventListener('mouseenter', show);
+    navbar.addEventListener('mouseleave', hide);
+
+    // Click toggle
+    productsItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (megaMenuState.open) {
+            hide();
+        } else {
+            show();
+        }
+    });
+
+    // Stop closing when hovering mega
+    mega.addEventListener('mouseenter', () => {
+        clearTimeout(megaMenuState.hoverTimers.close);
+    });
+
+    // Wire category buttons
+    bindMegaCategoryButtons();
+
+    // Initial texts
+    refreshMegaMenuTexts();
+}
+
+function getMegaMenuTemplate() {
+    return `
+        <div class="mega-container">
+            <div class="mega-col categories">
+                <h4 data-i18n="products.title">Our Product Range</h4>
+                <ul class="mega-categories-list">
+                    <li><button class="mega-category-btn" data-category="water-wastewater" data-en="Water & Wastewater" data-fa="آب و فاضلاب">Water & Wastewater</button></li>
+                    <li><button class="mega-category-btn" data-category="pumps-mixers" data-en="Pumps & Mixers" data-fa="پمپ‌ها و مخلوط‌کن‌ها">Pumps & Mixers</button></li>
+                    <li><button class="mega-category-btn" data-category="turbo-machine" data-en="Turbo Machine" data-fa="ماشین توربو">Turbo Machine</button></li>
+                </ul>
+                <a class="mega-all-link" href="products.html" data-i18n="products.filters.all">All Products</a>
+            </div>
+            <div class="mega-col details">
+                <div class="mega-details-header">
+                    <h4 class="mega-details-title">Category</h4>
+                    <a class="mega-all-link mega-details-all" href="#">View all</a>
+                </div>
+                <div class="mega-products" id="megaProducts"></div>
+            </div>
+        </div>
+    `;
+}
+
+function refreshMegaMenuTexts() {
+    const lang = getLanguage();
+    document.querySelectorAll('.mega-category-btn').forEach(btn => {
+        const en = btn.getAttribute('data-en');
+        const fa = btn.getAttribute('data-fa');
+        btn.textContent = lang === 'fa' ? (fa || en) : (en || fa);
+    });
+    // Translate simple headings if i18n is available
+    const title = document.querySelector('.mega-col.categories h4');
+    if (title && window.i18n?.t) title.textContent = window.i18n.t('products.title') || title.textContent;
+    const all = document.querySelector('.mega-all-link');
+    if (all && window.i18n?.t) all.textContent = window.i18n.t('products.filters.all') || all.textContent;
+    const viewAll = document.querySelector('.mega-details-all');
+    if (viewAll) viewAll.textContent = getLangText({ en: 'View all', fa: 'نمایش همه' });
+}
+
+function getLangText(map) {
+    const lang = getLanguage();
+    return map[lang] || map.en;
+}
+
+function bindMegaCategoryButtons() {
+    const buttons = document.querySelectorAll('.mega-category-btn');
+    buttons.forEach(btn => {
+        btn.addEventListener('mouseenter', () => loadMegaCategory(btn.dataset.category));
+        btn.addEventListener('focus', () => loadMegaCategory(btn.dataset.category));
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            loadMegaCategory(btn.dataset.category);
+        });
+    });
+    // Load first by default for fast feedback
+    const first = buttons[0];
+    if (first) loadMegaCategory(first.dataset.category);
+}
+
+async function loadMegaCategory(categorySlug) {
+    // Map to backend categories if needed on products API
+    const map = {
+        'water-wastewater': 'water-treatment',
+        'pumps-mixers': 'mixers-aerators',
+        'turbo-machine': 'pumps-systems'
+    };
+    const internal = map[categorySlug] || categorySlug;
+
+    document.querySelectorAll('.mega-category-btn').forEach(b => b.classList.toggle('active', b.dataset.category === categorySlug));
+
+    const title = document.querySelector('.mega-details-title');
+    if (title) title.textContent = document.querySelector(`.mega-category-btn[data-category="${categorySlug}"]`)?.textContent || 'Category';
+
+    const viewAll = document.querySelector('.mega-details-all');
+    if (viewAll) viewAll.setAttribute('href', `products.html?category=${categorySlug}`);
+
+    const productsEl = document.getElementById('megaProducts');
+    if (!productsEl) return;
+
+    // Cached?
+    if (megaMenuState.cacheByCategory[categorySlug]) {
+        renderMegaFromCache(megaMenuState.cacheByCategory[categorySlug], productsEl);
+        return;
+    }
+
+    // Load via API if available, otherwise fallback to empty
+    try {
+        if (!window.ToolGostarAPI) throw new Error('No API');
+        const api = new window.ToolGostarAPI();
+        const resp = await api.getProducts();
+        const products = (resp?.products || []).filter(p => {
+            const cat = p.category?.slug || p.category?.name || 'general';
+            return [internal].includes(cat);
+        });
+        // Pick up to 6 featured
+        const featured = products.slice(0, 6);
+        const packed = { featured };
+        megaMenuState.cacheByCategory[categorySlug] = packed;
+        renderMegaFromCache(packed, productsEl);
+    } catch (e) {
+        renderMegaFromCache({ featured: [] }, productsEl);
+    }
+}
+
+function renderMegaFromCache(data, productsEl) {
+    const lang = getLanguage();
+    productsEl.innerHTML = (data.featured || []).map(p => {
+        const name = (p.name?.[lang] || p.name?.en || p.name || 'Product');
+        let img = p.featuredImage || p.galleryImages?.[0] || 'public/images/logo/logo.png';
+        img = CommonApp.getImageUrl(img);
+        const id = p.id || p.slug || '';
+        return `<a class="mega-product-card" href="products.html#${id}">
+                    <img src="${img}" alt="${name}" onerror="this.src='public/images/logo/logo.png'" />
+                    <div class="mega-product-name">${name}</div>
+                </a>`;
+    }).join('');
+}
