@@ -340,8 +340,14 @@ async function startServer() {
 // START THE SERVER
 // ============================================================================
 
-// Start the server if this file is run directly
-if (require.main === module) {
+// Detect if running under Passenger (cPanel environment)
+// Passenger sets environment variables like PASSENGER_APP_ENV or PORT
+const runningUnderPassenger = !!process.env.PASSENGER_APP_ENV || !!process.env.PORT;
+
+// Start the server if:
+// 1. This file is run directly (node app.js)
+// 2. Running under Passenger/cPanel
+if (require.main === module || runningUnderPassenger) {
   startServer();
 }
 

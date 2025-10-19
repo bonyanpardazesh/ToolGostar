@@ -127,6 +127,11 @@
       "description": "توضیحات",
       "capacity": "ظرفیت",
       "powerRange": "محدوده قدرت",
+      "icon": "آیکن",
+      "featuredImage": "تصویر شاخص",
+      "catalog": "کاتالوگ محصول (PDF)",
+      "specifications": "مشخصات فنی",
+      "addSpec": "افزودن مشخصه",
       "selectCategory": "انتخاب دسته‌بندی",
       "categories": {
         "pumps": "پمپ‌ها",

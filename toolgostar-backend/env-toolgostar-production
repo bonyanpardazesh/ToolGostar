@@ -29,7 +29,7 @@ EMAIL_FROM_ADDRESS=noreply@toolgostar.com
 # Application URLs - CONFIGURED FOR TOOLGOSTAR.COM
 FRONTEND_URL=https://toolgostar.com
 ADMIN_URL=https://toolgostar.com/toolgostar-admin
-API_URL=https://toolgostar.com:3001/api/v1
+API_URL=https://toolgostar.com/api/v1
 
 # CORS Configuration - CONFIGURED FOR TOOLGOSTAR.COM
 CORS_ORIGIN=https://toolgostar.com,https://www.toolgostar.com

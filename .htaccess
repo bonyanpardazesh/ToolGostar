@@ -26,6 +26,13 @@ RewriteBase /
 DirectoryIndex index.html loading.html home.html
 
 # ============================================================================
+# ROUTE UPLOADS THROUGH NODE APP (Passenger at /api)
+# ============================================================================
+# Send /uploads/* to the Node.js app mapping without using proxy
+RewriteCond %{REQUEST_URI} ^/uploads/
+RewriteRule ^uploads/(.*)$ /api/uploads/$1 [L]
+
+# ============================================================================
 # HTML5 PUSHSTATE SUPPORT (for SPAs)
 # ============================================================================
 # Redirect all requests to existing files/directories

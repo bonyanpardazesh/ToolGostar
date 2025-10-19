@@ -337,7 +337,7 @@ function updateDropdownTranslations(lang) {
 }
 
 // Listen for language changes to update dropdowns
-window.addEventListener('languageChanged', (event) => {
+document.addEventListener('languageChanged', (event) => {
     console.log('🔧 languageChanged event received:', event.detail);
     if (event.detail && event.detail.language) {
         updateDropdownTranslations(event.detail.language);
@@ -353,6 +353,26 @@ document.addEventListener('i18nInitialized', () => {
     console.log('🔧 i18nInitialized event received');
     updateDropdownTranslations();
     refreshMegaMenuTexts();
+});
+
+// Delegate language button clicks to i18n switcher
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.lang-btn');
+    if (!btn) return;
+    const targetLang = btn.getAttribute('data-lang') || 'en';
+    if (window.i18n && typeof window.i18n.switchLanguage === 'function') {
+        window.i18n.switchLanguage(targetLang);
+    } else {
+        // Fallback if i18n is not ready yet
+        localStorage.setItem('language', targetLang);
+        const detail = { language: targetLang };
+        document.dispatchEvent(new CustomEvent('i18nInitialized'));
+        // Dispatch on document so listeners receive the event
+        document.dispatchEvent(new CustomEvent('languageChanged', { detail }));
+        // Also dispatch on window for any legacy listeners
+        window.dispatchEvent(new CustomEvent('languageChanged', { detail }));
+        applyLanguageStyling(targetLang);
+    }
 });
 
 // Global dropdown functions
@@ -396,6 +416,12 @@ function initProductsMegaMenu() {
     if (!navbar) return;
     const productsItem = navbar.querySelector('.nav-dropdown > a.nav-link[data-i18n="navigation.products"]');
     if (!productsItem) return;
+
+    // Mark this dropdown as mega-only to suppress the small dropdown
+    const productsDropdown = productsItem.parentElement;
+    if (productsDropdown) {
+        productsDropdown.classList.add('mega-only');
+    }
 
     // Create mega menu container once
     let mega = document.querySelector('.mega-menu');
@@ -455,9 +481,11 @@ function getMegaMenuTemplate() {
             <div class="mega-col categories">
                 <h4 data-i18n="products.title">Our Product Range</h4>
                 <ul class="mega-categories-list">
-                    <li><button class="mega-category-btn" data-category="water-wastewater" data-en="Water & Wastewater" data-fa="آب و فاضلاب">Water & Wastewater</button></li>
-                    <li><button class="mega-category-btn" data-category="pumps-mixers" data-en="Pumps & Mixers" data-fa="پمپ‌ها و مخلوط‌کن‌ها">Pumps & Mixers</button></li>
-                    <li><button class="mega-category-btn" data-category="turbo-machine" data-en="Turbo Machine" data-fa="ماشین توربو">Turbo Machine</button></li>
+                    <li><button class="mega-category-btn" data-category="storage-handling-solids" data-en="Storage & Handling of Bulk Solids" data-fa="تجهیزات انبارش و انتقال مواد جامد">Storage & Handling of Bulk Solids</button></li>
+                    <li><button class="mega-category-btn" data-category="water-wastewater" data-en="Water & Wastewater Treatment" data-fa="تجهیزات و تصفیه خانه آب و فاضلاب">Water & Wastewater Treatment</button></li>
+                    <li><button class="mega-category-btn" data-category="submersible-mixers" data-en="Submersible Mixers & Flow Makers" data-fa="میکسرها و جریان سازهای مستغرق">Submersible Mixers & Flow Makers</button></li>
+                    <li><button class="mega-category-btn" data-category="pumps" data-en="Pumps" data-fa="پمپ ها">Pumps</button></li>
+                    <li><button class="mega-category-btn" data-category="others" data-en="Others" data-fa="سایر">Others</button></li>
                 </ul>
                 <a class="mega-all-link" href="products.html" data-i18n="products.filters.all">All Products</a>
             </div>
@@ -511,9 +539,11 @@ function bindMegaCategoryButtons() {
 async function loadMegaCategory(categorySlug) {
     // Map to backend categories if needed on products API
     const map = {
+        'storage-handling-solids': 'storage-handling-solids',
         'water-wastewater': 'water-treatment',
-        'pumps-mixers': 'mixers-aerators',
-        'turbo-machine': 'pumps-systems'
+        'submersible-mixers': 'mixers-aerators',
+        'pumps': 'pumps-systems',
+        'others': 'others'
     };
     const internal = map[categorySlug] || categorySlug;
 

@@ -528,10 +528,30 @@ class NewsManager {
                 featuredImage: this.featuredImageUrl || ''
             };
 
-            // Add slug only if it has a value
+            // Add/normalize slug
             const slugValue = document.getElementById('news-slug').value;
+            const makeSlug = (str) => {
+                return (str || '')
+                    .toString()
+                    .trim()
+                    .toLowerCase()
+                    .replace(/[^a-z0-9\s-]/g, '')
+                    .replace(/\s+/g, '-')
+                    .replace(/-+/g, '-');
+            };
             if (slugValue && slugValue.trim() !== '') {
-                formData.slug = slugValue;
+                formData.slug = makeSlug(slugValue);
+            } else if (formData.title && formData.title.en) {
+                const auto = makeSlug(formData.title.en);
+                formData.slug = auto && auto.length >= 2 ? auto : `news-${Date.now()}`;
+            }
+
+            // Normalize featured image URL to absolute (Joi requires URI)
+            if (formData.featuredImage) {
+                if (/^\/uploads\//.test(formData.featuredImage)) {
+                    const base = (window.apiService?.baseURL || '').replace(/\/api\/v1$/, '');
+                    formData.featuredImage = base + formData.featuredImage;
+                }
             }
 
             console.log('📝 Form data being sent:', JSON.stringify(formData, null, 2));

@@ -76,7 +76,8 @@ class AdminI18n {
             // Determine the correct path based on current page location
             const isInPagesDir = window.location.pathname.includes('/pages/');
             const basePath = isInPagesDir ? '../languages/' : 'languages/';
-            const url = `${basePath}${this.currentLanguage}.json`;
+            const cacheBust = (window.CONFIG && window.CONFIG.APP && window.CONFIG.APP.VERSION) ? window.CONFIG.APP.VERSION : Date.now();
+            const url = `${basePath}${this.currentLanguage}.json?v=${cacheBust}`;
             
             const response = await fetch(url);
             

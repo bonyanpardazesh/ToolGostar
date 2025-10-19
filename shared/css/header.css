@@ -447,6 +447,11 @@ body.rtl .language-switcher {
     transform: translateY(0);
 }
 
+/* Hide the small dropdown for mega-only products menu */
+.nav-dropdown.mega-only .dropdown-menu {
+    display: none !important;
+}
+
 .dropdown-menu {
     position: absolute;
     top: 100%;

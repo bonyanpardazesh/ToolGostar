@@ -51,9 +51,11 @@
                 <li class="nav-dropdown">
                     <a href="products.html" class="nav-link" data-i18n="navigation.products">Products</a>
                     <ul class="dropdown-menu">
-                        <li><a href="products.html?category=water-wastewater" data-i18n="products.categories.water_wastewater" data-en="Water & Wastewater Equipment" data-fa="تجهیزات آب و فاضلاب">Water & Wastewater Equipment</a></li>
-                        <li><a href="products.html?category=pumps-mixers" data-i18n="products.categories.pumps_mixers" data-en="Pumps & Mixers" data-fa="پمپ‌ها و مخلوط‌کن‌ها">Pumps & Mixers</a></li>
-                        <li><a href="products.html?category=turbo-machine" data-i18n="products.categories.turbo_machine" data-en="Turbo Machine" data-fa="ماشین توربو">Turbo Machine</a></li>
+                        <li><a href="products.html?category=storage-handling-solids" data-en="Storage & Handling of Bulk Solids" data-fa="تجهیزات انبارش و انتقال مواد جامد">Storage & Handling of Bulk Solids</a></li>
+                        <li><a href="products.html?category=water-wastewater" data-en="Water & Wastewater Treatment" data-fa="تجهیزات و تصفیه خانه آب و فاضلاب">Water & Wastewater Treatment</a></li>
+                        <li><a href="products.html?category=submersible-mixers" data-en="Submersible Mixers & Flow Makers" data-fa="میکسرها و جریان سازهای مستغرق">Submersible Mixers & Flow Makers</a></li>
+                        <li><a href="products.html?category=pumps" data-en="Pumps" data-fa="پمپ ها">Pumps</a></li>
+                        <li><a href="products.html?category=others" data-en="Others" data-fa="سایر">Others</a></li>
                     </ul>
                 </li>
                 <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Gallery</a></li>
@@ -85,9 +87,11 @@
             <li class="nav-dropdown-mobile">
                 <a href="products.html" class="nav-link" data-i18n="navigation.products" onclick="toggleMobileDropdown(this); return false;">Products</a>
                 <ul class="dropdown-menu-mobile">
-                    <li><a href="products.html?category=water-wastewater" data-i18n="products.categories.water_wastewater" data-en="Water & Wastewater Equipment" data-fa="تجهیزات آب و فاضلاب">Water & Wastewater Equipment</a></li>
-                    <li><a href="products.html?category=pumps-mixers" data-i18n="products.categories.pumps_mixers" data-en="Pumps & Mixers" data-fa="پمپ‌ها و مخلوط‌کن‌ها">Pumps & Mixers</a></li>
-                    <li><a href="products.html?category=turbo-machine" data-i18n="products.categories.turbo_machine" data-en="Turbo Machine" data-fa="ماشین توربو">Turbo Machine</a></li>
+                    <li><a href="products.html?category=storage-handling-solids" data-en="Storage & Handling of Bulk Solids" data-fa="تجهیزات انبارش و انتقال مواد جامد">Storage & Handling of Bulk Solids</a></li>
+                    <li><a href="products.html?category=water-wastewater" data-en="Water & Wastewater Treatment" data-fa="تجهیزات و تصفیه خانه آب و فاضلاب">Water & Wastewater Treatment</a></li>
+                    <li><a href="products.html?category=submersible-mixers" data-en="Submersible Mixers & Flow Makers" data-fa="میکسرها و جریان سازهای مستغرق">Submersible Mixers & Flow Makers</a></li>
+                    <li><a href="products.html?category=pumps" data-en="Pumps" data-fa="پمپ ها">Pumps</a></li>
+                    <li><a href="products.html?category=others" data-en="Others" data-fa="سایر">Others</a></li>
                 </ul>
             </li>
             <li><a href="gallery.html" class="nav-link" data-i18n="navigation.gallery">Gallery</a></li>
@@ -120,9 +124,11 @@
                 
                 <div class="category-filters" id="categoryFilters">
                     <button class="filter-btn active" data-category="all" data-i18n="products.filters.all">All Products</button>
-                    <button class="filter-btn" data-category="water-treatment" data-i18n="products.categories.water_treatment">Water Treatment</button>
-                    <button class="filter-btn" data-category="mixers-aerators" data-i18n="products.categories.mixers_aerators">Mixers & Aerators</button>
-                    <button class="filter-btn" data-category="pumps-systems" data-i18n="products.categories.pumps_systems">Pumps & Systems</button>
+                    <button class="filter-btn" data-category="storage-handling-solids" data-en="Storage & Handling of Bulk Solids" data-fa="تجهیزات انبارش و انتقال مواد جامد">Storage & Handling of Bulk Solids</button>
+                    <button class="filter-btn" data-category="water-treatment" data-en="Water & Wastewater Treatment" data-fa="تجهیزات و تصفیه خانه آب و فاضلاب">Water & Wastewater Treatment</button>
+                    <button class="filter-btn" data-category="mixers-aerators" data-en="Submersible Mixers & Flow Makers" data-fa="میکسرها و جریان سازهای مستغرق">Submersible Mixers & Flow Makers</button>
+                    <button class="filter-btn" data-category="pumps-systems" data-en="Pumps" data-fa="پمپ ها">Pumps</button>
+                    <button class="filter-btn" data-category="others" data-en="Others" data-fa="سایر">Others</button>
                 </div>
             </div>
         </section>
@@ -523,9 +529,15 @@
         }
 
         // Listen for language changes and refresh products
-        window.addEventListener('languageChanged', () => {
+        document.addEventListener('languageChanged', () => {
             const currentLang = getCurrentLanguage();
             applyLanguageStyling(currentLang);
+            // Update category filter button labels from data-en/data-fa
+            document.querySelectorAll('#categoryFilters .filter-btn').forEach(btn => {
+                const en = btn.getAttribute('data-en');
+                const fa = btn.getAttribute('data-fa');
+                if (en && fa) btn.textContent = currentLang === 'fa' ? fa : en;
+            });
             
             // Re-apply fallback translations for new language
             setTimeout(() => {
@@ -544,11 +556,6 @@
                             'navigation.news': currentLang === 'fa' ? 'اخبار' : 'News',
                             'products.title': currentLang === 'fa' ? 'محدوده محصولات ما' : 'Our Product Range',
                             'products.subtitle': currentLang === 'fa' ? 'مجموعه جامع تجهیزات تصفیه آب صنعتی ما را کشف کنید که برای پاسخگویی به نیازهای سختگیرانه کاربردهای صنعتی مدرن طراحی شده است.' : 'Discover our comprehensive collection of industrial water treatment equipment, designed to meet the demanding requirements of modern industrial applications.',
-                            'products.categories.water_treatment': currentLang === 'fa' ? 'سیستم‌های تصفیه آب' : 'Water Treatment Systems',
-                            'products.categories.mixers': currentLang === 'fa' ? 'مخلوط‌کن‌ها و هواده‌ها' : 'Mixers & Aerators',
-                            'products.categories.pumps': currentLang === 'fa' ? 'پمپ‌ها و سیستم‌ها' : 'Pumps & Systems',
-                            'products.categories.filters': currentLang === 'fa' ? 'فیلترها و رسانه‌ها' : 'Filters & Media',
-                            'products.categories.control_systems': currentLang === 'fa' ? 'سیستم‌های کنترل' : 'Control Systems',
                             'products.filters.all': currentLang === 'fa' ? 'همه محصولات' : 'All Products',
                             'products.search.placeholder': currentLang === 'fa' ? 'جستجوی محصولات...' : 'Search products...',
                             'products.loading': currentLang === 'fa' ? 'در حال بارگذاری محصولات...' : 'Loading products...',
@@ -567,11 +574,10 @@
                         }
                     }
                 });
+                if (window.loadAndRenderProducts) {
+                    window.loadAndRenderProducts();
+                }
             }, 100);
-            
-            if (window.loadAndRenderProducts) {
-                window.loadAndRenderProducts();
-            }
         });
 
         // Also listen for i18n system changes
@@ -766,9 +772,11 @@
             if (rawCategory) {
                 // Map new slugs to existing internal categories
                 const categoryMap = {
+                    'storage-handling-solids': 'storage-handling-solids',
                     'water-wastewater': 'water-treatment',
-                    'pumps-mixers': 'mixers-aerators',
-                    'turbo-machine': 'pumps-systems'
+                    'submersible-mixers': 'mixers-aerators',
+                    'pumps': 'pumps-systems',
+                    'others': 'others'
                 };
                 const mappedCategory = categoryMap[rawCategory] || rawCategory;
                 // Apply filter after products are loaded
@@ -1552,7 +1560,7 @@
         }
 
         // Listen for language changes
-        window.addEventListener('languageChanged', () => {
+        document.addEventListener('languageChanged', () => {
             const currentLang = getCurrentLanguage();
             updateProductCards(currentLang);
         });

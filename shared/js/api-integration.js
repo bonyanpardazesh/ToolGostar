@@ -27,6 +27,7 @@ class ToolGostarAPI {
             this.isOnline = false;
             console.log('🌐 Backend connection: Offline');
         }
+        return this.isOnline;
     }
 
     /**
@@ -99,10 +100,6 @@ class ToolGostarAPI {
      * Get products
      */
     async getProducts() {
-        if (!this.isOnline) {
-            return { products: [], offline: true };
-        }
-
         try {
             const response = await fetch(`${this.baseURL}/products`, {
                 method: 'GET',
@@ -178,10 +175,6 @@ class ToolGostarAPI {
      * Get projects
      */
     async getProjects() {
-        if (!this.isOnline) {
-            return { projects: [], offline: true };
-        }
-
         try {
             const response = await fetch(`${this.baseURL}/projects`, {
                 method: 'GET',
@@ -223,10 +216,6 @@ class ToolGostarAPI {
      * Get news
      */
     async getNews() {
-        if (!this.isOnline) {
-            return { news: [], offline: true };
-        }
-
         try {
             const response = await fetch(`${this.baseURL}/news`, {
                 method: 'GET',
@@ -269,8 +258,8 @@ class ToolGostarAPI {
  * Form Handler Class
  */
 class FormHandler {
-    constructor() {
-        this.api = new ToolGostarAPI();
+    constructor(apiInstance) {
+        this.api = apiInstance || new ToolGostarAPI();
         // Wait for DOM to be ready before setting up forms
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', () => this.setupForms());
@@ -524,8 +513,8 @@ class FormHandler {
  * Data Loader Class
  */
 class DataLoader {
-    constructor() {
-        this.api = new ToolGostarAPI();
+    constructor(apiInstance) {
+        this.api = apiInstance || new ToolGostarAPI();
     }
 
     async loadProducts() {
@@ -584,26 +573,32 @@ class DataLoader {
 }
 
 // Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize form handler
-    window.formHandler = new FormHandler();
-    
-    // Initialize data loader
-    window.dataLoader = new DataLoader();
+document.addEventListener('DOMContentLoaded', async function() {
+    // Create a single shared API instance and await health check
+    const sharedApi = new ToolGostarAPI();
+    try {
+        await sharedApi.checkConnection();
+    } catch (e) {
+        // proceed even if health check fails; fetch methods will fallback
+    }
+
+    // Initialize form handler and data loader with shared API
+    window.formHandler = new FormHandler(sharedApi);
+    window.dataLoader = new DataLoader(sharedApi);
     
     // Load data based on current page
     const currentPage = window.location.pathname.split('/').pop();
     
     if (currentPage === 'index.html' || currentPage === 'home.html' || currentPage === '') {
         // Load products and projects for home page
-        window.dataLoader.loadProducts();
-        window.dataLoader.loadProjects();
+        await window.dataLoader.loadProducts();
+        await window.dataLoader.loadProjects();
     } else if (currentPage === 'products.html') {
-        window.dataLoader.loadProducts();
+        await window.dataLoader.loadProducts();
     } else if (currentPage === 'gallery.html') {
-        window.dataLoader.loadProjects();
+        await window.dataLoader.loadProjects();
     } else if (currentPage === 'news.html') {
-        window.dataLoader.loadNews();
+        await window.dataLoader.loadNews();
     }
 });
 

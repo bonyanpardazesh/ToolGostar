@@ -590,43 +590,18 @@
                         this.newsData = response.news.slice(0, 5); // Limit to 5 articles for ticker
                         console.log('✅ Loaded news for ticker:', this.newsData.length, 'articles');
                     } else {
-                        // Fallback to static data if API fails
-                        this.newsData = this.getFallbackNews();
-                        console.log('⚠️ Using fallback news for ticker');
+                        // No fallback: show nothing if API returns no news
+                        this.newsData = [];
+                        console.log('ℹ️ No news returned by API; ticker will be empty');
                     }
                 } catch (error) {
                     console.error('❌ Error loading news for ticker:', error);
-                    // Fallback to static data
-                    this.newsData = this.getFallbackNews();
+                    // No fallback: keep empty on failure
+                    this.newsData = [];
                 }
             }
 
-            getFallbackNews() {
-                return [
-                    {
-                        id: 1,
-                        title: {
-                            en: "Global Water Crisis Demands Innovative Solutions",
-                            fa: "بحران جهانی آب راه‌حل‌های نوآورانه می‌طلبد"
-                        },
-                        excerpt: {
-                            en: "Rising global water scarcity drives unprecedented innovation in treatment technologies worldwide.",
-                            fa: "کمبود فزاینده آب در جهان نوآوری بی‌سابقه‌ای در فناوری‌های تصفیه در سراسر جهان به دنبال دارد."
-                        }
-                    },
-                    {
-                        id: 2,
-                        title: {
-                            en: "Breakthrough Membrane Technology Revolutionizes Treatment",
-                            fa: "فناوری غشایی پیشرفته تصفیه را متحول می‌کند"
-                        },
-                        excerpt: {
-                            en: "New graphene-based membranes show 10x improvement in water filtration efficiency worldwide.",
-                            fa: "غشاهای جدید مبتنی بر گرافن 10 برابر بهبود در کارایی فیلتراسیون آب در سراسر جهان نشان می‌دهند."
-                        }
-                    }
-                ];
-            }
+            getFallbackNews() { return []; }
 
             async init() {
                 // Wait for news data to load
@@ -672,10 +647,24 @@
                 console.log('🎬 Rendering news ticker in language:', currentLang);
 
                 // Create ticker items
+                const stripHtml = (html) => {
+                    if (!html) return '';
+                    const tmp = document.createElement('div');
+                    tmp.innerHTML = html;
+                    return tmp.textContent || tmp.innerText || '';
+                };
+
+                const shorten = (text, max = 140) => {
+                    if (!text) return '';
+                    return text.length > max ? text.slice(0, max - 1) + '…' : text;
+                };
+
                 const tickerItems = this.newsData.map(article => {
-                    const title = article.title[currentLang] || article.title.en;
-                    const excerpt = (article.excerpt && (article.excerpt[currentLang] || article.excerpt.en)) || '';
-                    const combined = `${title} : ${excerpt}`;
+                    const title = (article.title && (article.title[currentLang] || article.title.en || article.title)) || '';
+                    const rawExcerpt = (article.excerpt && (article.excerpt[currentLang] || article.excerpt.en)) || '';
+                    const rawContent = (article.content && (article.content[currentLang] || article.content.en)) || '';
+                    const text = rawExcerpt || stripHtml(rawContent);
+                    const combined = `${title}${text ? ' : ' + shorten(text, 160) : ''}`;
                     return `<span class="news-ticker-item" onclick="openNewsArticle(${article.id})">${combined}</span>`;
                 }).join('');
 

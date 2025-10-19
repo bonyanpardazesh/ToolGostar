@@ -441,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     async function deleteProduct(id) {
-        const confirmMessage = window.adminI18n ? window.adminI18n.t('products.messages.confirmDelete') : 'Are you sure you want to delete this product?';
+        const confirmMessage = window.adminI18n ? window.adminI18n.t('products.messages.deleteConfirm') : 'Are you sure you want to delete this product?';
         if (!confirm(confirmMessage)) {
             return;
         }

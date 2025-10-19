@@ -5,9 +5,10 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
+    "dev": "npx nodemon app.js",
+    "prod": "NODE_ENV=production node app.js",
     "start:legacy": "node server.js",
-    "dev:legacy": "nodemon server.js",
+    "dev:legacy": "npx nodemon server.js",
     "test": "jest --detectOpenHandles",
     "test:watch": "jest --watch --detectOpenHandles",
     "test:coverage": "jest --coverage --detectOpenHandles",

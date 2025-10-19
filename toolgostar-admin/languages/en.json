@@ -127,6 +127,11 @@
       "description": "Description",
       "capacity": "Capacity",
       "powerRange": "Power Range",
+      "icon": "Icon",
+      "featuredImage": "Featured Image",
+      "catalog": "Product Catalog (PDF)",
+      "specifications": "Specifications",
+      "addSpec": "Add Specification",
       "selectCategory": "Select Category",
       "categories": {
         "pumps": "Pumps",
